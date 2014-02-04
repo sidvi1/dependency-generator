@@ -5,10 +5,10 @@ import java.io.InputStream;
 /**
  * Created by sidvi on 04.02.14.
  */
-public class PomExtractor implements InfoExtractor {
+public class PomVersionExtractor implements VersionExtractor {
     private InputStream is;
 
-    public PomExtractor(InputStream is) {
+    public PomVersionExtractor(InputStream is) {
         this.is = is;
     }
 

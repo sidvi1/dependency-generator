@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by sidvi on 04.02.14.
  */
-public class JarInfoExtractorTest {
+public class VersionExtractionTest {
 
     private static InputStream is;
 
@@ -46,17 +46,9 @@ public class JarInfoExtractorTest {
         Version expectedVersion = new Version(Version.Type.MAVEN_POM_VERSION, "1.2.16");
 
         is = getClass().getClassLoader().getResourceAsStream(resource);
-        assertThat(new PomExtractor(is).extract(), equalTo(expectedVersion));
+        assertThat(new PomVersionExtractor(is).extract(), equalTo(expectedVersion));
     }
 
-    @Test
-    public void testExtractArtifactAndGroupFromPom() {
-        is = getClass().getClassLoader().getResourceAsStream("sample_pom.xml");
-        PomParser parser = new PomParser(is);
-        parser.parse();
 
-        assertThat(parser.getGroupId(), equalTo("org.log4j"));
-        assertThat(parser.getArtifactId(), equalTo("log4j"));
-    }
 
 }

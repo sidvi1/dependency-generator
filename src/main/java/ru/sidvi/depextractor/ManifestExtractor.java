@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 /**
  * Created by sidvi on 04.02.14.
  */
-public class ManifestExtractor implements InfoExtractor {
+public class ManifestExtractor implements VersionExtractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
