@@ -13,11 +13,11 @@ public class PomExtractor implements InfoExtractor {
     }
 
     @Override
-    public Info extract() {
+    public Version extract() {
         PomParser pomParser = new PomParser(is).parse();
         String version = pomParser.getVersion();
 
-        return new Info("", new Info.Version(Info.Version.Type.MAVEN_POM_VERSION, version));
+        return new Version(Version.Type.MAVEN_POM_VERSION, version);
     }
 
 }

@@ -20,16 +20,16 @@ public class ManifestExtractor implements InfoExtractor {
     }
 
     @Override
-    public Info extract() {
+    public Version extract() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;
-        Info info = new Info();
+        Version ver = new Version();
         while ((line = readLine(reader)) != null) {
             String[] split = line.split(":");
-            if (tryToGetSpecificationVersion(info, split)) break;
-            if (tryToGetImplementationVersion(info, split)) break;
+            if (tryToGetSpecificationVersion(ver, split)) break;
+            if (tryToGetImplementationVersion(ver, split)) break;
         }
-        return info;
+        return ver;
     }
 
     private String readLine(BufferedReader reader) {
@@ -41,19 +41,19 @@ public class ManifestExtractor implements InfoExtractor {
     }
 
 
-    private boolean tryToGetImplementationVersion(Info info, String[] split) {
+    private boolean tryToGetImplementationVersion(Version info, String[] split) {
         String field = IMPLEMENTATION_VERSION;
-        return extractFieldValue(info, split, field, Info.Version.Type.MANIFEST_IMPL_VERSION);
+        return extractFieldValue(info, split, field, Version.Type.MANIFEST_IMPL_VERSION);
     }
 
-    private boolean tryToGetSpecificationVersion(Info info, String[] split) {
-        return extractFieldValue(info, split, SPECIFICATION_VERSION, Info.Version.Type.MANIFEST_SPEC_VERSION);
+    private boolean tryToGetSpecificationVersion(Version info, String[] split) {
+        return extractFieldValue(info, split, SPECIFICATION_VERSION, Version.Type.MANIFEST_SPEC_VERSION);
     }
 
-    private boolean extractFieldValue(Info info, String[] split, String field, Info.Version.Type versionType) {
+    private boolean extractFieldValue(Version info, String[] split, String field, Version.Type versionType) {
         if (split[0].trim().equals(field)) {
-            info.setVersion(split[1].trim());
-            info.setVersionType(versionType);
+            info.setName(split[1].trim());
+            info.setType(versionType);
             return true;
         }
         return false;
