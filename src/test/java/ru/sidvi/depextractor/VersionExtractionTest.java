@@ -19,7 +19,9 @@ public class VersionExtractionTest {
 
     @After
     public void closeResources() throws IOException {
-        is.close();
+        if(is != null){
+            is.close();
+        }
     }
 
     @Test
@@ -47,6 +49,24 @@ public class VersionExtractionTest {
 
         is = getClass().getClassLoader().getResourceAsStream(resource);
         assertThat(new PomVersionExtractor(is).extract(), equalTo(expectedVersion));
+    }
+
+    @Test
+    public void testExtractVersionFromPomParent() {
+        String resource = "sample2_pom.xml";
+        Version expectedVersion = new Version(Version.Type.MAVEN_POM_VERSION, "1.6.0");
+
+        is = getClass().getClassLoader().getResourceAsStream(resource);
+        assertThat(new PomVersionExtractor(is).extract(), equalTo(expectedVersion));
+    }
+
+    @Test
+    public void testExtractArtifactFromPomParent() {
+        String resource = "sample2_pom.xml";
+        Artifact expected = new Artifact("org.slf4j","slf4j-api");
+
+        is = getClass().getClassLoader().getResourceAsStream(resource);
+        assertThat(new PomArtifactExtractor(is).extract(), equalTo(expected));
     }
 
 

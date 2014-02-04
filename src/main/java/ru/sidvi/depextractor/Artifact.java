@@ -12,6 +12,9 @@ public class Artifact {
         this.artifact = artifact;
     }
 
+    public Artifact() {
+    }
+
     public String getGroup() {
         return group;
     }

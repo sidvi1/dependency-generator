@@ -17,7 +17,11 @@ public class PomVersionExtractor implements VersionExtractor {
         PomParser pomParser = new PomParser(is).parse();
         String version = pomParser.getVersion();
 
-        return new Version(Version.Type.MAVEN_POM_VERSION, version);
+        if (version.trim().length() > 0) {
+            return new Version(Version.Type.MAVEN_POM_VERSION, version);
+        } else {
+            return new Version();
+        }
     }
 
 }

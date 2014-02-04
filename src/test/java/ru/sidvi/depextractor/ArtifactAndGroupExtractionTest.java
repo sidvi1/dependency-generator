@@ -18,7 +18,9 @@ public class ArtifactAndGroupExtractionTest {
 
     @After
     public void closeResources() throws IOException {
-        is.close();
+        if(is != null){
+            is.close();
+        }
     }
 
     @Test
