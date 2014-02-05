@@ -50,4 +50,8 @@ public class Info {
         result = 31 * result + (artifact != null ? artifact.hashCode() : 0);
         return result;
     }
+
+    public boolean isFullFilled() {
+        return version.isFullFilled() && artifact.isFullFilled();
+    }
 }

@@ -13,25 +13,12 @@ public class MavenFormatter implements InfoFormatter {
         StringWriter writer = new StringWriter();
 
         PrintWriter printer = new PrintWriter(writer);
-        printer.println(pad(4) + "<dependency>");
-        printer.println(pad(8) + tag("groupId", info.getArtifact().getGroup()));
-        printer.println(pad(8) + tag("artifactId", info.getArtifact().getArtifact()));
-        printer.println(pad(8) + tag("version", info.getVersion().getValue()));
-        printer.println(pad(4) + "</dependency>");
+        printer.println(FormatterUtils.pad(1) + "<dependency>");
+        printer.println(FormatterUtils.pad(2) + FormatterUtils.tag("groupId", info.getArtifact().getGroup()));
+        printer.println(FormatterUtils.pad(2) + FormatterUtils.tag("artifactId", info.getArtifact().getArtifact()));
+        printer.println(FormatterUtils.pad(2) + FormatterUtils.tag("version", info.getVersion().getValue()));
+        printer.println(FormatterUtils.pad(1) + "</dependency>");
 
         return writer.toString();
     }
-
-    private String pad(int padding) {
-        String result = "";
-        for (int i = 0; i < padding; i++) {
-            result += " ";
-        }
-        return result;
-    }
-
-    private String tag(String name, String value) {
-        return "<" + name + ">" + value + "</" + name + ">";
-    }
-
 }

@@ -58,4 +58,8 @@ public class Artifact {
                 ", artifact='" + artifact + '\'' +
                 '}';
     }
+
+    public boolean isFullFilled() {
+        return !(group.isEmpty() || artifact.isEmpty());
+    }
 }

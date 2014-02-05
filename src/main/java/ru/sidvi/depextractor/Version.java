@@ -32,6 +32,10 @@ public class Version {
         this.type = type;
     }
 
+    public boolean isFullFilled() {
+        return !value.isEmpty();
+    }
+
     public enum Type {
         NONE("No field"),
         MANIFEST_IMPL_VERSION("MANIFEST Implementation version field"),
