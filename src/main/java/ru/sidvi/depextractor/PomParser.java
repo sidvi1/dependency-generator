@@ -51,7 +51,7 @@ class PomParser {
         if (ver.isEmpty()) {
             ver = parseTag(document, "//project/parent/" + tag);
         }
-        System.out.println("parse "+ tag + ", result is " + ver);
+//        System.out.println("parse "+ tag + ", result is " + ver);
         return ver;
     }
 

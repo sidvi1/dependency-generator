@@ -5,23 +5,23 @@ package ru.sidvi.depextractor;
 */
 public class Version {
 
-    private String name = "";
+    private String value = "";
     private Type type = Type.NONE;
 
-    public Version(Type type, String name) {
+    public Version(Type type, String value) {
         this.type = type;
-        this.name = name;
+        this.value = value;
     }
 
     public Version() {
     }
 
-    public String getName() {
-        return name;
+    public String getValue() {
+        return value;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public Type getType() {
@@ -52,13 +52,13 @@ public class Version {
 
         Version version = (Version) o;
 
-        return name.equals(version.name) && type == version.type;
+        return value.equals(version.value) && type == version.type;
 
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
+        int result = value.hashCode();
         result = 31 * result + type.hashCode();
         return result;
     }
@@ -66,7 +66,7 @@ public class Version {
     @Override
     public String toString() {
         return "Version{" +
-                "name='" + name + '\'' +
+                "value='" + value + '\'' +
                 ", type=" + type +
                 '}';
     }

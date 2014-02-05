@@ -52,7 +52,7 @@ public class ManifestExtractor implements VersionExtractor {
 
     private boolean extractFieldValue(Version info, String[] split, String field, Version.Type versionType) {
         if (split[0].trim().equals(field)) {
-            info.setName(split[1].trim());
+            info.setValue(split[1].trim());
             info.setType(versionType);
             return true;
         }

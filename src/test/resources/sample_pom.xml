@@ -32,7 +32,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
     <groupId>org.log4j</groupId>
     <artifactId>log4j</artifactId>
     <packaging>bundle</packaging>
-    <name>Apache Log4j</name>
+    <value>Apache Log4j</value>
     <version>1.2.16</version>
     <description>Apache Log4j 1.2</description>
     <url>http://logging.apache.org/log4j/1.2/</url>
@@ -47,7 +47,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
     <inceptionYear>1999</inceptionYear>
     <mailingLists>
         <mailingList>
-            <name>log4j-user</name>
+            <value>log4j-user</value>
             <subscribe>log4j-user-subscribe@logging.apache.org</subscribe>
             <unsubscribe>log4j-user-unsubscribe@logging.apache.org</unsubscribe>
             <post>log4j-user@logging.apache.org</post>
@@ -58,7 +58,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
             </otherArchives>
         </mailingList>
         <mailingList>
-            <name>log4j-dev</name>
+            <value>log4j-dev</value>
             <subscribe>log4j-dev-subscribe@logging.apache.org</subscribe>
             <unsubscribe>log4j-dev-unsubscribe@logging.apache.org</unsubscribe>
             <post>log4j-dev@logging.apache.org</post>
@@ -71,7 +71,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
     </mailingLists>
     <licenses>
         <license>
-            <name>The Apache Software License, Version 2.0</name>
+            <value>The Apache Software License, Version 2.0</value>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
@@ -82,7 +82,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
         <url>http://svn.apache.org/viewvc/logging/log4j/tags/v1_2_16</url>
     </scm>
     <organization>
-        <name>Apache Software Foundation</name>
+        <value>Apache Software Foundation</value>
         <url>http://www.apache.org</url>
     </organization>
     <build>
@@ -164,7 +164,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
                     <archive>
                         <manifestSections>
                             <manifestSection>
-                                <name>org.apache.log4j</name>
+                                <value>org.apache.log4j</value>
                                 <manifestEntries>
                                     <Implementation-Title>log4j</Implementation-Title>
                                     <Implementation-Version>${project.version}</Implementation-Version>
@@ -186,10 +186,10 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
                         <configuration>
                             <tasks>
                                 <ant antfile="src/ntdll/build.xml" target="${ntdll_target}">
-                                    <property name="target.dir" location="target"/>
-                                    <property name="classes.dir" location="target/classes"/>
-                                    <property name="src.dir" location="src/ntdll"/>
-                                    <property name="jni.include.dir" location="${java.home}/../include"/>
+                                    <property value="target.dir" location="target"/>
+                                    <property value="classes.dir" location="target/classes"/>
+                                    <property value="src.dir" location="src/ntdll"/>
+                                    <property value="jni.include.dir" location="${java.home}/../include"/>
                                 </ant>
                             </tasks>
                         </configuration>
@@ -229,9 +229,9 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
                         <configuration>
                             <tasks>
                                 <ant dir="tests" target="runAll">
-                                    <property name="m2_repo" location="${m2_repo}"/>
-                                    <property name="log4j.jar" location="target/classes"/>
-                                    <property name="project.lib.home" location="target"/>
+                                    <property value="m2_repo" location="${m2_repo}"/>
+                                    <property value="log4j.jar" location="target/classes"/>
+                                    <property value="project.lib.home" location="target"/>
                                 </ant>
                             </tasks>
                         </configuration>
@@ -245,7 +245,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
                         <id>untag-site</id>
                         <configuration>
                             <tasks>
-                                <taskdef name="replaceregexp"
+                                <taskdef value="replaceregexp"
                                          classname="org.apache.tools.ant.taskdefs.optional.ReplaceRegExp"/>
                                 <replaceregexp file="target/site/source-repository.html" match="/tags/[^ &quot;'&lt;]*"
                                                replace="/trunk" flags="g"/>
