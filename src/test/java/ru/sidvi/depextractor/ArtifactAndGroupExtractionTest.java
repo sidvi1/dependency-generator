@@ -13,22 +13,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by sidvi on 04.02.14.
  */
 public class ArtifactAndGroupExtractionTest {
-
-    private static InputStream is;
-
-    @After
-    public void closeResources() throws IOException {
-        if(is != null){
-            is.close();
-        }
-    }
-
-    @Test
-    public void testExtractArtifactAndGroupFromPom() {
-        is = getClass().getClassLoader().getResourceAsStream("sample_pom.xml");
-
-        ArtifactExtractor extractor = new PomArtifactExtractor(is);
-        Artifact actual = extractor.extract();
-        assertThat(actual, equalTo(new Artifact("org.log4j", "log4j")));
-    }
+//
+//    private static InputStream is;
+//
+//    @After
+//    public void closeResources() throws IOException {
+//        if(is != null){
+//            is.close();
+//        }
+//    }
+//
+//    @Test
+//    public void testExtractArtifactAndGroupFromPom() {
+//        is = getClass().getClassLoader().getResourceAsStream("sample_pom.xml");
+//
+//        ArtifactExtractor extractor = new PomArtifactExtractor(is);
+//        Artifact actual = extractor.extract();
+//        assertThat(actual, equalTo(new Artifact("org.log4j", "log4j")));
+//    }
 }

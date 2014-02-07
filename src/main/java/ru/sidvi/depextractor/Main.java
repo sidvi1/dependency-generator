@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,51 +13,54 @@ import java.util.Map;
 public class Main {
 
     static int count = 0;
-    static int countSuccess = 0;
-    static Map<String,String> notFullyProcessed = new HashMap<String, String>();
+
+    static Map<String, String> notFullyProcessed = new HashMap<String, String>();
 
     static String processDirectory(String path) {
-        StringBuilder result = new StringBuilder();
+        File[] jars = listJars(path);
+        count = jars.length;
+        List<Info> jarsInfo = extractInfo(jars);
 
-        File dir = new File(path);
-        File[] jars = dir.listFiles();
-        if(jars == null) {
-            return result.toString();
+        InfoFormatter formatter = new InlineFormatter();
+        return build(jarsInfo, formatter);
+    }
+
+    private static String build(List<Info> jarsInfo, InfoFormatter formatter) {
+        StringBuilder builder = new StringBuilder();
+        for (Info info : jarsInfo) {
+            builder.append(formatter.format(info));
         }
+
+        return builder.toString();
+    }
+
+    private static List<Info> extractInfo(File[] jars) {
+        List<Info> jarsInfo = new ArrayList<Info>();
         for (File jar : jars) {
-            if (jar.getName().endsWith(".jar")) {
-                count++;
-                JarProcessor processJar = new JarProcessor(jar.getAbsolutePath()).extract();
-                Info info = processJar.getInfo();
-                if(info.isFullFilled()){
-                    countSuccess++;
-                    InfoFormatter formatter = new MavenFormatter();
-                    result.append(formatter.format(info));
-                }else{
-                    //TODO: replace NotFound
-                    notFullyProcessed.put(jar.getName(),"Not found");
-                }
-
-
-            }
+            JarProcessor processJar = new JarProcessor(jar.getAbsolutePath()).extract();
+            jarsInfo.addAll(processJar.getInfos());
         }
-        return result.toString();
+        return jarsInfo;
+    }
+
+    private static File[] listJars(String path) {
+        File dir = new File(path);
+        return dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File file, String s) {
+                return s.toLowerCase().endsWith(".jar");
+            }
+        });
     }
 
     public static void main(String[] args) {
-        if(args.length != 1){
+        if (args.length != 1) {
             System.out.println("Укажите путь к jar файлам.");
         }
 
         System.out.println(processDirectory(args[0]));
 
-        System.out.println("Founded: "+ count);
-        System.out.println("Successfully extracted: "+ countSuccess);
-
-        System.out.println("List of not fully extracted: ");
-        for (String file: notFullyProcessed.keySet()) {
-            System.out.println(FormatterUtils.pad(1) + file + " : " + notFullyProcessed.get(file));
-        }
+        System.out.println("Founded: " + count);
 
 
     }

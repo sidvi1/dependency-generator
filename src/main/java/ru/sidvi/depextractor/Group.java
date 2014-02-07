@@ -1,18 +1,18 @@
 package ru.sidvi.depextractor;
 
 /**
- * Created by sidvi on 04.02.14.
+ * Created by sidvi on 07.02.14.
  */
-public class Artifact {
+public class Group {
     private String value = "";
     private Source source = NoneSource.NONE;
 
-    public Artifact() {
-    }
-
-    public Artifact(String value, Source source) {
+    public Group(String value, Source source) {
         this.value = value;
         this.source = source;
+    }
+
+    public Group() {
     }
 
     public boolean isFullFilled() {

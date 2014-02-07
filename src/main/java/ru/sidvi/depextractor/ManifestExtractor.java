@@ -4,32 +4,35 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sidvi on 04.02.14.
  */
-public class ManifestExtractor implements VersionExtractor {
+public class ManifestExtractor implements Extractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
+    private List<Info> infos = new ArrayList<Info>();
 
-    private InputStream is;
-
-    public ManifestExtractor(InputStream is) {
-        this.is = is;
+    public ManifestExtractor() {
     }
 
     @Override
-    public Version extract() {
+    public void extract(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;
-        Version ver = new Version();
         while ((line = readLine(reader)) != null) {
             String[] split = line.split(":");
-            if (tryToGetSpecificationVersion(ver, split)) break;
-            if (tryToGetImplementationVersion(ver, split)) break;
+            parseSpecificationVersion(split);
+            parseImplementationVersion(split);
         }
-        return ver;
+    }
+
+    @Override
+    public List<Info> getInfos() {
+        return infos;
     }
 
     private String readLine(BufferedReader reader) {
@@ -40,22 +43,19 @@ public class ManifestExtractor implements VersionExtractor {
         return null;
     }
 
-
-    private boolean tryToGetImplementationVersion(Version info, String[] split) {
-        String field = IMPLEMENTATION_VERSION;
-        return extractFieldValue(info, split, field, Version.Type.MANIFEST_IMPL_VERSION);
+    private void parseImplementationVersion(String[] split) {
+        extractFieldValue(split, IMPLEMENTATION_VERSION, VersionSource.MF_IMPLEMENTATION_VERSION);
     }
 
-    private boolean tryToGetSpecificationVersion(Version info, String[] split) {
-        return extractFieldValue(info, split, SPECIFICATION_VERSION, Version.Type.MANIFEST_SPEC_VERSION);
+    private void parseSpecificationVersion(String[] split) {
+        extractFieldValue(split, SPECIFICATION_VERSION, VersionSource.MF_SPECIFICATION_VERSION);
     }
 
-    private boolean extractFieldValue(Version info, String[] split, String field, Version.Type versionType) {
+    private void extractFieldValue(String[] split, String field, VersionSource source) {
         if (split[0].trim().equals(field)) {
-            info.setValue(split[1].trim());
-            info.setType(versionType);
-            return true;
+            Info info = new Info();
+            info.setVersion(new Version(split[1].trim(), source));
+            infos.add(info);
         }
-        return false;
     }
 }

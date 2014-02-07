@@ -12,16 +12,15 @@ import java.io.InputStream;
  * Created by sidvi on 04.02.14.
  */
 class PomParser {
-    private InputStream is;
+
     private String version;
     private String artifactId;
     private String groupId;
+    private String parentVersion;
+    private String parentArtifactId;
+    private String parentGroupId;
 
-    PomParser(InputStream is) {
-        this.is = is;
-    }
-
-    public String getVersion() {
+      public String getVersion() {
         return version;
     }
 
@@ -33,29 +32,37 @@ class PomParser {
         return groupId;
     }
 
-    public PomParser parse() {
+    public String getParentVersion() {
+        return parentVersion;
+    }
 
-        Document document = prepareDocument();
+    public String getParentArtifactId() {
+        return parentArtifactId;
+    }
+
+    public String getParentGroupId() {
+        return parentGroupId;
+    }
+
+    public PomParser parse(InputStream is) {
+
+        Document document = prepareDocument(is);
 
         if (document != null) {
-            version = guessTag(document, "version");
-            artifactId = guessTag(document, "artifactId");
-            groupId = guessTag(document, "groupId");
+            version = parseTag(document, "//project/version");
+            artifactId = parseTag(document, "//project/artifactId");
+            groupId = parseTag(document, "//project/groupId");
+
+            parentVersion = parseTag(document, "//project/parent/version");
+            parentArtifactId = parseTag(document, "//project/parent/artifactId");
+            parentGroupId = parseTag(document, "//project/parent/groupId");
+
         }
 
         return this;
     }
 
-    private String guessTag(Document document, String tag) {
-        String ver = parseTag(document, "//project/" + tag);
-        if (ver.isEmpty()) {
-            ver = parseTag(document, "//project/parent/" + tag);
-        }
-//        System.out.println("parse "+ tag + ", result is " + ver);
-        return ver;
-    }
-
-    private Document prepareDocument() {
+    private Document prepareDocument(InputStream is) {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
         } catch (Exception ignored) {
