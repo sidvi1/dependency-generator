@@ -1,8 +1,8 @@
 package ru.sidvi.depextractor;
 
 /**
-* Created by sidvi on 04.02.14.
-*/
+ * Created by sidvi on 04.02.14.
+ */
 public class Version {
 
     private String value = "";
@@ -36,19 +36,6 @@ public class Version {
         return !value.isEmpty();
     }
 
-    public enum Type {
-        NONE("No field"),
-        MANIFEST_IMPL_VERSION("MANIFEST Implementation version field"),
-        MANIFEST_SPEC_VERSION("MANIFEST Specification version field"),
-        MAVEN_POM_VERSION("MAVEN POM.XML version field");
-        private final String value;
-
-        Type(String val) {
-            value = val;
-        }
-
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,5 +60,12 @@ public class Version {
                 "value='" + value + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    public enum Type {
+        NONE,
+        MANIFEST_IMPL_VERSION,
+        MANIFEST_SPEC_VERSION,
+        MAVEN_POM_VERSION
     }
 }

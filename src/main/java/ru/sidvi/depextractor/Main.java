@@ -16,12 +16,12 @@ public class Main {
     static Map<String,String> notFullyProcessed = new HashMap<String, String>();
 
     static String processDirectory(String path) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         File dir = new File(path);
         File[] jars = dir.listFiles();
         if(jars == null) {
-            return result;
+            return result.toString();
         }
         for (File jar : jars) {
             if (jar.getName().endsWith(".jar")) {
@@ -30,16 +30,17 @@ public class Main {
                 Info info = processJar.getInfo();
                 if(info.isFullFilled()){
                     countSuccess++;
+                    InfoFormatter formatter = new MavenFormatter();
+                    result.append(formatter.format(info));
                 }else{
                     //TODO: replace NotFound
                     notFullyProcessed.put(jar.getName(),"Not found");
                 }
 
-                InfoFormatter formatter = new MavenFormatter();
-                result += formatter.format(info);
+
             }
         }
-        return result;
+        return result.toString();
     }
 
     public static void main(String[] args) {

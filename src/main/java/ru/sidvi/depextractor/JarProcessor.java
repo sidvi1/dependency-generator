@@ -22,13 +22,15 @@ class JarProcessor {
     }
 
     public JarProcessor extract() {
+        InputStream is = null;
         try {
             JarFile jar = new JarFile(jarFile);
             Enumeration en = jar.entries();
             while (en.hasMoreElements()) {
                 JarEntry file = (JarEntry) en.nextElement();
                 if (file.getName().startsWith("META-INF") && file.getName().endsWith("pom.xml")) {
-                    InputStream is = jar.getInputStream(file);
+
+                    is = jar.getInputStream(file);
                     info.setVersion(new PomVersionExtractor(is).extract());
                     is.close();
 

@@ -7,11 +7,11 @@ public class FormatterUtils {
     private static int STEP_SIZE = 4;
 
     static String pad(int step) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < step*STEP_SIZE; i++) {
-            result += " ";
+            result.append(" ");
         }
-        return result;
+        return result.toString();
     }
 
     static String tag(String name, String value) {
