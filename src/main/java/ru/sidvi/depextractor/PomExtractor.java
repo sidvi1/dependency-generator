@@ -10,7 +10,7 @@ import java.util.List;
 public class PomExtractor implements Extractor {
 
     private PomParser parser;
-    private List<Info> infos = new ArrayList<Info>();
+    private List<BaseInfo> infos = new ArrayList<BaseInfo>();
 
     public void extract(InputStream is) {
         parser = new PomParser().parse(is);
@@ -35,7 +35,7 @@ public class PomExtractor implements Extractor {
     }
 
     @Override
-    public List<Info> getInfos() {
+    public List<BaseInfo> getInfos() {
         return infos;
     }
 }

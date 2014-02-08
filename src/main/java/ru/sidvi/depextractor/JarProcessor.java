@@ -13,14 +13,15 @@ import java.util.jar.JarFile;
  * Created by sidvi on 05.02.14.
  */
 class JarProcessor {
-    private List<Info> info = new ArrayList<Info>();
+
+    private List<BaseInfo> info = new ArrayList<BaseInfo>();
     private String jarFile;
 
     public JarProcessor(String jarFile) {
         this.jarFile = jarFile;
     }
 
-    public List<Info> getInfos() {
+    public List<BaseInfo> getInfos() {
         return info;
     }
 
@@ -51,7 +52,7 @@ class JarProcessor {
     }
 
     private void applyFileName() {
-        for (Info i : info) {
+        for (BaseInfo i : info) {
             i.setFileName(new File(jarFile).getName());
         }
     }

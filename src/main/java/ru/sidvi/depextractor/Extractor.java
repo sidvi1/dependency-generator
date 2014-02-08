@@ -8,5 +8,5 @@ import java.util.List;
  */
 public interface Extractor {
     void extract(InputStream is);
-    List<Info> getInfos();
+    List<BaseInfo> getInfos();
 }

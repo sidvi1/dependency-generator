@@ -1,6 +1,11 @@
 package ru.sidvi.depextractor;
 
+import org.apache.commons.io.IOUtils;
+import org.junit.After;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -10,19 +15,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class MainMethodsTest {
 
-    @Test
-    public void should() {
-        Day d = Weekday.MON;
-        Day d1 = WeekendDay.SAT;
-//        assertThat(d, equalTo(d1));
+    private static InputStream is;
+    private final String path = getClass().getProtectionDomain().getCodeSource().getLocation().getFile();
+
+    @After
+    public void closeResources() throws IOException {
+        if (is != null) {
+            is.close();
+        }
     }
 
-    interface Day {
+    @Test
+    public void testAll() throws IOException {
+        String actual = Main.processDirectory(path);
+        assertThat(actual, equalTo(asString("line_out.txt")));
     }
-    public enum Weekday implements Day {
-        MON, TUE, WED, THU, FRI;
+
+    private String asString(String s) throws IOException {
+        return IOUtils.toString(getClass().getClassLoader().getResourceAsStream(s));
     }
-    public enum WeekendDay implements Day {
-        SAT, SUN;
-    }
+
 }

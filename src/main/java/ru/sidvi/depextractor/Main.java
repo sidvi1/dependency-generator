@@ -19,23 +19,23 @@ public class Main {
     static String processDirectory(String path) {
         File[] jars = listJars(path);
         count = jars.length;
-        List<Info> jarsInfo = extractInfo(jars);
+        List<BaseInfo> jarsInfo = extractInfo(jars);
 
         InfoFormatter formatter = new InlineFormatter();
         return build(jarsInfo, formatter);
     }
 
-    private static String build(List<Info> jarsInfo, InfoFormatter formatter) {
+    private static String build(List<BaseInfo> jarsInfo, InfoFormatter formatter) {
         StringBuilder builder = new StringBuilder();
-        for (Info info : jarsInfo) {
+        for (BaseInfo info : jarsInfo) {
             builder.append(formatter.format(info));
         }
 
         return builder.toString();
     }
 
-    private static List<Info> extractInfo(File[] jars) {
-        List<Info> jarsInfo = new ArrayList<Info>();
+    private static List<BaseInfo> extractInfo(File[] jars) {
+        List<BaseInfo> jarsInfo = new ArrayList<BaseInfo>();
         for (File jar : jars) {
             JarProcessor processJar = new JarProcessor(jar.getAbsolutePath()).extract();
             jarsInfo.addAll(processJar.getInfos());
