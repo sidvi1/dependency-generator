@@ -5,22 +5,24 @@ package ru.sidvi.depextractor;
  */
 public class Info implements JarInfo {
 
-    private SimpleEntry group = SimpleEntry.create();
-    private SimpleEntry artifact = SimpleEntry.create();
-    private SimpleEntry version = SimpleEntry.create();
+    private Entry group = SimpleEntry.create();
+    private Entry artifact = SimpleEntry.create();
+    private Entry version = SimpleEntry.create();
     private String fileName = "";
 
-    public Info() {
+    private Info() {
     }
 
-    public Info(SimpleEntry group, SimpleEntry artifact, SimpleEntry version) {
+    private Info(SimpleEntry group, SimpleEntry artifact, SimpleEntry version) {
         this.group = group;
         this.artifact = artifact;
         this.version = version;
     }
 
-    public static SimpleEntry create(String value, Source source) {
-        return SimpleEntry.createSimpleEntry(value, source);
+    private Info(Builder builder) {
+        group = builder.group;
+        artifact = builder.artifact;
+        version = builder.version;
     }
 
     public static JarInfo instance() {
@@ -76,15 +78,11 @@ public class Info implements JarInfo {
             this("", NoneSource.NONE);
         }
 
-        public static SimpleEntry create() {
-            return createSimpleEntry();
-        }
-
-        private static SimpleEntry createSimpleEntry() {
+        public static Entry create() {
             return new SimpleEntry();
         }
 
-        private static SimpleEntry createSimpleEntry(String value, Source source) {
+        private static Entry create(String value, Source source) {
             return new SimpleEntry(value, source);
         }
 
@@ -103,5 +101,37 @@ public class Info implements JarInfo {
             return source;
         }
 
+    }
+
+    public static class Builder {
+
+        private Entry group;
+        private Entry artifact;
+        private Entry version;
+
+        public Builder() {
+            group = SimpleEntry.create();
+            artifact = SimpleEntry.create();
+            version = SimpleEntry.create();
+        }
+
+        public Builder setGroup(String id, Source source) {
+            group = SimpleEntry.create(id, source);
+            return this;
+        }
+
+        public Builder setArtifact(String id, Source source) {
+            artifact = SimpleEntry.create(id, source);
+            return this;
+        }
+
+        public Builder setVersion(String id, Source source) {
+            version = SimpleEntry.create(id, source);
+            return this;
+        }
+
+        public Info build() {
+            return new Info(this);
+        }
     }
 }
