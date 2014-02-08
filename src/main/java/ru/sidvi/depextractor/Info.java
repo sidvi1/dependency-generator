@@ -51,7 +51,7 @@ public class Info implements JarInfo {
         return String.format(s, version.getSource());
     }
 
-    public static class SimpleEntry implements Entry {
+    private static class SimpleEntry implements Entry {
 
         protected String value = "";
         protected Source source = NoneSource.NONE;
