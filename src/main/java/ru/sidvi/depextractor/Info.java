@@ -3,24 +3,28 @@ package ru.sidvi.depextractor;
 /**
  * Created by sidvi on 05.02.14.
  */
-public class Info extends BaseInfo{
+public class Info implements JarInfo {
 
-    private BaseElement group = BaseElement.create();
-    private BaseElement artifact = BaseElement.create();
-    private BaseElement version = BaseElement.create();
+    private SimpleEntry group = SimpleEntry.create();
+    private SimpleEntry artifact = SimpleEntry.create();
+    private SimpleEntry version = SimpleEntry.create();
     private String fileName = "";
 
     public Info() {
     }
 
-    public Info(BaseElement group, BaseElement artifact, BaseElement version) {
+    public Info(SimpleEntry group, SimpleEntry artifact, SimpleEntry version) {
         this.group = group;
         this.artifact = artifact;
         this.version = version;
     }
 
-    public static BaseElement create(String value, Source source) {
-        return new BaseElement(value, source);
+    public static SimpleEntry create(String value, Source source) {
+        return SimpleEntry.createSimpleEntry(value, source);
+    }
+
+    public static JarInfo instance() {
+        return new Info();
     }
 
     @Override
@@ -29,7 +33,7 @@ public class Info extends BaseInfo{
     }
 
     @Override
-    public void setVersion(BaseElement version) {
+    public void setVersion(SimpleEntry version) {
         this.version = version;
     }
 
@@ -58,39 +62,46 @@ public class Info extends BaseInfo{
         return String.format(s, version.getSource());
     }
 
-    /**
-     * Created by sidvi on 08.02.14.
-     */
-    public static class BaseElement {
+    public static class SimpleEntry implements Entry {
 
         protected String value = "";
         protected Source source = NoneSource.NONE;
 
-        private BaseElement(String value, Source source) {
+        private SimpleEntry(String value, Source source) {
             this.value = value;
             this.source = source;
         }
 
-        private BaseElement() {
+        private SimpleEntry() {
             this("", NoneSource.NONE);
         }
 
-        public static BaseElement create() {
-            return new BaseElement();
+        public static SimpleEntry create() {
+            return createSimpleEntry();
         }
 
+        private static SimpleEntry createSimpleEntry() {
+            return new SimpleEntry();
+        }
+
+        private static SimpleEntry createSimpleEntry(String value, Source source) {
+            return new SimpleEntry(value, source);
+        }
+
+        @Override
         public boolean isFullFilled() {
             return !value.isEmpty();
         }
 
+        @Override
         public String getValue() {
             return value;
         }
 
+        @Override
         public Source getSource() {
             return source;
         }
-
 
     }
 }

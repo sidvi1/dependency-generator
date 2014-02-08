@@ -14,7 +14,7 @@ public class ManifestExtractor implements Extractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
-    private List<BaseInfo> infos = new ArrayList<BaseInfo>();
+    private List<JarInfo> infos = new ArrayList<JarInfo>();
 
     public ManifestExtractor() {
     }
@@ -31,7 +31,7 @@ public class ManifestExtractor implements Extractor {
     }
 
     @Override
-    public List<BaseInfo> getInfos() {
+    public List<JarInfo> getInfos() {
         return infos;
     }
 
@@ -53,7 +53,7 @@ public class ManifestExtractor implements Extractor {
 
     private void extractFieldValue(String[] split, String field, VersionSource source) {
         if (split[0].trim().equals(field)) {
-            BaseInfo info = BaseInfo.instance();
+            JarInfo info = Info.instance();
             info.setVersion(Info.create(split[1].trim(), source));
             infos.add(info);
         }

@@ -12,7 +12,7 @@ import java.util.jar.JarFile;
  */
 class JarProcessor {
 
-    private List<BaseInfo> info = new ArrayList<BaseInfo>();
+    private List<JarInfo> info = new ArrayList<JarInfo>();
     private String jarFile;
     private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
@@ -20,7 +20,7 @@ class JarProcessor {
         this.jarFile = jarFile;
     }
 
-    public List<BaseInfo> getInfos() {
+    public List<JarInfo> getInfos() {
         return info;
     }
 
@@ -59,7 +59,7 @@ class JarProcessor {
     }
 
     private void applyFileName() {
-        for (BaseInfo i : info) {
+        for (JarInfo i : info) {
             i.setFileName(new File(jarFile).getName());
         }
     }
