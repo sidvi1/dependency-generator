@@ -13,7 +13,6 @@ import java.util.Map;
 public class Main {
 
     static int count = 0;
-
     static Map<String, String> notFullyProcessed = new HashMap<String, String>();
 
     static String processDirectory(String path) {
@@ -38,9 +37,10 @@ public class Main {
         List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
 
         for (File jar : jars) {
-            JarProcessor processor = new JarProcessor(jar.getAbsolutePath());
-            processor.addExtractor(new PomPathComparator(), new PomExtractor());
-            processor.addExtractor(new ManifestPathComparator(), new ManifestExtractor());
+            Processor processor = new JarProcessor.Builder().setPath(jar.getAbsolutePath())
+                    .addExtractor(new PomPathComparator(), new PomExtractor(new PomParser()))
+                    .addExtractor(new ManifestPathComparator(), new ManifestExtractor())
+                    .build();
             processor.extract();
             jarsInfo.addAll(processor.getInfos());
         }

@@ -12,8 +12,12 @@ public class PomExtractor implements Extractor {
     private PomParser parser;
     private List<JarInfo> infos = new ArrayList<JarInfo>();
 
+    public PomExtractor(PomParser parser) {
+        this.parser = parser;
+    }
+
     public void extract(InputStream is) {
-        parser = new PomParser().parse(is);
+        parser.parse(is);
         getParentInfo();
         getInfo();
     }

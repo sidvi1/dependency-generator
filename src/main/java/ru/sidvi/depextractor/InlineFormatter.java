@@ -13,7 +13,7 @@ public class InlineFormatter implements InfoFormatter {
         return String.format(format, info.getFormatedName("%s"), info.getFormatedSource("%s"), info.getFormattedResult("%s:%s:%s"));
     }
 
-    public String getFormat(){
+    public String getFormat() {
         return format;
     }
 }

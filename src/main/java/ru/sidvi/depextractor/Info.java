@@ -87,20 +87,13 @@ public class Info implements JarInfo {
         public Source getSource() {
             return source;
         }
-
     }
 
     public static class Builder {
 
-        private Entry group;
-        private Entry artifact;
-        private Entry version;
-
-        public Builder() {
-            group = SimpleEntry.create();
-            artifact = SimpleEntry.create();
-            version = SimpleEntry.create();
-        }
+        private Entry group = SimpleEntry.create();
+        private Entry artifact = SimpleEntry.create();
+        private Entry version = SimpleEntry.create();
 
         public Builder setGroup(String id, Source source) {
             group = SimpleEntry.create(id, source);

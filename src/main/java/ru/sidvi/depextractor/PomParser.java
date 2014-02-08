@@ -20,7 +20,7 @@ class PomParser {
     private String parentArtifactId;
     private String parentGroupId;
 
-      public String getVersion() {
+    public String getVersion() {
         return version;
     }
 

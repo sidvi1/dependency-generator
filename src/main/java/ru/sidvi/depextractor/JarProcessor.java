@@ -10,25 +10,29 @@ import java.util.jar.JarFile;
 /**
  * Created by sidvi on 05.02.14.
  */
-class JarProcessor {
+class JarProcessor implements Processor {
 
     private List<JarInfo> info = new ArrayList<JarInfo>();
-    private String jarFile;
+    private String jarFile = "";
     private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
-    public JarProcessor(String jarFile) {
+
+    private JarProcessor(String jarFile) {
         this.jarFile = jarFile;
     }
 
+    private JarProcessor(Builder builder) {
+        this(builder.getAbsolutePath());
+        extractors.putAll(builder.extractors);
+    }
+
+    @Override
     public List<JarInfo> getInfos() {
         return info;
     }
 
-    public void addExtractor(PathComparator comparator, Extractor extractor){
-        extractors.put(comparator,extractor);
-    }
-
-    public JarProcessor extract() {
+    @Override
+    public Processor extract() {
 
         JarFile jar = openJar();
         if (jar == null) {
@@ -77,4 +81,32 @@ class JarProcessor {
         info.addAll(extractor.getInfos());
     }
 
+    static public class Builder {
+
+        public Map<PathComparator, Extractor> extractors;
+        private String absolutePath;
+
+        public Builder() {
+            extractors = new HashMap<PathComparator, Extractor>();
+            absolutePath = "";
+        }
+
+        public String getAbsolutePath() {
+            return absolutePath;
+        }
+
+        public Builder setPath(String path) {
+            absolutePath = path;
+            return this;
+        }
+
+        public Builder addExtractor(PathComparator comparator, Extractor extractor) {
+            extractors.put(comparator, extractor);
+            return this;
+        }
+
+        public JarProcessor build() {
+            return new JarProcessor(this);
+        }
+    }
 }
