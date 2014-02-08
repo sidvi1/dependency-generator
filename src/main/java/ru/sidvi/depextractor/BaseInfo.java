@@ -6,7 +6,7 @@ package ru.sidvi.depextractor;
 public abstract class BaseInfo {
     abstract boolean isFullFilled();
 
-    abstract void setVersion(Version version);
+    abstract void setVersion(Info.BaseElement version);
 
     abstract String getFileName();
 

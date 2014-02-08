@@ -5,18 +5,22 @@ package ru.sidvi.depextractor;
  */
 public class Info extends BaseInfo{
 
-    private Group group = new Group();
-    private Artifact artifact = new Artifact();
-    private Version version = new Version();
+    private BaseElement group = BaseElement.create();
+    private BaseElement artifact = BaseElement.create();
+    private BaseElement version = BaseElement.create();
     private String fileName = "";
 
     public Info() {
     }
 
-    public Info(Group group, Artifact artifact, Version version) {
+    public Info(BaseElement group, BaseElement artifact, BaseElement version) {
         this.group = group;
         this.artifact = artifact;
         this.version = version;
+    }
+
+    public static BaseElement create(String value, Source source) {
+        return new BaseElement(value, source);
     }
 
     @Override
@@ -25,7 +29,7 @@ public class Info extends BaseInfo{
     }
 
     @Override
-    public void setVersion(Version version) {
+    public void setVersion(BaseElement version) {
         this.version = version;
     }
 
@@ -52,5 +56,41 @@ public class Info extends BaseInfo{
     @Override
     public String getFormatedSource(String s) {
         return String.format(s, version.getSource());
+    }
+
+    /**
+     * Created by sidvi on 08.02.14.
+     */
+    public static class BaseElement {
+
+        protected String value = "";
+        protected Source source = NoneSource.NONE;
+
+        private BaseElement(String value, Source source) {
+            this.value = value;
+            this.source = source;
+        }
+
+        private BaseElement() {
+            this("", NoneSource.NONE);
+        }
+
+        public static BaseElement create() {
+            return new BaseElement();
+        }
+
+        public boolean isFullFilled() {
+            return !value.isEmpty();
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public Source getSource() {
+            return source;
+        }
+
+
     }
 }

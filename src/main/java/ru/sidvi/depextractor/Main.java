@@ -36,9 +36,13 @@ public class Main {
 
     private static List<BaseInfo> extractInfo(File[] jars) {
         List<BaseInfo> jarsInfo = new ArrayList<BaseInfo>();
+
         for (File jar : jars) {
-            JarProcessor processJar = new JarProcessor(jar.getAbsolutePath()).extract();
-            jarsInfo.addAll(processJar.getInfos());
+            JarProcessor processor = new JarProcessor(jar.getAbsolutePath());
+            processor.addExtractor(new PomPathComparator(), new PomExtractor());
+            processor.addExtractor(new ManifestPathComparator(), new ManifestExtractor());
+            processor.extract();
+            jarsInfo.addAll(processor.getInfos());
         }
         return jarsInfo;
     }

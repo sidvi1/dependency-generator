@@ -20,17 +20,17 @@ public class PomExtractor implements Extractor {
 
     private void getParentInfo() {
         infos.add(new Info(
-                new Group(parser.getParentGroupId(), PomSource.POM_XML_PARENT),
-                new Artifact(parser.getParentArtifactId(), PomSource.POM_XML_PARENT),
-                new Version(parser.getParentVersion(), PomSource.POM_XML_PARENT)
+                Info.create(parser.getParentGroupId(), PomSource.POM_XML_PARENT),
+                Info.create(parser.getParentArtifactId(), PomSource.POM_XML_PARENT),
+                Info.create(parser.getParentVersion(), PomSource.POM_XML_PARENT)
         ));
     }
 
     private void getInfo() {
         infos.add(new Info(
-                new Group(parser.getGroupId(), PomSource.POM_XML),
-                new Artifact(parser.getArtifactId(), PomSource.POM_XML),
-                new Version(parser.getVersion(), PomSource.POM_XML)
+                Info.create(parser.getGroupId(), PomSource.POM_XML),
+                Info.create(parser.getArtifactId(), PomSource.POM_XML),
+                Info.create(parser.getVersion(), PomSource.POM_XML)
         ));
     }
 

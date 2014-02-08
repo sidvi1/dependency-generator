@@ -3,9 +3,7 @@ package ru.sidvi.depextractor;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -16,6 +14,7 @@ class JarProcessor {
 
     private List<BaseInfo> info = new ArrayList<BaseInfo>();
     private String jarFile;
+    private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
     public JarProcessor(String jarFile) {
         this.jarFile = jarFile;
@@ -23,6 +22,10 @@ class JarProcessor {
 
     public List<BaseInfo> getInfos() {
         return info;
+    }
+
+    public void addExtractor(PathComparator comparator, Extractor extractor){
+        extractors.put(comparator,extractor);
     }
 
     public JarProcessor extract() {
@@ -35,8 +38,12 @@ class JarProcessor {
         Enumeration en = jar.entries();
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
-            tryToExtractFromPom(jar, file);
-            tryToExtractFromManifest(jar, file);
+
+            for (PathComparator comparator : extractors.keySet()) {
+                if (comparator.isValid(file.getName())) {
+                    tryToExtract(jar, file, extractors.get(comparator));
+                }
+            }
         }
         applyFileName();
         return this;
@@ -57,18 +64,6 @@ class JarProcessor {
         }
     }
 
-    private void tryToExtractFromPom(JarFile jar, JarEntry file) {
-        if (isMetainfDir(file) && isPomXml(file)) {
-            tryToExtract(jar, file, new PomExtractor());
-        }
-    }
-
-    private void tryToExtractFromManifest(JarFile jar, JarEntry file) {
-        if (isMetainfDir(file) && isManifestMf(file)) {
-            tryToExtract(jar, file, new ManifestExtractor());
-        }
-    }
-
     private void tryToExtract(JarFile jar, JarEntry file, Extractor extractor) {
         try {
             extract(extractor, jar.getInputStream(file));
@@ -80,18 +75,6 @@ class JarProcessor {
         extractor.extract(is);
         is.close();
         info.addAll(extractor.getInfos());
-    }
-
-    private boolean isPomXml(JarEntry file) {
-        return file.getName().endsWith("pom.xml");
-    }
-
-    private boolean isMetainfDir(JarEntry file) {
-        return file.getName().startsWith("META-INF");
-    }
-
-    private boolean isManifestMf(JarEntry file) {
-        return file.getName().toLowerCase().endsWith("manifest.mf".toLowerCase());
     }
 
 }

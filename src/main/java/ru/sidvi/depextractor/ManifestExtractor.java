@@ -54,7 +54,7 @@ public class ManifestExtractor implements Extractor {
     private void extractFieldValue(String[] split, String field, VersionSource source) {
         if (split[0].trim().equals(field)) {
             BaseInfo info = BaseInfo.instance();
-            info.setVersion(new Version(split[1].trim(), source));
+            info.setVersion(Info.create(split[1].trim(), source));
             infos.add(info);
         }
     }
