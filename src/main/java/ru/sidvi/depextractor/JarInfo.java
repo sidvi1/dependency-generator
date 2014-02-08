@@ -5,7 +5,7 @@ package ru.sidvi.depextractor;
  */
 public interface JarInfo {
 
-    void setVersion(Info.SimpleEntry version);
+    void setVersion(Entry version);
 
     boolean isFullFilled();
 
@@ -18,6 +18,7 @@ public interface JarInfo {
     String getFormattedResult(String format);
 
     String getFormatedSource(String s);
+
 
     interface Entry {
 

@@ -10,23 +10,10 @@ public class Info implements JarInfo {
     private Entry version = SimpleEntry.create();
     private String fileName = "";
 
-    private Info() {
-    }
-
-    private Info(SimpleEntry group, SimpleEntry artifact, SimpleEntry version) {
-        this.group = group;
-        this.artifact = artifact;
-        this.version = version;
-    }
-
     private Info(Builder builder) {
         group = builder.group;
         artifact = builder.artifact;
         version = builder.version;
-    }
-
-    public static JarInfo instance() {
-        return new Info();
     }
 
     @Override
@@ -35,7 +22,7 @@ public class Info implements JarInfo {
     }
 
     @Override
-    public void setVersion(SimpleEntry version) {
+    public void setVersion(Entry version) {
         this.version = version;
     }
 
@@ -130,7 +117,7 @@ public class Info implements JarInfo {
             return this;
         }
 
-        public Info build() {
+        public JarInfo build() {
             return new Info(this);
         }
     }
