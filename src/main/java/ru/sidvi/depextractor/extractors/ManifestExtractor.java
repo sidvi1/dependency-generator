@@ -1,4 +1,8 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.extractors;
+
+import ru.sidvi.depextractor.Info;
+import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.VersionSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,9 +1,11 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.formatters;
+
+import ru.sidvi.depextractor.JarInfo;
 
 /**
  * Created by sidvi on 07.02.14.
  */
-public class InlineFormatter implements InfoFormatter {
+public class InlineFormatter implements Formatter {
 
     private static final String format = "%-30s %-50s %-10s%n";
 

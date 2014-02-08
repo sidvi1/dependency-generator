@@ -1,4 +1,8 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.processors;
+
+import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.extractors.Extractor;
+import ru.sidvi.depextractor.pathcomparators.PathComparator;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +14,7 @@ import java.util.jar.JarFile;
 /**
  * Created by sidvi on 05.02.14.
  */
-class JarProcessor implements Processor {
+public class JarProcessor implements Processor {
 
     private List<JarInfo> info = new ArrayList<JarInfo>();
     private String jarFile = "";

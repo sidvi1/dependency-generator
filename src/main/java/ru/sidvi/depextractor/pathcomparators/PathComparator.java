@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.pathcomparators;
 
 /**
  * Created by sidvi on 08.02.14.

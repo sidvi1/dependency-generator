@@ -1,9 +1,12 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.pathcomparators;
 
 /**
  * Created by sidvi on 08.02.14.
  */
-public class ComparatorUtils {
+class ComparatorUtils {
+    private ComparatorUtils() {
+    }
+
     public static boolean isPomXml(String file) {
         return file.endsWith("pom.xml");
     }

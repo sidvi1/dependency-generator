@@ -1,4 +1,6 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.processors;
+
+import ru.sidvi.depextractor.JarInfo;
 
 import java.util.List;
 

@@ -52,7 +52,7 @@ public class ProcessJarsTest {
 //        Info info = new Info(new Version(Version.Type.MAVEN_POM_VERSION, "1.6.0"),
 //                new Artifact("org.slf4j", "slf4j-api"));
 //
-//        InfoFormatter formatter = new MavenFormatter();
+//        Formatter formatter = new MavenFormatter();
 //        String actual = formatter.format(info);
 //
 //        assertThat(actual, equalTo(asString("formatted1.txt")));

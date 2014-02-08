@@ -1,5 +1,15 @@
 package ru.sidvi.depextractor;
 
+import ru.sidvi.depextractor.extractors.ManifestExtractor;
+import ru.sidvi.depextractor.extractors.PomExtractor;
+import ru.sidvi.depextractor.extractors.PomParser;
+import ru.sidvi.depextractor.formatters.Formatter;
+import ru.sidvi.depextractor.formatters.InlineFormatter;
+import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
+import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
+import ru.sidvi.depextractor.processors.JarProcessor;
+import ru.sidvi.depextractor.processors.Processor;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
@@ -20,11 +30,11 @@ public class Main {
         count = jars.length;
         List<JarInfo> jarsInfo = extractInfo(jars);
 
-        InfoFormatter formatter = new InlineFormatter();
+        Formatter formatter = new InlineFormatter();
         return build(jarsInfo, formatter);
     }
 
-    private static String build(List<JarInfo> jarsInfo, InfoFormatter formatter) {
+    private static String build(List<JarInfo> jarsInfo, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
         for (JarInfo info : jarsInfo) {
             builder.append(formatter.format(info));
@@ -65,7 +75,6 @@ public class Main {
         System.out.println(processDirectory(args[0]));
 
         System.out.println("Founded: " + count);
-
 
     }
 }

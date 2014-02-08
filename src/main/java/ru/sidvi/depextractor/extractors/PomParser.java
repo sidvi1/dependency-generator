@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.extractors;
 
 import org.w3c.dom.Document;
 
@@ -11,7 +11,7 @@ import java.io.InputStream;
 /**
  * Created by sidvi on 04.02.14.
  */
-class PomParser {
+public class PomParser {
 
     private String version;
     private String artifactId;
