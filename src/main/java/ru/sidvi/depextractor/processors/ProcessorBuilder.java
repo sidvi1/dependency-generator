@@ -8,7 +8,7 @@ import ru.sidvi.depextractor.pathcomparators.PathComparator;
  */
 public interface ProcessorBuilder {
 
-    public ProcessorBuilder setPath(String path) ;
+    ProcessorBuilder setPath(String path) ;
 
     JarProcessor build() ;
 }

@@ -4,7 +4,7 @@ package ru.sidvi.depextractor.formatters;
  * Created by sidvi on 05.02.14.
  */
 public class FormatterUtils {
-    private static int STEP_SIZE = 4;
+    private final static int STEP_SIZE = 4;
 
     static String pad(int step) {
         StringBuilder result = new StringBuilder();

@@ -21,7 +21,6 @@ public class JarProcessor implements Processor {
     private String jarFile = "";
     private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
-
     private JarProcessor(String jarFile) {
         this.jarFile = jarFile;
     }
