@@ -19,20 +19,12 @@ class Info implements JarInfo {
         version = builder.version;
     }
 
-    @Override
-    public boolean isFullFilled() {
-        return version.isFullFilled() && artifact.isFullFilled() && group.isFullFilled();
-    }
 
     @Override
     public void setVersion(Entry version) {
         this.version = version;
     }
 
-    @Override
-    public String getFileName() {
-        return fileName;
-    }
 
     @Override
     public void setFileName(String fileName) {
@@ -40,7 +32,7 @@ class Info implements JarInfo {
     }
 
     @Override
-    public String getFormatedName(String s) {
+    public String getFormattedName(String s) {
         return String.format(s, fileName);
     }
 
@@ -50,7 +42,7 @@ class Info implements JarInfo {
     }
 
     @Override
-    public String getFormatedSource(String s) {
+    public String getFormattedSource(String s) {
         return String.format(s, version.getSource());
     }
 
@@ -76,10 +68,6 @@ class Info implements JarInfo {
             return new SimpleEntry(value, source);
         }
 
-        @Override
-        public boolean isFullFilled() {
-            return !value.isEmpty();
-        }
 
         @Override
         public String getValue() {

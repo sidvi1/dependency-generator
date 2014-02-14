@@ -7,22 +7,18 @@ public interface JarInfo {
 
     void setVersion(Entry version);
 
-    boolean isFullFilled();
-
-    String getFileName();
 
     void setFileName(String fileName);
 
-    String getFormatedName(String s);
+    String getFormattedName(String s);
 
     String getFormattedResult(String format);
 
-    String getFormatedSource(String s);
+    String getFormattedSource(String s);
 
 
     interface Entry {
 
-        boolean isFullFilled();
 
         String getValue();
 

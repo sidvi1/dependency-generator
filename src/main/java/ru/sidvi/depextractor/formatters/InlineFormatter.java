@@ -12,7 +12,7 @@ public class InlineFormatter implements Formatter {
     @Override
     public String format(JarInfo info) {
 
-        return String.format(format, info.getFormatedName("%s"), info.getFormatedSource("%s"), info.getFormattedResult("%s:%s:%s"));
+        return String.format(format, info.getFormattedName("%s"), info.getFormattedSource("%s"), info.getFormattedResult("%s:%s:%s"));
     }
 
     public String getFormat() {
