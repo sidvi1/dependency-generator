@@ -85,7 +85,7 @@ public class JarProcessor implements Processor {
         info.addAll(extractor.getInfos());
     }
 
-    static public class Builder {
+    static public class Builder implements ProcessorBuilder {
 
         public Map<PathComparator, Extractor> extractors;
         private String absolutePath;

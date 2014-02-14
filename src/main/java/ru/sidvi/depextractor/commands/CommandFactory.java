@@ -7,6 +7,7 @@ import ru.sidvi.depextractor.formatters.InlineFormatter;
 import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
 import ru.sidvi.depextractor.processors.JarProcessor;
+import ru.sidvi.depextractor.processors.ProcessorBuilder;
 
 import java.io.File;
 
@@ -24,10 +25,13 @@ public abstract class CommandFactory {
 
         if (isTablePrintCommand(args)) {
             File dir = new File(args[0]);
-            if (!dir.isDirectory()) {
-                new FailCommand(String.format("Sorry, '%s' is not a directory. Try again.", dir.getAbsolutePath()));
+            if(!dir.exists()){
+                return new FailCommand(String.format("Sorry, '%s' not exists. Try again.", dir.getAbsolutePath()));
             }
-            JarProcessor.Builder builder = new JarProcessor.Builder()
+            if (!dir.isDirectory()) {
+                return new FailCommand(String.format("Sorry, '%s' is not a directory. Try again.", dir.getAbsolutePath()));
+            }
+            ProcessorBuilder builder = new JarProcessor.Builder()
                     .addExtractor(new PomPathComparator(), new PomExtractor(new PomParser()))
                     .addExtractor(new ManifestPathComparator(), new ManifestExtractor());
 
@@ -39,6 +43,6 @@ public abstract class CommandFactory {
     }
 
     private static boolean isTablePrintCommand(String[] args) {
-        return args.length == 1 && new File(args[0]).isDirectory();
+        return args.length == 1;
     }
 }

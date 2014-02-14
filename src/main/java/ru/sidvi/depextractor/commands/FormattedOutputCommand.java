@@ -5,6 +5,7 @@ import ru.sidvi.depextractor.Utils;
 import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.processors.JarProcessor;
 import ru.sidvi.depextractor.processors.Processor;
+import ru.sidvi.depextractor.processors.ProcessorBuilder;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ public class FormattedOutputCommand extends ResultHolder {
 
     private File dir;
     private Formatter formatter;
-    private JarProcessor.Builder builder;
+    private ProcessorBuilder builder;
 
 
-    public FormattedOutputCommand(File jarsDir, Formatter formatter, JarProcessor.Builder builder) {
+    public FormattedOutputCommand(File jarsDir, Formatter formatter, ProcessorBuilder builder) {
         this.dir = jarsDir;
         this.formatter = formatter;
         this.builder = builder;
