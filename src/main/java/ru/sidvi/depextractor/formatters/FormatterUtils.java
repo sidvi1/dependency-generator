@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.formatters;
 
 /**
  * Created by sidvi on 05.02.14.
