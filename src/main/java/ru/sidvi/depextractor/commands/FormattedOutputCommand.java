@@ -2,13 +2,7 @@ package ru.sidvi.depextractor.commands;
 
 import ru.sidvi.depextractor.JarInfo;
 import ru.sidvi.depextractor.Utils;
-import ru.sidvi.depextractor.extractors.ManifestExtractor;
-import ru.sidvi.depextractor.extractors.PomExtractor;
-import ru.sidvi.depextractor.extractors.PomParser;
 import ru.sidvi.depextractor.formatters.Formatter;
-import ru.sidvi.depextractor.formatters.InlineFormatter;
-import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
-import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
 import ru.sidvi.depextractor.processors.JarProcessor;
 import ru.sidvi.depextractor.processors.Processor;
 
@@ -19,12 +13,21 @@ import java.util.List;
 /**
  * Created by sidvi on 08.02.14.
  */
-public class TablePrintCommand extends ResultHolder {
+public class FormattedOutputCommand extends ResultHolder {
 
     private File dir;
+    private Formatter formatter;
+    private JarProcessor.Builder builder;
 
-    public TablePrintCommand(File dir) {
-        this.dir = dir;
+
+    public FormattedOutputCommand(File jarsDir, Formatter formatter, JarProcessor.Builder builder) {
+        this.dir = jarsDir;
+        this.formatter = formatter;
+        this.builder = builder;
+    }
+
+    private static File[] list(File dir) {
+        return Utils.list(dir, ".jar");
     }
 
     @Override
@@ -32,13 +35,12 @@ public class TablePrintCommand extends ResultHolder {
         File[] jars = list(dir);
         List<JarInfo> jarsInfo = extract(jars);
 
-        Formatter formatter = new InlineFormatter();
         result = build(jarsInfo, formatter);
         result += "\n";
         result += "Processed files: " + jars.length;
     }
 
-    private static String build(List<JarInfo> jarsInfo, Formatter formatter) {
+    private String build(List<JarInfo> jarsInfo, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
         for (JarInfo info : jarsInfo) {
             builder.append(formatter.format(info));
@@ -47,21 +49,14 @@ public class TablePrintCommand extends ResultHolder {
         return builder.toString();
     }
 
-    private static List<JarInfo> extract(File[] jars) {
+    private List<JarInfo> extract(File[] jars) {
         List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
 
         for (File jar : jars) {
-            Processor processor = new JarProcessor.Builder().setPath(jar.getAbsolutePath())
-                    .addExtractor(new PomPathComparator(), new PomExtractor(new PomParser()))
-                    .addExtractor(new ManifestPathComparator(), new ManifestExtractor())
-                    .build();
+            Processor processor = builder.setPath(jar.getAbsolutePath()).build();
             processor.extract();
             jarsInfo.addAll(processor.getInfos());
         }
         return jarsInfo;
-    }
-
-    private static File[] list(File dir) {
-        return Utils.list(dir, ".jar");
     }
 }

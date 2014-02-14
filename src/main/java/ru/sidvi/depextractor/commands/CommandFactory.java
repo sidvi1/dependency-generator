@@ -1,5 +1,13 @@
 package ru.sidvi.depextractor.commands;
 
+import ru.sidvi.depextractor.extractors.ManifestExtractor;
+import ru.sidvi.depextractor.extractors.PomExtractor;
+import ru.sidvi.depextractor.extractors.PomParser;
+import ru.sidvi.depextractor.formatters.InlineFormatter;
+import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
+import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
+import ru.sidvi.depextractor.processors.JarProcessor;
+
 import java.io.File;
 
 /**
@@ -19,7 +27,11 @@ public abstract class CommandFactory {
             if (!dir.isDirectory()) {
                 new FailCommand(String.format("Sorry, '%s' is not a directory. Try again.", dir.getAbsolutePath()));
             }
-            return new TablePrintCommand(dir);
+            JarProcessor.Builder builder = new JarProcessor.Builder()
+                    .addExtractor(new PomPathComparator(), new PomExtractor(new PomParser()))
+                    .addExtractor(new ManifestPathComparator(), new ManifestExtractor());
+
+            return new FormattedOutputCommand(dir, new InlineFormatter(), builder);
 
         }
 
