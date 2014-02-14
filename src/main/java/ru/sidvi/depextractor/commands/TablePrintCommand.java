@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by sidvi on 08.02.14.
  */
-public class TablePrintCommand extends ResultHolder implements Command {
+public class TablePrintCommand extends ResultHolder {
 
     private File dir;
 

@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.commands;
 /**
  * Created by sidvi on 08.02.14.
  */
-public class FailCommand extends ResultHolder implements Command {
+public class FailCommand extends ResultHolder  {
 
     private String message = "";
 

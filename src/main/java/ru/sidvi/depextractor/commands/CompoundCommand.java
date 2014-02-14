@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by sidvi on 14.02.14.
  */
-public class CompoundCommand extends ResultHolder implements Command {
+public class CompoundCommand extends ResultHolder  {
 
     private List<Command> commands = new ArrayList<Command>();
 
