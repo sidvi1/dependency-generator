@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by sidvi on 07.02.14.
  */
-public class PomExtractor implements Extractor {
+class PomExtractor implements Extractor {
 
     private PomParser parser;
     private List<JarInfo> infos = new ArrayList<JarInfo>();

@@ -2,6 +2,7 @@ package ru.sidvi.depextractor.processors;
 
 import ru.sidvi.depextractor.JarInfo;
 import ru.sidvi.depextractor.extractors.Extractor;
+import ru.sidvi.depextractor.extractors.ExtractorFactory;
 import ru.sidvi.depextractor.pathcomparators.PathComparator;
 
 import java.io.File;
@@ -87,13 +88,9 @@ public class JarProcessor implements Processor {
 
     static public class Builder implements ProcessorBuilder {
 
-        public Map<PathComparator, Extractor> extractors;
-        private String absolutePath;
-
-        public Builder() {
-            extractors = new HashMap<PathComparator, Extractor>();
-            absolutePath = "";
-        }
+        private Map<PathComparator, ExtractorFactory> extractorFactories = new HashMap<PathComparator, ExtractorFactory>();
+        private String absolutePath = "";
+        private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
         public String getAbsolutePath() {
             return absolutePath;
@@ -104,12 +101,16 @@ public class JarProcessor implements Processor {
             return this;
         }
 
-        public Builder addExtractor(PathComparator comparator, Extractor extractor) {
-            extractors.put(comparator, extractor);
+        public Builder addExtractor(PathComparator comparator, ExtractorFactory extractor) {
+            extractorFactories.put(comparator, extractor);
             return this;
         }
 
         public JarProcessor build() {
+            for (Map.Entry<PathComparator, ExtractorFactory> entry : extractorFactories.entrySet()) {
+                extractors.put(entry.getKey(), entry.getValue().create());
+            }
+
             return new JarProcessor(this);
         }
     }

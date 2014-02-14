@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by sidvi on 04.02.14.
  */
-public class ManifestExtractor implements Extractor {
+class ManifestExtractor implements Extractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
