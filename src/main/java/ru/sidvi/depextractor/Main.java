@@ -16,14 +16,14 @@ import java.io.File;
  * Created by sidvi on 05.02.14.
  */
 public class Main {
-    
-    private static ProcessorBuilder builder = new JarProcessor.Builder()
+
+    private final static ProcessorBuilder builder = new JarProcessor.Builder()
             .addExtractor(new PomPathComparator(), new PomExtractorFactory())
             .addExtractor(new ManifestPathComparator(), new ManifestExtractorFactory());
-    private static Formatter formatter = new InlineFormatter();
-    private static Command help = new HelpCommand();
-    private static FormattedOutputCommand tableOutput = new FormattedOutputCommand(formatter, builder);
-    private static FailCommand fail = new FailCommand();
+    private final static Formatter formatter = new InlineFormatter();
+    private final static Command help = new HelpCommand();
+    private final static FormattedOutputCommand tableOutput = new FormattedOutputCommand(formatter, builder);
+    private final static FailCommand fail = new FailCommand();
 
     public static void main(String[] args) {
         Command command = create(args);
@@ -34,7 +34,6 @@ public class Main {
     public static Command create(String[] args) {
 
         if (args.length == 0) {
-
             fail.setMessage("Too low arguments..");
             CompoundCommand complexFail = new CompoundCommand()
                     .add(fail)
