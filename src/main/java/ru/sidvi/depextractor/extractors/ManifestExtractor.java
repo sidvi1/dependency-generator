@@ -1,8 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.Info;
 import ru.sidvi.depextractor.JarInfo;
-import ru.sidvi.depextractor.VersionSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sidvi on 04.02.14.
+ * Created by Vitaly A. Sidorov on 04.02.14.
  */
 class ManifestExtractor implements Extractor {
 

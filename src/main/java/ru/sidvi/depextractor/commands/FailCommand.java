@@ -1,9 +1,9 @@
 package ru.sidvi.depextractor.commands;
 
 /**
- * Created by sidvi on 08.02.14.
+ * Created by Vitaly A. Sidorov on 08.02.14.
  */
-public class FailCommand extends ResultHolder  {
+public class FailCommand extends ResultHolder {
 
     @Override
     public void execute() {

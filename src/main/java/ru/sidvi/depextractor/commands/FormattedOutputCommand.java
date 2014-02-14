@@ -3,7 +3,6 @@ package ru.sidvi.depextractor.commands;
 import ru.sidvi.depextractor.JarInfo;
 import ru.sidvi.depextractor.Utils;
 import ru.sidvi.depextractor.formatters.Formatter;
-import ru.sidvi.depextractor.processors.JarProcessor;
 import ru.sidvi.depextractor.processors.Processor;
 import ru.sidvi.depextractor.processors.ProcessorBuilder;
 
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sidvi on 08.02.14.
+ * Created by Vitaly A. Sidorov on 08.02.14.
  */
 public class FormattedOutputCommand extends ResultHolder {
 

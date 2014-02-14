@@ -13,7 +13,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Created by sidvi on 05.02.14.
+ * Created by Vitaly A. Sidorov on 05.02.14.
  */
 public class JarProcessor implements Processor {
 

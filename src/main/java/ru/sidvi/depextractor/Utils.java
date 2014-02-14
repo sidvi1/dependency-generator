@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 /**
- * Created by sidvi on 14.02.14.
+ * Created by Vitaly A. Sidorov on 14.02.14.
  */
 public class Utils {
     static public File[] list(File dir, final String extension) {

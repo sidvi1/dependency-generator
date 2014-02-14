@@ -2,7 +2,7 @@ package ru.sidvi.depextractor.pathcomparators;
 
 
 /**
- * Created by sidvi on 08.02.14.
+ * Created by Vitaly A. Sidorov on 08.02.14.
  */
 public class ManifestPathComparator implements PathComparator {
     @Override

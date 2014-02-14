@@ -9,7 +9,7 @@ import javax.xml.xpath.XPathFactory;
 import java.io.InputStream;
 
 /**
- * Created by sidvi on 04.02.14.
+ * Created by Vitaly A. Sidorov on 04.02.14.
  */
 public class PomParser {
 

@@ -13,7 +13,7 @@ import ru.sidvi.depextractor.processors.ProcessorBuilder;
 import java.io.File;
 
 /**
- * Created by sidvi on 05.02.14.
+ * Created by Vitaly A. Sidorov on 05.02.14.
  */
 public class Main {
 

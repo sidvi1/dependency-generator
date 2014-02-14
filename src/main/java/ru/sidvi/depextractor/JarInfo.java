@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor;
 
 /**
- * Created by sidvi on 08.02.14.
+ * Created byVitaly A. Sidorovon 08.02.14.
  */
 public interface JarInfo {
 

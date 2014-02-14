@@ -1,9 +1,12 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.extractors;
+
+import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.Source;
 
 /**
- * Created by sidvi on 05.02.14.
+ * Created by Vitaly A. Sidorov on 05.02.14.
  */
-public class Info implements JarInfo {
+class Info implements JarInfo {
 
     private Entry group = SimpleEntry.create();
     private Entry artifact = SimpleEntry.create();
@@ -89,7 +92,7 @@ public class Info implements JarInfo {
         }
     }
 
-    public static class Builder {
+    static class Builder {
 
         private Entry group = SimpleEntry.create();
         private Entry artifact = SimpleEntry.create();

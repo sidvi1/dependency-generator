@@ -5,7 +5,7 @@ import ru.sidvi.depextractor.JarInfo;
 import java.util.List;
 
 /**
- * Created by sidvi on 08.02.14.
+ * Created by Vitaly A. Sidorov on 08.02.14.
  */
 public interface Processor {
     List<JarInfo> getInfos();

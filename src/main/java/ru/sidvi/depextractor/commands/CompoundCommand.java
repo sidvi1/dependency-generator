@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sidvi on 14.02.14.
+ * Created by Vitaly A. Sidorov on 14.02.14.
  */
-public class CompoundCommand extends ResultHolder  {
+public class CompoundCommand extends ResultHolder {
 
     private List<Command> commands = new ArrayList<Command>();
 

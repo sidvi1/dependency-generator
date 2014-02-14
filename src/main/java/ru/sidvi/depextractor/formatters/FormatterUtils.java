@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.formatters;
 
 /**
- * Created by sidvi on 05.02.14.
+ * Created by Vitaly A. Sidorov on 05.02.14.
  */
 public class FormatterUtils {
     private final static int STEP_SIZE = 4;

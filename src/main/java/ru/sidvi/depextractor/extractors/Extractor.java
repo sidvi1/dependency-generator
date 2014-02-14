@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Created by sidvi on 07.02.14.
+ * Created by Vitaly A. Sidorov on 07.02.14.
  */
 public interface Extractor {
     void extract(InputStream is);
