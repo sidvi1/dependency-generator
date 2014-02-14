@@ -7,7 +7,7 @@ public class FailCommand extends ResultHolder  {
 
     private String message = "";
 
-    public FailCommand(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 

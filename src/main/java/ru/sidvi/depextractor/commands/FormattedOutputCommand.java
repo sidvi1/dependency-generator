@@ -21,10 +21,13 @@ public class FormattedOutputCommand extends ResultHolder {
     private ProcessorBuilder builder;
 
 
-    public FormattedOutputCommand(File jarsDir, Formatter formatter, ProcessorBuilder builder) {
-        this.dir = jarsDir;
+    public FormattedOutputCommand(Formatter formatter, ProcessorBuilder builder) {
         this.formatter = formatter;
         this.builder = builder;
+    }
+
+    public void setJarsDirectory(File dir) {
+        this.dir = dir;
     }
 
     private static File[] list(File dir) {
