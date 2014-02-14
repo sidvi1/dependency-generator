@@ -7,7 +7,6 @@ public interface JarInfo {
 
     void setVersion(Entry version);
 
-
     void setFileName(String fileName);
 
     String getFormattedName(String s);
@@ -18,7 +17,6 @@ public interface JarInfo {
 
 
     interface Entry {
-
 
         String getValue();
 
