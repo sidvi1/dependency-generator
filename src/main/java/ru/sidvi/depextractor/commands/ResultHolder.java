@@ -5,10 +5,15 @@ package ru.sidvi.depextractor.commands;
  */
 public abstract class ResultHolder implements Command {
     protected String result;
+    protected String message = "";
 
     public String getResult() {
         return result;
     }
 
 
+    @Override
+    public void setMessage(String message) {
+        this.result = message;
+    }
 }

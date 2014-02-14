@@ -5,12 +5,6 @@ package ru.sidvi.depextractor.commands;
  */
 public class FailCommand extends ResultHolder  {
 
-    private String message = "";
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     @Override
     public void execute() {
         result = message;

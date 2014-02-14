@@ -5,6 +5,8 @@ package ru.sidvi.depextractor.commands;
  */
 public interface Command {
 
+    void setMessage(String message);
+
     void execute();
 
     String getResult();

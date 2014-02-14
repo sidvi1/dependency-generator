@@ -23,7 +23,7 @@ public class Main {
     private final static Formatter formatter = new InlineFormatter();
     private final static Command help = new HelpCommand();
     private final static FormattedOutputCommand tableOutput = new FormattedOutputCommand(formatter, builder);
-    private final static FailCommand fail = new FailCommand();
+    private final static Command fail = new FailCommand();
 
     public static void main(String[] args) {
         Command command = create(args);
