@@ -12,7 +12,6 @@ public abstract class ResultHolder implements Command {
     }
 
 
-    @Override
     public void setMessage(String message) {
         this.result = message;
     }

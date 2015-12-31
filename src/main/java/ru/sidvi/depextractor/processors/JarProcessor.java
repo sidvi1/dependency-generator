@@ -30,12 +30,10 @@ public class JarProcessor implements Processor {
         extractors.putAll(builder.extractors);
     }
 
-    @Override
     public List<JarInfo> getInfos() {
         return info;
     }
 
-    @Override
     public Processor extract() {
 
         JarFile jar = openJar();

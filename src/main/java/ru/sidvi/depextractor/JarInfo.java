@@ -1,5 +1,7 @@
 package ru.sidvi.depextractor;
 
+import ru.sidvi.depextractor.extractors.Source;
+
 /**
  * Created byVitaly A. Sidorovon 08.02.14.
  */

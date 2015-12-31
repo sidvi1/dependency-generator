@@ -1,12 +1,14 @@
 package ru.sidvi.depextractor.extractors;
 
-import org.w3c.dom.Document;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * Created by Vitaly A. Sidorov on 04.02.14.
@@ -44,40 +46,74 @@ public class PomParser {
         return parentGroupId;
     }
 
-    public PomParser parse(InputStream is) {
+    public void parse(InputStream is) {
 
-        Document document = prepareDocument(is);
 
-        if (document != null) {
-            version = parseTag(document, "//project/version");
-            artifactId = parseTag(document, "//project/artifactId");
-            groupId = parseTag(document, "//project/groupId");
-
-            parentVersion = parseTag(document, "//project/parent/version");
-            parentArtifactId = parseTag(document, "//project/parent/artifactId");
-            parentGroupId = parseTag(document, "//project/parent/groupId");
-
-        }
-
-        return this;
-    }
-
-    private Document prepareDocument(InputStream is) {
+        XMLInputFactory factory = XMLInputFactory.newInstance();
+        XMLEventReader r =
+                null;
         try {
-            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
-        } catch (Exception ignored) {
-        }
-        return null;
-    }
+            r = factory.createXMLEventReader(new InputStreamReader(is));
+        } catch (XMLStreamException e) {
 
-    private String parseTag(Document document, String tag) {
-        XPathExpression expression = null;
-        try {
-            expression = XPathFactory.newInstance().newXPath().compile(tag);
-            return expression.evaluate(document).trim();
-        } catch (XPathExpressionException ignored) {
         }
-        return "";
-    }
+        boolean isParent = false;
+        boolean isParentGroup = false;
+        boolean isParentArtifact = false;
+        boolean isParentVersion = false;
+        while (r.hasNext()) {
+            XMLEvent e = null;
+            try {
+                e = r.nextEvent();
+            } catch (XMLStreamException ignored) {
+            }
 
+            switch (e.getEventType()) {
+                case XMLStreamConstants.START_ELEMENT: {
+                    StartElement el = e.asStartElement();
+                    if (el.getName().getLocalPart().equals("parent")) {
+                        isParent = true;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("groupId")) {
+                        isParentGroup = true;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("artifactId")) {
+                        isParentArtifact = true;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("version")) {
+                        isParentVersion = true;
+                    }
+                }
+                break;
+                case XMLStreamConstants.CHARACTERS: {
+                    if (isParentGroup && e.getEventType() == XMLStreamConstants.CHARACTERS) {
+                        parentGroupId = e.asCharacters().getData();
+                    }
+                    if (isParentArtifact && e.getEventType() == XMLStreamConstants.CHARACTERS) {
+                        parentArtifactId = e.asCharacters().getData();
+                    }
+                    if (isParentVersion && e.getEventType() == XMLStreamConstants.CHARACTERS) {
+                        parentVersion = e.asCharacters().getData();
+                    }
+                }
+                break;
+                case XMLStreamConstants.END_ELEMENT: {
+                    EndElement el = e.asEndElement();
+                    if (el.getName().getLocalPart().equals("parent")) {
+                        isParent = false;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("groupId")) {
+                        isParentGroup = false;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("artifactId")) {
+                        isParentArtifact = false;
+                    }
+                    if (isParent && el.getName().getLocalPart().equals("version")) {
+                        isParentVersion = false;
+                    }
+                }
+                break;
+            }
+        }
+    }
 }

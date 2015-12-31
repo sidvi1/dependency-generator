@@ -33,13 +33,12 @@ public class FormattedOutputCommand extends ResultHolder {
         return Utils.list(dir, ".jar");
     }
 
-    @Override
     public void execute() {
         File[] jars = list(dir);
         List<JarInfo> jarsInfo = extract(jars);
 
         result = build(jarsInfo, formatter);
-        result += "\n";
+        result += "\r\n";
         result += "Processed files: " + jars.length;
     }
 

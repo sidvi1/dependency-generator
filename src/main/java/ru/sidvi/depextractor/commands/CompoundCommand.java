@@ -15,7 +15,6 @@ public class CompoundCommand extends ResultHolder {
         return this;
     }
 
-    @Override
     public void execute() {
         for (Command command : commands) {
             command.execute();

@@ -1,7 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
 import ru.sidvi.depextractor.JarInfo;
-import ru.sidvi.depextractor.Source;
 
 /**
  * Created by Vitaly A. Sidorov on 05.02.14.
@@ -20,28 +19,23 @@ class Info implements JarInfo {
     }
 
 
-    @Override
     public void setVersion(Entry version) {
         this.version = version;
     }
 
 
-    @Override
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-    @Override
     public String getFormattedName(String s) {
         return String.format(s, fileName);
     }
 
-    @Override
     public String getFormattedResult(String format) {
         return String.format(format, group.getValue(), artifact.getValue(), version.getValue());
     }
 
-    @Override
     public String getFormattedSource(String s) {
         return String.format(s, version.getSource());
     }
@@ -69,12 +63,10 @@ class Info implements JarInfo {
         }
 
 
-        @Override
         public String getValue() {
             return value;
         }
 
-        @Override
         public Source getSource() {
             return source;
         }
