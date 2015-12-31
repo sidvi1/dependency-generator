@@ -19,7 +19,6 @@ public class FormattedOutputCommand extends ResultHolder {
     private Formatter formatter;
     private ProcessorBuilder builder;
 
-
     FormattedOutputCommand(Formatter formatter, ProcessorBuilder builder, String dir) {
         this.formatter = formatter;
         this.builder = builder;
