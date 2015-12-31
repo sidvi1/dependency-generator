@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.commands;
 
-import ru.sidvi.depextractor.JarInfo;
-import ru.sidvi.depextractor.Utils;
+import ru.sidvi.depextractor.extractors.JarInfo;
+import ru.sidvi.depextractor.DirectoryUtils;
 import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.processors.Processor;
 import ru.sidvi.depextractor.processors.ProcessorBuilder;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vitaly A. Sidorov on 08.02.14.
+ * Формирует отформатированную строку из данных полученных от Processor.
  */
 public class FormattedOutputCommand extends ResultHolder {
 
@@ -20,23 +20,30 @@ public class FormattedOutputCommand extends ResultHolder {
     private ProcessorBuilder builder;
 
 
-    public FormattedOutputCommand(Formatter formatter, ProcessorBuilder builder, String dir) {
+    FormattedOutputCommand(Formatter formatter, ProcessorBuilder builder, String dir) {
         this.formatter = formatter;
         this.builder = builder;
         this.dir = new File(dir);
     }
 
-    private static File[] list(File dir) {
-        return Utils.list(dir, ".jar");
-    }
-
     public void execute() {
-        File[] jars = list(dir);
+        List<File> jars = DirectoryUtils.list(dir, ".jar");
         List<JarInfo> jarsInfo = extract(jars);
 
         result = build(jarsInfo, formatter);
         result += "\r\n";
-        result += "Processed files: " + jars.length;
+        result += "Processed files: " + jars.size();
+    }
+
+    private List<JarInfo> extract(List<File> jars) {
+        List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
+
+        for (File jar : jars) {
+            Processor processor = builder.setPath(jar.getAbsolutePath()).build();
+            processor.extract();
+            jarsInfo.addAll(processor.getInfos());
+        }
+        return jarsInfo;
     }
 
     private String build(List<JarInfo> jarsInfo, Formatter formatter) {
@@ -46,16 +53,5 @@ public class FormattedOutputCommand extends ResultHolder {
         }
 
         return builder.toString();
-    }
-
-    private List<JarInfo> extract(File[] jars) {
-        List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
-
-        for (File jar : jars) {
-            Processor processor = builder.setPath(jar.getAbsolutePath()).build();
-            processor.extract();
-            jarsInfo.addAll(processor.getInfos());
-        }
-        return jarsInfo;
     }
 }

@@ -1,8 +1,8 @@
 package ru.sidvi.depextractor.pathcomparators;
 
 /**
- * Created by Vitaly A. Sidorov on 08.02.14.
+ * Определяет является ли path, искомым именем пути.
  */
 public interface PathComparator {
-    boolean isValid(String name);
+    boolean isValid(String path);
 }

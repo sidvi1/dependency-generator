@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.processors;
 
-import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.extractors.JarInfo;
 import ru.sidvi.depextractor.extractors.Extractor;
 import ru.sidvi.depextractor.extractors.ExtractorFactory;
 import ru.sidvi.depextractor.pathcomparators.PathComparator;

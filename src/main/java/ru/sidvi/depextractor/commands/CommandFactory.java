@@ -14,11 +14,12 @@ import ru.sidvi.depextractor.validators.DirectoryValidator;
 import ru.sidvi.depextractor.validators.Validator;
 
 /**
- * Created by Vitaly A. Sidorov on 15.02.14.
+ * ”правл€ет созданием Command.
  */
 public class CommandFactory {
 
     private CommandFactory() {
+
     }
 
     public static Command create(String[] args) {

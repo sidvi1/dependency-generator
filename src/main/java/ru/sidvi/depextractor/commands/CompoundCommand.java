@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vitaly A. Sidorov on 14.02.14.
+ * Формирует результат из последовательного вызова нескольких Command.
  */
 public class CompoundCommand extends ResultHolder {
 
     private List<Command> commands = new ArrayList<Command>();
 
-    public CompoundCommand add(Command command) {
+    CompoundCommand add(Command command) {
         commands.add(command);
         return this;
     }

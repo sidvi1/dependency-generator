@@ -1,11 +1,11 @@
 package ru.sidvi.depextractor.processors;
 
-import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.extractors.JarInfo;
 
 import java.util.List;
 
 /**
- * Created by Vitaly A. Sidorov on 08.02.14.
+ * Извлекает информацию из заданного испточника.
  */
 public interface Processor {
     List<JarInfo> getInfos();

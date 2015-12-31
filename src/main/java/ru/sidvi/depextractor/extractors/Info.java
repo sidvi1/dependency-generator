@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.extractors.sources.NoneSource;
+import ru.sidvi.depextractor.extractors.sources.Source;
 
 /**
  * Created by Vitaly A. Sidorov on 05.02.14.

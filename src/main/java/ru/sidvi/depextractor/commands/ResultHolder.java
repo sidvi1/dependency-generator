@@ -6,6 +6,9 @@ package ru.sidvi.depextractor.commands;
 public abstract class ResultHolder implements Command {
     protected String result = "";
 
+    ResultHolder() {
+    }
+
     public String getResult() {
         return result;
     }

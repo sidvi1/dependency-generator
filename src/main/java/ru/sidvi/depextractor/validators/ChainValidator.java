@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Вызывает все валидаторы в порядке очередности.
+ * Вызывает все валидаторы по порядку.
+ * В случае если хотя бы один не проходит проверку, возвращает false.
  */
 public class ChainValidator extends BaseValidator {
     private List<Validator> validators = new ArrayList<Validator>();

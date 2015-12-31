@@ -1,6 +1,6 @@
-package ru.sidvi.depextractor;
+package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.extractors.Source;
+import ru.sidvi.depextractor.extractors.sources.Source;
 
 /**
  * Created byVitaly A. Sidorovon 08.02.14.

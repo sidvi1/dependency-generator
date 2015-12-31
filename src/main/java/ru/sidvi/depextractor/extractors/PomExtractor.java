@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.JarInfo;
+import ru.sidvi.depextractor.extractors.sources.PomSource;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -42,7 +42,6 @@ class PomExtractor implements Extractor {
         );
     }
 
-    @Override
     public List<JarInfo> getInfos() {
         return infos;
     }
