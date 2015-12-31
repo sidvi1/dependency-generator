@@ -5,7 +5,7 @@ package ru.sidvi.depextractor.commands;
  */
 public class FailCommand extends ResultHolder {
 
-    public void execute() {
+    public FailCommand(String message) {
         result = message;
     }
 

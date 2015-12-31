@@ -8,55 +8,33 @@ import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
 import ru.sidvi.depextractor.processors.JarProcessor;
 import ru.sidvi.depextractor.processors.ProcessorBuilder;
-
-import java.io.File;
+import ru.sidvi.depextractor.validators.ArgsCountValidator;
+import ru.sidvi.depextractor.validators.ChainValidator;
+import ru.sidvi.depextractor.validators.DirectoryValidator;
+import ru.sidvi.depextractor.validators.Validator;
 
 /**
  * Created by Vitaly A. Sidorov on 15.02.14.
  */
-public abstract class CommandFactory {
+public class CommandFactory {
+
+    private CommandFactory() {
+    }
 
     public static Command create(String[] args) {
+        Command help = new HelpCommand();
+        Validator v = new ChainValidator(new Validator[]{new ArgsCountValidator(args), new DirectoryValidator(args)});
+        if (!v.validate()) {
+            return new CompoundCommand()
+                    .add(new FailCommand(v.getMessage()))
+                    .add(help);
+        }
 
         ProcessorBuilder builder = new JarProcessor.Builder()
                 .addExtractor(new PomPathComparator(), new PomExtractorFactory())
                 .addExtractor(new ManifestPathComparator(), new ManifestExtractorFactory());
+
         Formatter formatter = new InlineFormatter();
-        FormattedOutputCommand tableOutput = new FormattedOutputCommand(formatter, builder);
-        Command help = new HelpCommand();
-        Command fail = new FailCommand();
-
-
-        if (args.length == 0) {
-            fail.setMessage("Too low arguments..");
-            CompoundCommand complexFail = new CompoundCommand()
-                    .add(fail)
-                    .add(help);
-            return complexFail;
-        }
-
-        if (isTablePrintCommand(args)) {
-            File dir = new File(args[0]);
-            String path = dir.getAbsolutePath();
-            if (!dir.exists()) {
-                fail.setMessage(String.format("Sorry, '%s' not exists. Try again.", path));
-                return fail;
-            }
-            if (!dir.isDirectory()) {
-                fail.setMessage(String.format("Sorry, '%s' is not a directory. Try again.", path));
-                return fail;
-            }
-
-
-            tableOutput.setJarsDirectory(dir);
-            return tableOutput;
-
-        }
-
-        return help;
-    }
-
-    private static boolean isTablePrintCommand(String[] args) {
-        return args.length == 1;
+        return new FormattedOutputCommand(formatter, builder, args[0]);
     }
 }
