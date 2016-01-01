@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
 import ru.sidvi.depextractor.extractors.sourcetypes.PomSourceTypeDecorator;
+import ru.sidvi.depextractor.model.Info;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -12,13 +13,13 @@ import java.util.List;
 class ParentPomExtractor implements Extractor {
 
     private PomParser parser;
-    private List<JarInfo> infos = new ArrayList<JarInfo>();
+    private List<Info> infos = new ArrayList<Info>();
 
     public ParentPomExtractor(PomParser parser) {
         this.parser = parser;
     }
 
-    public List<JarInfo> extract(InputStream is) {
+    public List<Info> extract(InputStream is) {
         parser.parse(is);
         infos.add(new Info.Builder()
                 .setGroup(parser.getParentGroupId(), PomSourceTypeDecorator.POM_XML_PARENT)

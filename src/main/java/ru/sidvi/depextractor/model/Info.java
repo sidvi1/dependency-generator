@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor.extractors;
+package ru.sidvi.depextractor.model;
 
 import ru.sidvi.depextractor.extractors.sourcetypes.NoneSourceTypeDecorator;
 import ru.sidvi.depextractor.extractors.sourcetypes.SourceType;
@@ -6,11 +6,11 @@ import ru.sidvi.depextractor.extractors.sourcetypes.SourceType;
 /**
  * Created by Vitaly A. Sidorov on 05.02.14.
  */
-class Info implements JarInfo {
+public class Info {
 
-    private Entry group = SimpleEntry.create();
-    private Entry artifact = SimpleEntry.create();
-    private Entry version = SimpleEntry.create();
+    private Entry group = Entry.create();
+    private Entry artifact = Entry.create();
+    private Entry version = Entry.create();
     private String fileName = "";
 
     private Info(Builder builder) {
@@ -41,26 +41,26 @@ class Info implements JarInfo {
         return String.format(s, version.getSource());
     }
 
-    private static class SimpleEntry implements Entry {
+    private static class Entry {
 
         protected String value = "";
         protected SourceType source = NoneSourceTypeDecorator.NONE;
 
-        private SimpleEntry(String value, SourceType source) {
+        private Entry(String value, SourceType source) {
             this.value = value;
             this.source = source;
         }
 
-        private SimpleEntry() {
+        private Entry() {
             this("", NoneSourceTypeDecorator.NONE);
         }
 
         public static Entry create() {
-            return new SimpleEntry();
+            return new Entry();
         }
 
         private static Entry create(String value, SourceType source) {
-            return new SimpleEntry(value, source);
+            return new Entry(value, source);
         }
 
 
@@ -73,28 +73,28 @@ class Info implements JarInfo {
         }
     }
 
-    static class Builder {
+    public static class Builder {
 
-        private Entry group = SimpleEntry.create();
-        private Entry artifact = SimpleEntry.create();
-        private Entry version = SimpleEntry.create();
+        private Entry group = Entry.create();
+        private Entry artifact = Entry.create();
+        private Entry version = Entry.create();
 
         public Builder setGroup(String id, SourceType source) {
-            group = SimpleEntry.create(id, source);
+            group = Entry.create(id, source);
             return this;
         }
 
         public Builder setArtifact(String id, SourceType source) {
-            artifact = SimpleEntry.create(id, source);
+            artifact = Entry.create(id, source);
             return this;
         }
 
         public Builder setVersion(String id, SourceType source) {
-            version = SimpleEntry.create(id, source);
+            version = Entry.create(id, source);
             return this;
         }
 
-        public JarInfo build() {
+        public Info build() {
             return new Info(this);
         }
     }

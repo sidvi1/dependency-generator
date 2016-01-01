@@ -1,5 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
+import ru.sidvi.depextractor.model.Info;
 import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.pathcomparators.PathComparator;
 import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
@@ -36,8 +37,8 @@ public abstract class ExtractorsFactory {
     }
 
     private static class NoneExtractor implements Extractor {
-        public List<JarInfo> extract(InputStream is) {
-            return new ArrayList<JarInfo>();
+        public List<Info> extract(InputStream is) {
+            return new ArrayList<Info>();
         }
     }
 }

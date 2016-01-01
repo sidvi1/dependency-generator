@@ -1,5 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
+import ru.sidvi.depextractor.model.Info;
 import ru.sidvi.depextractor.pathcomparators.PathComparator;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class InfoExtractorFacade {
         this.jarFile = jarFile;
     }
 
-    public List<JarInfo> extract() {
+    public List<Info> extract() {
         JarFile jar = null;
         try {
             jar = new JarFile(jarFile);
@@ -27,10 +28,10 @@ public class InfoExtractorFacade {
             //TODO:
         }
         if (jar == null) {
-            return new ArrayList<JarInfo>();
+            return new ArrayList<Info>();
         }
 
-        List<JarInfo> result = new ArrayList<JarInfo>();
+        List<Info> result = new ArrayList<Info>();
         Enumeration en = jar.entries();
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
@@ -47,7 +48,7 @@ public class InfoExtractorFacade {
                 }
             }
         }
-        for (JarInfo i : result) {
+        for (Info i : result) {
             i.setFileName(new File(jarFile).getName());
         }
         return  result;

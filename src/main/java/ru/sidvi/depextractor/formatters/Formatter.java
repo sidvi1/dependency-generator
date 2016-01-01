@@ -1,10 +1,11 @@
 package ru.sidvi.depextractor.formatters;
 
-import ru.sidvi.depextractor.extractors.JarInfo;
+
+import ru.sidvi.depextractor.model.Info;
 
 /**
- * Форматирует JarInfo при приобразовании в строку.
+ * Форматирует Info при приобразовании в строку.
  */
 public interface Formatter {
-    String format(JarInfo info);
+    String format(Info info);
 }

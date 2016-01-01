@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
 import org.apache.commons.io.IOUtils;
+import ru.sidvi.depextractor.model.Info;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,10 +21,10 @@ public class CompoundExtractor implements Extractor {
         this.extractors = Arrays.asList(extractors);
     }
 
-    public List<JarInfo> extract(InputStream is) {
+    public List<Info> extract(InputStream is) {
         createCache(is);
 
-        List<JarInfo> results = new ArrayList<>();
+        List<Info> results = new ArrayList<>();
         for (Extractor extractor : extractors) {
             results.addAll(extractor.extract(getCached()));
         }

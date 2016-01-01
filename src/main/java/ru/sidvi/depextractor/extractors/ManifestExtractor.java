@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
+import ru.sidvi.depextractor.model.Info;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,12 +17,12 @@ class ManifestExtractor implements Extractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
-    private List<JarInfo> infos = new ArrayList<JarInfo>();
+    private List<Info> infos = new ArrayList<Info>();
 
     public ManifestExtractor() {
     }
 
-    public List<JarInfo> extract(InputStream is) {
+    public List<Info> extract(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;
         while ((line = readLine(reader)) != null) {
@@ -51,7 +52,7 @@ class ManifestExtractor implements Extractor {
     private void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
         if (split[0].trim().equals(field)) {
 
-            JarInfo info = new Info.Builder()
+            Info info = new Info.Builder()
                     .setVersion(split[1].trim(), source)
                     .build();
             infos.add(info);
