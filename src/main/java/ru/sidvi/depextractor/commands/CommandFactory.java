@@ -6,8 +6,7 @@ import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.formatters.InlineFormatter;
 import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
-import ru.sidvi.depextractor.processors.JarProcessor;
-import ru.sidvi.depextractor.processors.ProcessorBuilder;
+import ru.sidvi.depextractor.processors.InfoExtractorFacade;
 import ru.sidvi.depextractor.validators.ArgsCountValidator;
 import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
@@ -31,7 +30,7 @@ public class CommandFactory {
                     .add(help);
         }
 
-        ProcessorBuilder builder = new JarProcessor.Builder()
+        InfoExtractorFacade.Builder builder = new InfoExtractorFacade.Builder()
                 .addExtractor(new PomPathComparator(), new PomExtractorFactory())
                 .addExtractor(new ManifestPathComparator(), new ManifestExtractorFactory());
 

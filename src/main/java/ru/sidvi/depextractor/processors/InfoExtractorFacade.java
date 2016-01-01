@@ -15,17 +15,17 @@ import java.util.jar.JarFile;
 /**
  * Created by Vitaly A. Sidorov on 05.02.14.
  */
-public class JarProcessor implements Processor {
+public class InfoExtractorFacade {
 
     private List<JarInfo> info = new ArrayList<JarInfo>();
     private String jarFile = "";
     private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
-    private JarProcessor(String jarFile) {
+    private InfoExtractorFacade(String jarFile) {
         this.jarFile = jarFile;
     }
 
-    private JarProcessor(Builder builder) {
+    private InfoExtractorFacade(Builder builder) {
         this(builder.getAbsolutePath());
         extractors.putAll(builder.extractors);
     }
@@ -34,7 +34,7 @@ public class JarProcessor implements Processor {
         return info;
     }
 
-    public Processor extract() {
+    public InfoExtractorFacade extract() {
 
         JarFile jar = openJar();
         if (jar == null) {
@@ -83,7 +83,7 @@ public class JarProcessor implements Processor {
         info.addAll(extractor.getInfos());
     }
 
-    static public class Builder implements ProcessorBuilder {
+    static public class Builder {
 
         private Map<PathComparator, ExtractorFactory> extractorFactories = new HashMap<PathComparator, ExtractorFactory>();
         private String absolutePath = "";
@@ -103,12 +103,12 @@ public class JarProcessor implements Processor {
             return this;
         }
 
-        public JarProcessor build() {
+        public InfoExtractorFacade build() {
             for (Map.Entry<PathComparator, ExtractorFactory> entry : extractorFactories.entrySet()) {
                 extractors.put(entry.getKey(), entry.getValue().create());
             }
 
-            return new JarProcessor(this);
+            return new InfoExtractorFacade(this);
         }
     }
 }
