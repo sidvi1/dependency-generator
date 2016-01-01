@@ -7,7 +7,7 @@ import java.util.List;
  * Извлекает информацию из заданного источника.
  */
 public interface Extractor {
-    void extract(InputStream is);
 
-    List<JarInfo> getInfos();
+    List<JarInfo> extract(InputStream is);
+
 }

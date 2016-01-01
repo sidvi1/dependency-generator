@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.commands;
 import ru.sidvi.depextractor.extractors.JarInfo;
 import ru.sidvi.depextractor.DirectoryUtils;
 import ru.sidvi.depextractor.formatters.Formatter;
-import ru.sidvi.depextractor.processors.InfoExtractorFacade;
+import ru.sidvi.depextractor.extractors.InfoExtractorFacade;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -36,8 +36,7 @@ public class FormattedOutputCommand extends ResultHolder {
 
         for (File jar : jars) {
             InfoExtractorFacade processor = new InfoExtractorFacade(jar.getAbsolutePath());
-            processor.extract();
-            jarsInfo.addAll(processor.getInfos());
+            jarsInfo.addAll(processor.extract());
         }
         return jarsInfo;
     }

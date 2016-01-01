@@ -21,8 +21,7 @@ class ManifestExtractor implements Extractor {
     public ManifestExtractor() {
     }
 
-    @Override
-    public void extract(InputStream is) {
+    public List<JarInfo> extract(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;
         while ((line = readLine(reader)) != null) {
@@ -30,10 +29,6 @@ class ManifestExtractor implements Extractor {
             parseSpecificationVersion(split);
             parseImplementationVersion(split);
         }
-    }
-
-    @Override
-    public List<JarInfo> getInfos() {
         return infos;
     }
 

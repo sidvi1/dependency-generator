@@ -18,10 +18,11 @@ class PomExtractor implements Extractor {
         this.parser = parser;
     }
 
-    public void extract(InputStream is) {
+    public List<JarInfo> extract(InputStream is) {
         parser.parse(is);
         getParentInfo();
         getInfo();
+        return infos;
     }
 
     private void getParentInfo() {
@@ -40,9 +41,5 @@ class PomExtractor implements Extractor {
                 .setVersion(parser.getVersion(), PomSource.POM_XML)
                 .build()
         );
-    }
-
-    public List<JarInfo> getInfos() {
-        return infos;
     }
 }
