@@ -57,10 +57,11 @@ public class PomParser {
         } catch (XMLStreamException e) {
 
         }
-        boolean isParent = false;
-        boolean isParentGroup = false;
-        boolean isParentArtifact = false;
-        boolean isParentVersion = false;
+
+        Tag parent = new Tag("parent");
+        Tag parentGroupId = new Tag("groupId");
+        Tag parentArtifactId = new Tag("artifactId");
+        Tag parentVersion = new Tag("version");
         while (r.hasNext()) {
             XMLEvent e = null;
             try {
@@ -71,49 +72,83 @@ public class PomParser {
             switch (e.getEventType()) {
                 case XMLStreamConstants.START_ELEMENT: {
                     StartElement el = e.asStartElement();
-                    if (el.getName().getLocalPart().equals("parent")) {
-                        isParent = true;
-                    }
-                    if (isParent && el.getName().getLocalPart().equals("groupId")) {
-                        isParentGroup = true;
-                    }
-                    if (isParent && el.getName().getLocalPart().equals("artifactId")) {
-                        isParentArtifact = true;
-                    }
-                    if (isParent && el.getName().getLocalPart().equals("version")) {
-                        isParentVersion = true;
+                    String tagName = el.getName().getLocalPart();
+
+                    parent.checkForStart(tagName);
+                    if (parent.isStarted()) {
+                        parentGroupId.checkForStart(tagName);
+                        parentArtifactId.checkForStart(tagName);
+                        parentVersion.checkForStart(tagName);
                     }
                 }
                 break;
                 case XMLStreamConstants.CHARACTERS: {
-                    if (isParentGroup && e.getEventType() == XMLStreamConstants.CHARACTERS) {
-                        parentGroupId = e.asCharacters().getData();
-                    }
-                    if (isParentArtifact && e.getEventType() == XMLStreamConstants.CHARACTERS) {
-                        parentArtifactId = e.asCharacters().getData();
-                    }
-                    if (isParentVersion && e.getEventType() == XMLStreamConstants.CHARACTERS) {
-                        parentVersion = e.asCharacters().getData();
-                    }
+                    parentGroupId.assignIfStarted(e.asCharacters().getData());
+                    parentArtifactId.assignIfStarted(e.asCharacters().getData());
+                    parentVersion.assignIfStarted(e.asCharacters().getData());
                 }
                 break;
                 case XMLStreamConstants.END_ELEMENT: {
                     EndElement el = e.asEndElement();
-                    if (el.getName().getLocalPart().equals("parent")) {
-                        isParent = false;
+                    String tagName = el.getName().getLocalPart();
+
+                    if (parent.isStarted()) {
+                        parentGroupId.checkForEnd(tagName);
+                        parentArtifactId.checkForEnd(tagName);
+                        parentVersion.checkForEnd(tagName);
                     }
-                    if (isParent && el.getName().getLocalPart().equals("groupId")) {
-                        isParentGroup = false;
-                    }
-                    if (isParent && el.getName().getLocalPart().equals("artifactId")) {
-                        isParentArtifact = false;
-                    }
-                    if (isParent && el.getName().getLocalPart().equals("version")) {
-                        isParentVersion = false;
-                    }
+                    parent.checkForEnd(tagName);
                 }
                 break;
             }
         }
+        this.parentGroupId = parentGroupId.getValue();
+        this.parentArtifactId = parentArtifactId.getValue();
+        this.parentVersion = parentVersion.getValue();
+    }
+
+    private class Tag {
+        private boolean started;
+        private String name;
+        private String value = "";
+
+        public Tag(String name) {
+            this.name = name;
+        }
+
+        public boolean isStarted() {
+            return started;
+        }
+
+        private void setStarted(boolean started) {
+            this.started = started;
+        }
+
+         public String getValue() {
+            return value;
+        }
+
+        private void setValue(String value) {
+            this.value = value;
+        }
+
+        public void checkForStart(String name) {
+            if (this.name.equals(name)) {
+                setStarted(true);
+            }
+        }
+
+        public void checkForEnd(String name) {
+            if (this.name.equals(name)) {
+                setStarted(false);
+            }
+        }
+
+        public void assignIfStarted(String data) {
+            if(started){
+                setValue(data);
+            }
+        }
+
     }
 }

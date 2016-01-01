@@ -21,9 +21,8 @@ public class TestPomParser {
         parser.parse(is);
 
         assertThat(parser.getParentGroupId(), is("org.slf4j"));
+        assertThat(parser.getParentArtifactId(), is("slf4j-parent"));
+        assertThat(parser.getParentVersion(), is("1.6.0"));
     }
 
-    private String string(String s) throws IOException {
-        return IOUtils.toString(getClass().getClassLoader().getResourceAsStream(s));
-    }
 }
