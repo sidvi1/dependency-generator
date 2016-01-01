@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.commands;
 import ru.sidvi.depextractor.DirectoryUtils;
 import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.extractors.InfoExtractorFacade;
-import ru.sidvi.depextractor.model.Info;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,15 +24,15 @@ public class FormattedOutputCommand extends ResultHolder {
 
     public void execute() {
         List<File> jars = DirectoryUtils.list(dir, ".jar");
-        List<Info> jarsInfo = extract(jars);
+        List<JarInfo> jarsInfo = extract(jars);
 
         result = format(jarsInfo, formatter);
         result += "\r\n";
         result += "Processed files: " + jars.size();
     }
 
-    private List<Info> extract(List<File> jars) {
-        List<Info> jarsInfo = new ArrayList<Info>();
+    private List<JarInfo> extract(List<File> jars) {
+        List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
 
         for (File jar : jars) {
             InfoExtractorFacade processor = new InfoExtractorFacade(jar.getAbsolutePath());
@@ -41,9 +41,9 @@ public class FormattedOutputCommand extends ResultHolder {
         return jarsInfo;
     }
 
-    private String format(List<Info> jarsInfo, Formatter formatter) {
+    private String format(List<JarInfo> jarsInfo, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
-        for (Info info : jarsInfo) {
+        for (JarInfo info : jarsInfo) {
             builder.append(formatter.format(info));
         }
 

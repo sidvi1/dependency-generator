@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
-import ru.sidvi.depextractor.model.Info;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vitaly A. Sidorov on 04.02.14.
+ * Извлекает информацию из MANIFEST.MF
  */
 class ManifestExtractor implements Extractor {
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
-    private List<Info> infos = new ArrayList<Info>();
+    private List<JarInfo> infos = new ArrayList<JarInfo>();
 
     public ManifestExtractor() {
     }
 
-    public List<Info> extract(InputStream is) {
+    public List<JarInfo> extract(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;
         while ((line = readLine(reader)) != null) {
@@ -52,7 +52,7 @@ class ManifestExtractor implements Extractor {
     private void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
         if (split[0].trim().equals(field)) {
 
-            Info info = new Info.Builder()
+            JarInfo info = new JarInfo.Builder()
                     .setVersion(split[1].trim(), source)
                     .build();
             infos.add(info);

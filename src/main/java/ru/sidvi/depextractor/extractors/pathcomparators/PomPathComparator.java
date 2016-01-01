@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor.pathcomparators;
+package ru.sidvi.depextractor.extractors.pathcomparators;
 
 /**
  * Проверяет на соотвтествие pom.xml.

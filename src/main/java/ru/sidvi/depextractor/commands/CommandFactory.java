@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.commands;
 
-import ru.sidvi.depextractor.formatters.InlineFormatter;
+import ru.sidvi.depextractor.formatters.TableFormatter;
 import ru.sidvi.depextractor.validators.ArgsCountValidator;
 import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
@@ -24,6 +24,6 @@ public class CommandFactory {
                     .add(help);
         }
 
-        return new FormattedOutputCommand(new InlineFormatter(), args[0]);
+        return new FormattedOutputCommand(new TableFormatter(), args[0]);
     }
 }

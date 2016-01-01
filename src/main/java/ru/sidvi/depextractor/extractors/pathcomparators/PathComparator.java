@@ -1,4 +1,4 @@
-package ru.sidvi.depextractor.pathcomparators;
+package ru.sidvi.depextractor.extractors.pathcomparators;
 
 /**
  * Определяет является ли path, искомым именем пути.

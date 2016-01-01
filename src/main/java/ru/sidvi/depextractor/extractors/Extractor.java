@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.model.Info;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.InputStream;
 import java.util.List;
@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface Extractor {
 
-    List<Info> extract(InputStream is);
+    List<JarInfo> extract(InputStream is);
 
 }

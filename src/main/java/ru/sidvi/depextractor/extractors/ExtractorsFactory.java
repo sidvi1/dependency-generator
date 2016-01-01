@@ -1,9 +1,9 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.model.Info;
-import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
-import ru.sidvi.depextractor.pathcomparators.PathComparator;
-import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
+import ru.sidvi.depextractor.model.JarInfo;
+import ru.sidvi.depextractor.extractors.pathcomparators.ManifestPathComparator;
+import ru.sidvi.depextractor.extractors.pathcomparators.PathComparator;
+import ru.sidvi.depextractor.extractors.pathcomparators.PomPathComparator;
 
 import java.io.InputStream;
 import java.util.*;
@@ -37,8 +37,8 @@ public abstract class ExtractorsFactory {
     }
 
     private static class NoneExtractor implements Extractor {
-        public List<Info> extract(InputStream is) {
-            return new ArrayList<Info>();
+        public List<JarInfo> extract(InputStream is) {
+            return new ArrayList<JarInfo>();
         }
     }
 }

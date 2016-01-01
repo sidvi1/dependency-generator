@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
 import org.apache.commons.io.IOUtils;
-import ru.sidvi.depextractor.model.Info;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
  * Вызывает несколько Comparator на одном источнике.
  * Источник перед этим считывается в буфер.
  */
-public class CompoundExtractor implements Extractor {
+class CompoundExtractor implements Extractor {
     private final List<Extractor> extractors;
     private String casched = "";
 
@@ -21,10 +21,10 @@ public class CompoundExtractor implements Extractor {
         this.extractors = Arrays.asList(extractors);
     }
 
-    public List<Info> extract(InputStream is) {
+    public List<JarInfo> extract(InputStream is) {
         createCache(is);
 
-        List<Info> results = new ArrayList<>();
+        List<JarInfo> results = new ArrayList<>();
         for (Extractor extractor : extractors) {
             results.addAll(extractor.extract(getCached()));
         }
