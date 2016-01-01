@@ -26,7 +26,7 @@ public class FormattedOutputCommand extends ResultHolder {
         List<File> jars = DirectoryUtils.list(dir, ".jar");
         List<JarInfo> jarsInfo = extract(jars);
 
-        result = build(jarsInfo, formatter);
+        result = format(jarsInfo, formatter);
         result += "\r\n";
         result += "Processed files: " + jars.size();
     }
@@ -41,7 +41,7 @@ public class FormattedOutputCommand extends ResultHolder {
         return jarsInfo;
     }
 
-    private String build(List<JarInfo> jarsInfo, Formatter formatter) {
+    private String format(List<JarInfo> jarsInfo, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
         for (JarInfo info : jarsInfo) {
             builder.append(formatter.format(info));

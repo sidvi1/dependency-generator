@@ -35,11 +35,11 @@ public class InfoExtractorFacade {
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
 
-            for (PathComparator comparator : ExtractorsPool.getRegisteredComparators()) {
+            for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
                 if (comparator.isValid(file.getName())) {
                     try {
                         InputStream is = jar.getInputStream(file);
-                        result.addAll(ExtractorsPool.get(comparator).extract(is));
+                        result.addAll(ExtractorsFactory.get(comparator).extract(is));
                         is.close();
                     } catch (IOException ignored) {
                         //TODO:
