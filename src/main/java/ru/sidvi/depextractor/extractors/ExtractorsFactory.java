@@ -1,5 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
+import ru.sidvi.depextractor.extractors.pom.PomParser;
 import ru.sidvi.depextractor.model.JarInfo;
 import ru.sidvi.depextractor.extractors.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.extractors.pathcomparators.PathComparator;

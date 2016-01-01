@@ -1,5 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
+import ru.sidvi.depextractor.extractors.pom.PomParser;
 import ru.sidvi.depextractor.extractors.sourcetypes.PomSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 

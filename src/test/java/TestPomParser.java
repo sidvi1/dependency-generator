@@ -1,8 +1,6 @@
-import org.apache.commons.io.IOUtils;
 import org.junit.Test;
-import ru.sidvi.depextractor.extractors.PomParser;
+import ru.sidvi.depextractor.extractors.pom.PomParser;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
