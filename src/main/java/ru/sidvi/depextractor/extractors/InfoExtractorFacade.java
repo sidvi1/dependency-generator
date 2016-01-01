@@ -42,7 +42,7 @@ public class InfoExtractorFacade {
                         InputStream is = jar.getInputStream(file);
                         result.addAll(ExtractorsFactory.get(comparator).extract(is));
                         is.close();
-                    } catch (IOException ignored) {
+                    } catch (Exception ignored) {
                         //TODO:
                     }
                 }

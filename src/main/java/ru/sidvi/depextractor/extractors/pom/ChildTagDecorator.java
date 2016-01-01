@@ -6,8 +6,8 @@ package ru.sidvi.depextractor.extractors.pom;
 class ChildTagDecorator extends SimpleTag {
     private Tag parent;
 
-    public ChildTagDecorator(String name, Tag parent) {
-        super(name);
+    public ChildTagDecorator(String name, Tag parent, int levelValue) {
+        super(name, levelValue);
         this.parent = parent;
     }
 

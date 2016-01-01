@@ -10,7 +10,7 @@ interface Tag {
 
     void checkForEnd(String tagName);
 
-    void assignIfStarted(String data);
+    void assignIfStarted(String data, LevelHolder level);
 
     String getName();
 

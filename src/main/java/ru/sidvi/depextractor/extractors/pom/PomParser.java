@@ -20,14 +20,14 @@ public class PomParser {
     private List<Tag> matchers = new ArrayList<>();
 
     {
-        SimpleTag parent = new SimpleTag("parent");
+        SimpleTag parent = new SimpleTag("parent", 2);
         matchers.add(parent);
-        matchers.add(new ChildTagDecorator("groupId", parent));
-        matchers.add(new ChildTagDecorator("artifactId", parent));
-        matchers.add(new ChildTagDecorator("version", parent));
-        matchers.add(new SimpleTag("groupId"));
-        matchers.add(new SimpleTag("artifactId"));
-        matchers.add(new SimpleTag("version"));
+        matchers.add(new ChildTagDecorator("groupId", parent, 3));
+        matchers.add(new ChildTagDecorator("artifactId", parent, 3));
+        matchers.add(new ChildTagDecorator("version", parent, 3));
+        matchers.add(new SimpleTag("groupId", 2));
+        matchers.add(new SimpleTag("artifactId", 2));
+        matchers.add(new SimpleTag("version", 2));
     }
 
     public String getVersion() {
@@ -65,6 +65,7 @@ public class PomParser {
 
         }
 
+        LevelHolder level = new LevelHolder();
         while (r.hasNext()) {
             XMLEvent e = null;
             try {
@@ -74,6 +75,8 @@ public class PomParser {
 
             switch (e.getEventType()) {
                 case XMLStreamConstants.START_ELEMENT: {
+                    level.up();
+
                     StartElement el = e.asStartElement();
                     String tagName = el.getName().getLocalPart();
 
@@ -84,11 +87,13 @@ public class PomParser {
                 break;
                 case XMLStreamConstants.CHARACTERS: {
                     for (Tag tag : matchers) {
-                        tag.assignIfStarted(e.asCharacters().getData());
+                        tag.assignIfStarted(e.asCharacters().getData(), level);
                     }
                 }
                 break;
                 case XMLStreamConstants.END_ELEMENT: {
+                    level.down();
+
                     EndElement el = e.asEndElement();
                     String tagName = el.getName().getLocalPart();
 
@@ -103,10 +108,11 @@ public class PomParser {
 
     private String getValue(String tagName) {
         for (Tag matcher : matchers) {
-            if(matcher.getName().equals(tagName)){
+            if (matcher.getName().equals(tagName)) {
                 return matcher.getValue();
             }
         }
         return "";
     }
+
 }
