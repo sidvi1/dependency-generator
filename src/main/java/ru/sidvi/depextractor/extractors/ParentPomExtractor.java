@@ -9,21 +9,21 @@ import java.util.List;
 /**
  * Created by Vitaly A. Sidorov on 07.02.14.
  */
-class PomExtractor implements Extractor {
+class ParentPomExtractor implements Extractor {
 
     private PomParser parser;
     private List<JarInfo> infos = new ArrayList<JarInfo>();
 
-    public PomExtractor(PomParser parser) {
+    public ParentPomExtractor(PomParser parser) {
         this.parser = parser;
     }
 
     public List<JarInfo> extract(InputStream is) {
         parser.parse(is);
         infos.add(new Info.Builder()
-                .setGroup(parser.getGroupId(), PomSource.POM_XML)
-                .setArtifact(parser.getArtifactId(), PomSource.POM_XML)
-                .setVersion(parser.getVersion(), PomSource.POM_XML)
+                .setGroup(parser.getParentGroupId(), PomSource.POM_XML_PARENT)
+                .setArtifact(parser.getParentArtifactId(), PomSource.POM_XML_PARENT)
+                .setVersion(parser.getParentVersion(), PomSource.POM_XML_PARENT)
                 .build()
         );
         return infos;

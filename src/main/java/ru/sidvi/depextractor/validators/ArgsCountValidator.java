@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.validators;
 
 /**
- * Проверяет число параметров.
+ * РџСЂРѕРІРµСЂСЏРµС‚ С‡РёСЃР»Рѕ РїР°СЂР°РјРµС‚СЂРѕРІ.
  */
 public class ArgsCountValidator extends BaseValidator {
     protected String[] args;

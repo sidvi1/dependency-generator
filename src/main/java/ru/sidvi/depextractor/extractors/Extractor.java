@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Извлекает информацию из заданного источника.
+ * РР·РІР»РµРєР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РёР· Р·Р°РґР°РЅРЅРѕРіРѕ РёСЃС‚РѕС‡РЅРёРєР°.
  */
 public interface Extractor {
 

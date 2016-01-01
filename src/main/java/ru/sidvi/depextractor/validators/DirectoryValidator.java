@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.validators;
 import java.io.File;
 
 /**
- * Проверяет что первый элемент массива параметров - дирректория.
+ * РџСЂРѕРІРµСЂСЏРµС‚ С‡С‚Рѕ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° РїР°СЂР°РјРµС‚СЂРѕРІ - РґРёСЂСЂРµРєС‚РѕСЂРёСЏ.
  */
 public class DirectoryValidator extends BaseValidator {
     private String[] args;

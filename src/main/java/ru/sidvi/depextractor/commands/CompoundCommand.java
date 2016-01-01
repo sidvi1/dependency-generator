@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Формирует результат из последовательного вызова нескольких Command.
+ * Р¤РѕСЂРјРёСЂСѓРµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ РёР· РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРіРѕ РІС‹Р·РѕРІР° РЅРµСЃРєРѕР»СЊРєРёС… Command.
  */
 public class CompoundCommand extends ResultHolder {
 

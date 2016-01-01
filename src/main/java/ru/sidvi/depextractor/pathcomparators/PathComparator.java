@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.pathcomparators;
 
 /**
- * Определяет является ли path, искомым именем пути.
+ * РћРїСЂРµРґРµР»СЏРµС‚ СЏРІР»СЏРµС‚СЃСЏ Р»Рё path, РёСЃРєРѕРјС‹Рј РёРјРµРЅРµРј РїСѓС‚Рё.
  */
 public interface PathComparator {
     boolean isValid(String path);

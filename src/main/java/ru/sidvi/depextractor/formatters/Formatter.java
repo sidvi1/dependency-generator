@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.formatters;
 import ru.sidvi.depextractor.extractors.JarInfo;
 
 /**
- * Форматирует JarInfo при приобразовании в строку.
+ * Р¤РѕСЂРјР°С‚РёСЂСѓРµС‚ JarInfo РїСЂРё РїСЂРёРѕР±СЂР°Р·РѕРІР°РЅРёРё РІ СЃС‚СЂРѕРєСѓ.
  */
 public interface Formatter {
     String format(JarInfo info);

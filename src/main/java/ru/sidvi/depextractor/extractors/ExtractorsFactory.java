@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * Создаем extractor на основе пути файла.
+ * РЎРѕР·РґР°РµРј extractor РЅР° РѕСЃРЅРѕРІРµ РїСѓС‚Рё С„Р°Р№Р»Р°.
  */
 public abstract class ExtractorsFactory {
     private final static List<PathComparator> COMPARATORS = new ArrayList<PathComparator>();
@@ -22,10 +22,10 @@ public abstract class ExtractorsFactory {
     }
 
     public static Extractor get(PathComparator comparator) {
-        if(comparator instanceof PomPathComparator){
-            return new PomExtractor(new PomParser());
+        if (comparator instanceof PomPathComparator) {
+            return new CompoundExtractor(new Extractor[]{new ParentPomExtractor(new PomParser()), new PomExtractor(new PomParser())});
         }
-        if(comparator instanceof ManifestPathComparator){
+        if (comparator instanceof ManifestPathComparator) {
             return new ManifestExtractor();
         }
         return new NoneExtractor();

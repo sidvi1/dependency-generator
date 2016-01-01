@@ -7,7 +7,7 @@ import ru.sidvi.depextractor.validators.DirectoryValidator;
 import ru.sidvi.depextractor.validators.Validator;
 
 /**
- * Управляет созданием Command.
+ * РЈРїСЂР°РІР»СЏРµС‚ СЃРѕР·РґР°РЅРёРµРј Command.
  */
 public class CommandFactory {
 

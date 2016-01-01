@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.pathcomparators;
 
 /**
- * Проверяет на соотвтествие pom.xml.
+ * РџСЂРѕРІРµСЂСЏРµС‚ РЅР° СЃРѕРѕС‚РІС‚РµСЃС‚РІРёРµ pom.xml.
  */
 public class PomPathComparator implements PathComparator {
     public boolean isValid(String name) {

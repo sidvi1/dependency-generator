@@ -2,7 +2,7 @@ package ru.sidvi.depextractor.pathcomparators;
 
 
 /**
- * Проверяет на соответствие MANIFEST.MF.
+ * РџСЂРѕРІРµСЂСЏРµС‚ РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ MANIFEST.MF.
  */
 public class ManifestPathComparator implements PathComparator {
     public boolean isValid(String name) {

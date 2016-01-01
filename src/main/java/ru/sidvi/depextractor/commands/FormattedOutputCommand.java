@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Формирует отформатированную строку из данных полученных от Processor.
+ * Р¤РѕСЂРјРёСЂСѓРµС‚ РѕС‚С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРЅСѓСЋ СЃС‚СЂРѕРєСѓ РёР· РґР°РЅРЅС‹С… РїРѕР»СѓС‡РµРЅРЅС‹С… РѕС‚ Processor.
  */
 public class FormattedOutputCommand extends ResultHolder {
 

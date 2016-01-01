@@ -3,7 +3,7 @@ package ru.sidvi.depextractor.formatters;
 import ru.sidvi.depextractor.extractors.JarInfo;
 
 /**
- * Осущствляет простое столбчатое форматирование.
+ * РћСЃСѓС‰СЃС‚РІР»СЏРµС‚ РїСЂРѕСЃС‚РѕРµ СЃС‚РѕР»Р±С‡Р°С‚РѕРµ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ.
  */
 public class InlineFormatter implements Formatter {
 

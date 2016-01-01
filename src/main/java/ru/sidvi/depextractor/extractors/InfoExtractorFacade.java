@@ -10,7 +10,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Извлекает из Jar файла информацию.
+ * РР·РІР»РµРєР°РµС‚ РёР· Jar С„Р°Р№Р»Р° РёРЅС„РѕСЂРјР°С†РёСЋ.
  */
 public class InfoExtractorFacade {
     private String jarFile = "";

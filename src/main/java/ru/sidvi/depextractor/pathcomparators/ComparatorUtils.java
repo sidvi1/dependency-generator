@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.pathcomparators;
 
 /**
- * Типовые методы использующиеся в Comparators.
+ * РўРёРїРѕРІС‹Рµ РјРµС‚РѕРґС‹ РёСЃРїРѕР»СЊР·СѓСЋС‰РёРµСЃСЏ РІ Comparators.
  */
 class ComparatorUtils {
     private ComparatorUtils() {

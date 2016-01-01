@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.commands;
 
 /**
- * Формирует строку с помощью.
+ * Р¤РѕСЂРјРёСЂСѓРµС‚ СЃС‚СЂРѕРєСѓ СЃ РїРѕРјРѕС‰СЊСЋ.
  */
 public class HelpCommand extends ResultHolder {
 
