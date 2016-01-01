@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.extractors.sources.NoneSource;
-import ru.sidvi.depextractor.extractors.sources.Source;
+import ru.sidvi.depextractor.extractors.sourcetypes.NoneSourceTypeDecorator;
+import ru.sidvi.depextractor.extractors.sourcetypes.SourceType;
 
 /**
  * Created by Vitaly A. Sidorov on 05.02.14.
@@ -44,22 +44,22 @@ class Info implements JarInfo {
     private static class SimpleEntry implements Entry {
 
         protected String value = "";
-        protected Source source = NoneSource.NONE;
+        protected SourceType source = NoneSourceTypeDecorator.NONE;
 
-        private SimpleEntry(String value, Source source) {
+        private SimpleEntry(String value, SourceType source) {
             this.value = value;
             this.source = source;
         }
 
         private SimpleEntry() {
-            this("", NoneSource.NONE);
+            this("", NoneSourceTypeDecorator.NONE);
         }
 
         public static Entry create() {
             return new SimpleEntry();
         }
 
-        private static Entry create(String value, Source source) {
+        private static Entry create(String value, SourceType source) {
             return new SimpleEntry(value, source);
         }
 
@@ -68,7 +68,7 @@ class Info implements JarInfo {
             return value;
         }
 
-        public Source getSource() {
+        public SourceType getSource() {
             return source;
         }
     }
@@ -79,17 +79,17 @@ class Info implements JarInfo {
         private Entry artifact = SimpleEntry.create();
         private Entry version = SimpleEntry.create();
 
-        public Builder setGroup(String id, Source source) {
+        public Builder setGroup(String id, SourceType source) {
             group = SimpleEntry.create(id, source);
             return this;
         }
 
-        public Builder setArtifact(String id, Source source) {
+        public Builder setArtifact(String id, SourceType source) {
             artifact = SimpleEntry.create(id, source);
             return this;
         }
 
-        public Builder setVersion(String id, Source source) {
+        public Builder setVersion(String id, SourceType source) {
             version = SimpleEntry.create(id, source);
             return this;
         }

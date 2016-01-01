@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.extractors.sources.Source;
+import ru.sidvi.depextractor.extractors.sourcetypes.SourceType;
 
 /**
  * Created byVitaly A. Sidorovon 08.02.14.
@@ -22,7 +22,7 @@ public interface JarInfo {
 
         String getValue();
 
-        Source getSource();
+        SourceType getSource();
     }
 
 }

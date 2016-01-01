@@ -1,6 +1,6 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.extractors.sources.VersionSource;
+import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,14 +41,14 @@ class ManifestExtractor implements Extractor {
     }
 
     private void parseImplementationVersion(String[] split) {
-        extractFieldValue(split, IMPLEMENTATION_VERSION, VersionSource.MF_IMPLEMENTATION_VERSION);
+        extractFieldValue(split, IMPLEMENTATION_VERSION, ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION);
     }
 
     private void parseSpecificationVersion(String[] split) {
-        extractFieldValue(split, SPECIFICATION_VERSION, VersionSource.MF_SPECIFICATION_VERSION);
+        extractFieldValue(split, SPECIFICATION_VERSION, ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION);
     }
 
-    private void extractFieldValue(String[] split, String field, VersionSource source) {
+    private void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
         if (split[0].trim().equals(field)) {
 
             JarInfo info = new Info.Builder()
