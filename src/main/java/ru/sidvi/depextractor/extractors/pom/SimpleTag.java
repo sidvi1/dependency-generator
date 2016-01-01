@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.extractors.pom;
 
 /**
- * Created by sidvi on 01.01.2016.
+ * Хранит информацию об извлекаемом элементе.
  */
 class SimpleTag implements Tag {
     private boolean started;
