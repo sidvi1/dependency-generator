@@ -1,8 +1,8 @@
 package ru.sidvi.depextractor.processors;
 
+import ru.sidvi.depextractor.extractors.ExtractorsPool;
 import ru.sidvi.depextractor.extractors.JarInfo;
 import ru.sidvi.depextractor.extractors.Extractor;
-import ru.sidvi.depextractor.extractors.ExtractorFactory;
 import ru.sidvi.depextractor.pathcomparators.PathComparator;
 
 import java.io.File;
@@ -19,15 +19,9 @@ public class InfoExtractorFacade {
 
     private List<JarInfo> info = new ArrayList<JarInfo>();
     private String jarFile = "";
-    private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
 
-    private InfoExtractorFacade(String jarFile) {
+    public InfoExtractorFacade(String jarFile) {
         this.jarFile = jarFile;
-    }
-
-    private InfoExtractorFacade(Builder builder) {
-        this(builder.getAbsolutePath());
-        extractors.putAll(builder.extractors);
     }
 
     public List<JarInfo> getInfos() {
@@ -45,9 +39,9 @@ public class InfoExtractorFacade {
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
 
-            for (PathComparator comparator : extractors.keySet()) {
+            for (PathComparator comparator : ExtractorsPool.getRegisteredComparators()) {
                 if (comparator.isValid(file.getName())) {
-                    tryToExtract(jar, file, extractors.get(comparator));
+                    tryToExtract(jar, file, ExtractorsPool.get(comparator));
                 }
             }
         }
@@ -81,34 +75,5 @@ public class InfoExtractorFacade {
         extractor.extract(is);
         is.close();
         info.addAll(extractor.getInfos());
-    }
-
-    static public class Builder {
-
-        private Map<PathComparator, ExtractorFactory> extractorFactories = new HashMap<PathComparator, ExtractorFactory>();
-        private String absolutePath = "";
-        private Map<PathComparator, Extractor> extractors = new HashMap<PathComparator, Extractor>();
-
-        public String getAbsolutePath() {
-            return absolutePath;
-        }
-
-        public Builder setPath(String path) {
-            absolutePath = path;
-            return this;
-        }
-
-        public Builder addExtractor(PathComparator comparator, ExtractorFactory extractor) {
-            extractorFactories.put(comparator, extractor);
-            return this;
-        }
-
-        public InfoExtractorFacade build() {
-            for (Map.Entry<PathComparator, ExtractorFactory> entry : extractorFactories.entrySet()) {
-                extractors.put(entry.getKey(), entry.getValue().create());
-            }
-
-            return new InfoExtractorFacade(this);
-        }
     }
 }

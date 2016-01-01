@@ -16,11 +16,9 @@ public class FormattedOutputCommand extends ResultHolder {
 
     private File dir;
     private Formatter formatter;
-    private InfoExtractorFacade.Builder builder;
 
-    FormattedOutputCommand(Formatter formatter, InfoExtractorFacade.Builder builder, String dir) {
+    FormattedOutputCommand(Formatter formatter, String dir) {
         this.formatter = formatter;
-        this.builder = builder;
         this.dir = new File(dir);
     }
 
@@ -37,7 +35,7 @@ public class FormattedOutputCommand extends ResultHolder {
         List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
 
         for (File jar : jars) {
-            InfoExtractorFacade processor = builder.setPath(jar.getAbsolutePath()).build();
+            InfoExtractorFacade processor = new InfoExtractorFacade(jar.getAbsolutePath());
             processor.extract();
             jarsInfo.addAll(processor.getInfos());
         }

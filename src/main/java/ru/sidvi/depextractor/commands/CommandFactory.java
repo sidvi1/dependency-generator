@@ -1,12 +1,6 @@
 package ru.sidvi.depextractor.commands;
 
-import ru.sidvi.depextractor.extractors.ManifestExtractorFactory;
-import ru.sidvi.depextractor.extractors.PomExtractorFactory;
-import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.formatters.InlineFormatter;
-import ru.sidvi.depextractor.pathcomparators.ManifestPathComparator;
-import ru.sidvi.depextractor.pathcomparators.PomPathComparator;
-import ru.sidvi.depextractor.processors.InfoExtractorFacade;
 import ru.sidvi.depextractor.validators.ArgsCountValidator;
 import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
@@ -30,11 +24,6 @@ public class CommandFactory {
                     .add(help);
         }
 
-        InfoExtractorFacade.Builder builder = new InfoExtractorFacade.Builder()
-                .addExtractor(new PomPathComparator(), new PomExtractorFactory())
-                .addExtractor(new ManifestPathComparator(), new ManifestExtractorFactory());
-
-        Formatter formatter = new InlineFormatter();
-        return new FormattedOutputCommand(formatter, builder, args[0]);
+        return new FormattedOutputCommand(new InlineFormatter(), args[0]);
     }
 }
