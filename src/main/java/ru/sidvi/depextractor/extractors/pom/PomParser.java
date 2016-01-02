@@ -81,25 +81,26 @@ public class PomParser {
                     String tagName = el.getName().getLocalPart();
 
                     for (Tag tag : matchers) {
-                        tag.checkForStart(tagName);
+                        tag.checkForStart(tagName, level);
                     }
                 }
                 break;
                 case XMLStreamConstants.CHARACTERS: {
                     for (Tag tag : matchers) {
-                        tag.assignIfStarted(e.asCharacters().getData(), level);
+                        tag.assignIfStarted(e.asCharacters().getData());
                     }
                 }
                 break;
                 case XMLStreamConstants.END_ELEMENT: {
-                    level.down();
 
                     EndElement el = e.asEndElement();
                     String tagName = el.getName().getLocalPart();
 
                     for (Tag tag : matchers) {
-                        tag.checkForEnd(tagName);
+                        tag.checkForEnd(tagName, level);
                     }
+
+                    level.down();
                 }
                 break;
             }

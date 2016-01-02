@@ -1,16 +1,16 @@
 package ru.sidvi.depextractor.extractors.pom;
 
 /**
- * Created by sidvi on 01.01.2016.
+ * Хранит значение тэга который необходимы извлечь из XML.
  */
 interface Tag {
-    void checkForStart(String name);
+    void checkForStart(String name, LevelHolder level);
 
     boolean isStarted();
 
-    void checkForEnd(String tagName);
+    void checkForEnd(String tagName, LevelHolder level);
 
-    void assignIfStarted(String data, LevelHolder level);
+    void assignIfStarted(String data);
 
     String getName();
 

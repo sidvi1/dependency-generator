@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Извлекает информацию из MANIFEST.MF
+ * РР·РІР»РµРєР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РёР· MANIFEST.MF
  */
 class ManifestExtractor implements Extractor {
 

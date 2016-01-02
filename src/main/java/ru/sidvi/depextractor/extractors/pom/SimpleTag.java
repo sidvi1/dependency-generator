@@ -30,20 +30,20 @@ class SimpleTag implements Tag {
         this.value = value;
     }
 
-    public void checkForStart(String name) {
-        if (this.name.equals(name)) {
+    public void checkForStart(String name, LevelHolder level) {
+        if (level.isLevel(levelValue) && this.name.equals(name)) {
             setStarted(true);
         }
     }
 
-    public void checkForEnd(String name) {
-        if (this.name.equals(name)) {
+    public void checkForEnd(String name, LevelHolder level) {
+        if (level.isLevel(levelValue) && this.name.equals(name)) {
             setStarted(false);
         }
     }
 
-    public void assignIfStarted(String data, LevelHolder level) {
-        if (level.isLevel(levelValue) && started) {
+    public void assignIfStarted(String data) {
+        if (started) {
             setValue(data);
         }
     }

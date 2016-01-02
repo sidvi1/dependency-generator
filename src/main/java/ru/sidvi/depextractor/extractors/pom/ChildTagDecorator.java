@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.extractors.pom;
 
 /**
- * Created by sidvi on 01.01.2016.
+ * Хранит значение текущего тэга и родительского.
  */
 class ChildTagDecorator extends SimpleTag {
     private Tag parent;
@@ -17,16 +17,16 @@ class ChildTagDecorator extends SimpleTag {
     }
 
     @Override
-    public void checkForStart(String name) {
+    public void checkForStart(String name, LevelHolder level) {
         if (parent.isStarted()) {
-            super.checkForStart(name);
+            super.checkForStart(name, level);
         }
     }
 
     @Override
-    public void checkForEnd(String name) {
+    public void checkForEnd(String name, LevelHolder level) {
         if (parent.isStarted()) {
-            super.checkForEnd(name);
+            super.checkForEnd(name, level);
         }
     }
 }

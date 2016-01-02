@@ -14,20 +14,22 @@ import java.util.List;
 class PomExtractor implements Extractor {
 
     private PomParser parser;
-    private List<JarInfo> infos = new ArrayList<>();
 
     public PomExtractor(PomParser parser) {
         this.parser = parser;
     }
 
     public List<JarInfo> extract(InputStream is) {
+        List<JarInfo> infos = new ArrayList<JarInfo>();
         parser.parse(is);
-        infos.add(new JarInfo.Builder()
+        JarInfo extracted = new JarInfo.Builder()
                 .setGroup(parser.getGroupId(), PomSourceTypeDecorator.POM_XML)
                 .setArtifact(parser.getArtifactId(), PomSourceTypeDecorator.POM_XML)
                 .setVersion(parser.getVersion(), PomSourceTypeDecorator.POM_XML)
-                .build()
-        );
+                .build();
+        if(extracted.getFormattedResult("%s%s%s").trim().length() > 0){
+            infos.add(extracted);
+        }
         return infos;
     }
 

@@ -9,25 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vitaly A. Sidorov on 07.02.14.
+ * Извлекает информацию из секции parent pom.xml
  */
 class ParentPomExtractor implements Extractor {
 
     private PomParser parser;
-    private List<JarInfo> infos = new ArrayList<JarInfo>();
 
     public ParentPomExtractor(PomParser parser) {
         this.parser = parser;
     }
 
     public List<JarInfo> extract(InputStream is) {
+        List<JarInfo> infos = new ArrayList<JarInfo>();
         parser.parse(is);
-        infos.add(new JarInfo.Builder()
+        JarInfo extracted = new JarInfo.Builder()
                 .setGroup(parser.getParentGroupId(), PomSourceTypeDecorator.POM_XML_PARENT)
                 .setArtifact(parser.getParentArtifactId(), PomSourceTypeDecorator.POM_XML_PARENT)
                 .setVersion(parser.getParentVersion(), PomSourceTypeDecorator.POM_XML_PARENT)
-                .build()
-        );
+                .build();
+        if(extracted.getFormattedResult("%s%s%s").trim().length() > 0){
+            infos.add(extracted);
+        }
         return infos;
     }
 
