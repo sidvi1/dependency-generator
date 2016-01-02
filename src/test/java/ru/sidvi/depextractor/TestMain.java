@@ -17,6 +17,7 @@ public class TestMain {
         Command command = CommandFactory.create(new String[]{jarsPath});
         command.execute();
         String actual = command.getResult();
+
         assertThat(actual, is(string("fixtures/program_out.txt")));
     }
 
