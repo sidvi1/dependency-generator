@@ -1,0 +1,15 @@
+httpcore.jar                   MF_IMPLEMENTATION_VERSION                          ::4.0.1
+httpcore.jar                   POM_XML_PARENT                                     org.apache.httpcomponents:httpcomponents-core:4.0.1
+httpcore.jar                   POM_XML                                            :httpcore:
+jaudiotagger.jar               POM_XML                                            org.jaudiotagger:jaudiotagger:2.0.1
+org.restlet.jar                POM_XML_PARENT                                     org.restlet.dev:org.restlet.parent:2.0.10
+org.restlet.jar                POM_XML                                            :org.restlet:
+padlock.jar                    POM_XML                                            net.padlocksoftware:padlock:2.2
+slf4j-api.jar                  MF_IMPLEMENTATION_VERSION                          ::1.6.0
+slf4j-api.jar                  POM_XML_PARENT                                     org.slf4j:slf4j-parent:1.6.0
+slf4j-api.jar                  POM_XML                                            org.slf4j:slf4j-api:
+slf4j-log4j12.jar              MF_IMPLEMENTATION_VERSION                          ::1.6.0
+slf4j-log4j12.jar              POM_XML_PARENT                                     org.slf4j:slf4j-parent:1.6.0
+slf4j-log4j12.jar              POM_XML                                            org.slf4j:slf4j-log4j12:
+
+Processed files: 7

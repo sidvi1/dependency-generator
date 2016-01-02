@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Парсит pom.xml на предмент необходимых тэгов.
+ * Парсит pom.xml на предмет необходимых тэгов.
  */
 public class PomParser {
 

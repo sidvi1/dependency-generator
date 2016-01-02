@@ -36,6 +36,34 @@ public class JarInfo {
         return String.format(format, version.getSource());
     }
 
+    @Override
+    public String toString() {
+        return getFormattedResult("%s:%s:%s");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        JarInfo jarInfo = (JarInfo) o;
+
+        if (group != null ? !group.equals(jarInfo.group) : jarInfo.group != null) return false;
+        if (artifact != null ? !artifact.equals(jarInfo.artifact) : jarInfo.artifact != null) return false;
+        if (version != null ? !version.equals(jarInfo.version) : jarInfo.version != null) return false;
+        return !(fileName != null ? !fileName.equals(jarInfo.fileName) : jarInfo.fileName != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = group != null ? group.hashCode() : 0;
+        result = 31 * result + (artifact != null ? artifact.hashCode() : 0);
+        result = 31 * result + (version != null ? version.hashCode() : 0);
+        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
+        return result;
+    }
+
     private static class Entry {
 
         protected String value = "";
@@ -64,6 +92,25 @@ public class JarInfo {
 
         public SourceType getSource() {
             return source;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Entry entry = (Entry) o;
+
+            if (value != null ? !value.equals(entry.value) : entry.value != null) return false;
+            return !(source != null ? !source.equals(entry.source) : entry.source != null);
+
+        }
+
+        @Override
+        public int hashCode() {
+            int result = value != null ? value.hashCode() : 0;
+            result = 31 * result + (source != null ? source.hashCode() : 0);
+            return result;
         }
     }
 
