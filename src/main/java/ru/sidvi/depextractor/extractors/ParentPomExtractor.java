@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Извлекает информацию из секции parent pom.xml
+ * Извлекает информацию из секции parent pom.xml.
  */
 class ParentPomExtractor implements Extractor {
 

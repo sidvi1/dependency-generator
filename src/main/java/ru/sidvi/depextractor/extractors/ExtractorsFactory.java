@@ -14,7 +14,7 @@ import java.util.List;
  * Создаем extractor на основе пути файла.
  */
 public abstract class ExtractorsFactory {
-    private final static List<PathComparator> COMPARATORS = new ArrayList<PathComparator>();
+    private static final List<PathComparator> COMPARATORS = new ArrayList<PathComparator>();
 
     static {
         COMPARATORS.add(new PomPathComparator());
