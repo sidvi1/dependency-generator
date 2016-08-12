@@ -60,7 +60,7 @@ public class PomParser {
         XMLEventReader r =
                 null;
         try {
-            r = factory.createXMLEventReader(new InputStreamReader(is));
+            r = factory.createXMLEventReader("UTF-8", new InputStreamReader(is));
         } catch (XMLStreamException e) {
 
         }

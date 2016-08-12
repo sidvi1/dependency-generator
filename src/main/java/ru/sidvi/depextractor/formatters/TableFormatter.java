@@ -10,6 +10,7 @@ public class TableFormatter implements Formatter {
 
     private static final String format = "%-30s %-50s %-10s%n";
 
+    @Override
     public String format(JarInfo info) {
         return String.format(format, info.getFormattedFileName("%s"), info.getFormattedSource("%s"), info.getFormattedResult("%s:%s:%s"));
     }

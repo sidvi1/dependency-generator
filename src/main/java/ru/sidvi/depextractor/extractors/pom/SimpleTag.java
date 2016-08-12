@@ -14,6 +14,7 @@ class SimpleTag implements Tag {
         this.levelValue = levelValue;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }
@@ -22,6 +23,7 @@ class SimpleTag implements Tag {
         this.started = started;
     }
 
+    @Override
     public String getValue() {
         return value;
     }
@@ -30,18 +32,21 @@ class SimpleTag implements Tag {
         this.value = value;
     }
 
+    @Override
     public void checkForStart(String name, LevelHolder level) {
         if (level.isLevel(levelValue) && this.name.equals(name)) {
             setStarted(true);
         }
     }
 
+    @Override
     public void checkForEnd(String name, LevelHolder level) {
         if (level.isLevel(levelValue) && this.name.equals(name)) {
             setStarted(false);
         }
     }
 
+    @Override
     public void assignIfStarted(String data) {
         if (started) {
             setValue(data);

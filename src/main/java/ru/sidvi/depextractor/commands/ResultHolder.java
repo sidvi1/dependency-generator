@@ -9,10 +9,12 @@ public abstract class ResultHolder implements Command {
     ResultHolder() {
     }
 
+    @Override
     public String getResult() {
         return result;
     }
 
+    @Override
     public void execute() {
     }
 }

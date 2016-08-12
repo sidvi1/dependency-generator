@@ -1,13 +1,14 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.extractors.pom.PomParser;
-import ru.sidvi.depextractor.model.JarInfo;
 import ru.sidvi.depextractor.extractors.pathcomparators.ManifestPathComparator;
 import ru.sidvi.depextractor.extractors.pathcomparators.PathComparator;
 import ru.sidvi.depextractor.extractors.pathcomparators.PomPathComparator;
+import ru.sidvi.depextractor.extractors.pom.PomParser;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Создаем extractor на основе пути файла.
@@ -38,6 +39,8 @@ public abstract class ExtractorsFactory {
     }
 
     private static class NoneExtractor implements Extractor {
+
+        @Override
         public List<JarInfo> extract(InputStream is) {
             return new ArrayList<JarInfo>();
         }

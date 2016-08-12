@@ -15,6 +15,7 @@ public class ValidationChain extends BaseValidator {
         validators.addAll(Arrays.asList(chain));
     }
 
+    @Override
     public boolean validate() {
         for (Validator v : validators) {
             if (!v.validate()) {

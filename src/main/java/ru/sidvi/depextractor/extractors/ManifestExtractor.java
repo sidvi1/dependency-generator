@@ -22,6 +22,7 @@ class ManifestExtractor implements Extractor {
     public ManifestExtractor() {
     }
 
+    @Override
     public List<JarInfo> extract(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line;

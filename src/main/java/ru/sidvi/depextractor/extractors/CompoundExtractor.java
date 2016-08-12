@@ -21,6 +21,7 @@ class CompoundExtractor implements Extractor {
         this.extractors = Arrays.asList(extractors);
     }
 
+    @Override
     public List<JarInfo> extract(InputStream is) {
         createCache(is);
 
@@ -32,7 +33,12 @@ class CompoundExtractor implements Extractor {
     }
 
     private ByteArrayInputStream getCached() {
-        return new ByteArrayInputStream(casched.getBytes());
+        byte[] bytes = {};
+        try {
+            bytes = casched.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+        }
+        return new ByteArrayInputStream(bytes);
     }
 
     private void createCache(InputStream is) {

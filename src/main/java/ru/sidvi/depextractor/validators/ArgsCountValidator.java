@@ -10,6 +10,7 @@ public class ArgsCountValidator extends BaseValidator {
         this.args = args;
     }
 
+    @Override
     public boolean validate() {
         if (args.length == 0) {
             message = "Too low arguments.";

@@ -12,6 +12,7 @@ public class DirectoryValidator extends BaseValidator {
         this.args = args;
     }
 
+    @Override
     public boolean validate() {
         File dir = new File(args[0]);
         String path = dir.getAbsolutePath();
