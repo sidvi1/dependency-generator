@@ -8,10 +8,10 @@ import java.util.List;
  * Вызывает все валидаторы по порядку.
  * В случае если хотя бы один не проходит проверку, возвращает false.
  */
-public class ChainValidator extends BaseValidator {
+public class ValidationChain extends BaseValidator {
     private List<Validator> validators = new ArrayList<Validator>();
 
-    public ChainValidator(Validator[] chain) {
+    public ValidationChain(Validator[] chain) {
         validators.addAll(Arrays.asList(chain));
     }
 
