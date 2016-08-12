@@ -3,10 +3,7 @@ package ru.sidvi.depextractor.extractors;
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +21,13 @@ class ManifestExtractor implements Extractor {
 
     @Override
     public List<JarInfo> extract(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        InputStreamReader streamReader = null;
+        try {
+            streamReader = new InputStreamReader(is, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+        }
+
+        BufferedReader reader = new BufferedReader(streamReader);
         String line;
         while ((line = readLine(reader)) != null) {
             String[] split = line.split(":");

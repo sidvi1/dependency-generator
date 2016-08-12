@@ -40,12 +40,20 @@ public class InfoExtractorFacade {
 
             for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
                 if (comparator.isValid(file.getName())) {
+                    InputStream is = null;
                     try {
-                        InputStream is = jar.getInputStream(file);
+                        is = jar.getInputStream(file);
                         result.addAll(ExtractorsFactory.get(comparator).extract(is));
-                        is.close();
                     } catch (Exception ignored) {
-                        //TODO:
+
+                    }finally {
+                        if(is!= null) {
+                            try {
+                                is.close();
+                            } catch (IOException e) {
+
+                            }
+                        }
                     }
                 }
             }
