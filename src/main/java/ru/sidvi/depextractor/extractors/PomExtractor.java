@@ -28,7 +28,7 @@ class PomExtractor implements Extractor {
                 .setArtifact(parser.getArtifactId(), PomSourceTypeDecorator.POM_XML)
                 .setVersion(parser.getVersion(), PomSourceTypeDecorator.POM_XML)
                 .build();
-        if(extracted.getFormattedResult("%s%s%s").trim().length() > 0){
+        if (extracted.getFormattedResult("%s%s%s").trim().length() > 0) {
             infos.add(extracted);
         }
         return infos;

@@ -1,7 +1,7 @@
 package ru.sidvi.depextractor.commands;
 
 /**
- *  Формирует сообщение об ошибке.
+ * Формирует сообщение об ошибке.
  */
 public class FailCommand extends ResultHolder {
 

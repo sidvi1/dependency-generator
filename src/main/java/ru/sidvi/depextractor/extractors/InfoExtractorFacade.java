@@ -1,12 +1,14 @@
 package ru.sidvi.depextractor.extractors;
 
-import ru.sidvi.depextractor.model.JarInfo;
 import ru.sidvi.depextractor.extractors.pathcomparators.PathComparator;
+import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -51,7 +53,7 @@ public class InfoExtractorFacade {
         for (JarInfo i : result) {
             i.setFileName(new File(jarFile).getName());
         }
-        return  result;
+        return result;
     }
 
 }

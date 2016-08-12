@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor;
 
-import ru.sidvi.depextractor.commands.*;
+import ru.sidvi.depextractor.commands.Command;
+import ru.sidvi.depextractor.commands.CommandFactory;
 
 public class Main {
 

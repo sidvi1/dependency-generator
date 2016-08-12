@@ -28,7 +28,7 @@ class ParentPomExtractor implements Extractor {
                 .setArtifact(parser.getParentArtifactId(), PomSourceTypeDecorator.POM_XML_PARENT)
                 .setVersion(parser.getParentVersion(), PomSourceTypeDecorator.POM_XML_PARENT)
                 .build();
-        if(extracted.getFormattedResult("%s%s%s").trim().length() > 0){
+        if (extracted.getFormattedResult("%s%s%s").trim().length() > 0) {
             infos.add(extracted);
         }
         return infos;
