@@ -1,6 +1,8 @@
 package ru.sidvi.depextractor.extractors;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.*;
@@ -13,6 +15,9 @@ import java.util.List;
  * Источник перед этим считывается в буфер.
  */
 class CompoundExtractor implements Extractor {
+
+    private Logger logger = LoggerFactory.getLogger(CompoundExtractor.class);
+
     private final List<Extractor> extractors;
     private String casched = "";
 
@@ -37,6 +42,7 @@ class CompoundExtractor implements Extractor {
         try {
             bytes = casched.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
+            logger.error("Can't get cached data.", e);
         }
         return new ByteArrayInputStream(bytes);
     }
@@ -44,9 +50,9 @@ class CompoundExtractor implements Extractor {
     private void createCache(InputStream is) {
         StringWriter writer = new StringWriter();
         try {
-            IOUtils.copy(is, writer);
+            IOUtils.copy(is, writer, "UTF-8");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Can't copy data.", e);
         }
         casched = writer.getBuffer().toString();
     }

@@ -1,5 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * Извлекает информацию из MANIFEST.MF
  */
 class ManifestExtractor implements Extractor {
+
+    private Logger logger = LoggerFactory.getLogger(ManifestExtractor.class);
 
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
@@ -24,15 +28,15 @@ class ManifestExtractor implements Extractor {
         InputStreamReader streamReader = null;
         try {
             streamReader = new InputStreamReader(is, "UTF-8");
+            BufferedReader reader = new BufferedReader(streamReader);
+            String line;
+            while ((line = readLine(reader)) != null) {
+                String[] split = line.split(":");
+                parseSpecificationVersion(split);
+                parseImplementationVersion(split);
+            }
         } catch (UnsupportedEncodingException e) {
-        }
-
-        BufferedReader reader = new BufferedReader(streamReader);
-        String line;
-        while ((line = readLine(reader)) != null) {
-            String[] split = line.split(":");
-            parseSpecificationVersion(split);
-            parseImplementationVersion(split);
+            logger.error("Error when oppening input stream.", e);
         }
         return infos;
     }
@@ -41,8 +45,9 @@ class ManifestExtractor implements Extractor {
         try {
             return reader.readLine();
         } catch (IOException ignored) {
+            logger.error("Error while reading line.", reader);
         }
-        return null;
+        return "";
     }
 
     private void parseImplementationVersion(String[] split) {

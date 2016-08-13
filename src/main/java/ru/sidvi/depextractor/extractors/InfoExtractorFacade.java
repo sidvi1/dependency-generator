@@ -1,5 +1,7 @@
 package ru.sidvi.depextractor.extractors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.sidvi.depextractor.extractors.pathcomparators.PathComparator;
 import ru.sidvi.depextractor.model.JarInfo;
 
@@ -16,6 +18,9 @@ import java.util.jar.JarFile;
  * Извлекает из Jar файла информацию.
  */
 public class InfoExtractorFacade {
+
+    private Logger logger = LoggerFactory.getLogger(InfoExtractorFacade.class);
+
     private String jarFile = "";
 
     public InfoExtractorFacade(String jarFile) {
@@ -26,11 +31,8 @@ public class InfoExtractorFacade {
         JarFile jar = null;
         try {
             jar = new JarFile(jarFile);
-        } catch (IOException ignored) {
-            //TODO:
-        }
-        if (jar == null) {
-            return new ArrayList<>();
+        } catch (IOException e) {
+            logger.error("Error while openning file {}.", jar.getName(), e);
         }
 
         List<JarInfo> result = new ArrayList<>();
@@ -45,13 +47,13 @@ public class InfoExtractorFacade {
                         is = jar.getInputStream(file);
                         result.addAll(ExtractorsFactory.get(comparator).extract(is));
                     } catch (Exception ignored) {
-
+                        logger.error("", ignored);
                     } finally {
                         if (is != null) {
                             try {
                                 is.close();
                             } catch (IOException e) {
-
+                                logger.error("", e);
                             }
                         }
                     }

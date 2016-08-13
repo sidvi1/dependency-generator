@@ -1,5 +1,8 @@
 package ru.sidvi.depextractor.extractors.pom;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -17,6 +20,8 @@ import java.util.List;
  * Парсит pom.xml на предмет необходимых тэгов.
  */
 public class PomParser {
+
+    private Logger logger = LoggerFactory.getLogger(PomParser.class);
 
     private List<Tag> matchers = new ArrayList<>();
 
@@ -61,50 +66,48 @@ public class PomParser {
         XMLEventReader r =
                 null;
         try {
-            r = factory.createXMLEventReader("UTF-8", new InputStreamReader(is,"UTF-8"));
-        } catch (XMLStreamException | UnsupportedEncodingException e) {
+            r = factory.createXMLEventReader("UTF-8", new InputStreamReader(is, "UTF-8"));
 
-        }
 
-        LevelHolder level = new LevelHolder();
-        while (r.hasNext()) {
-            XMLEvent e = null;
-            try {
+            LevelHolder level = new LevelHolder();
+            while (r.hasNext()) {
+                XMLEvent e = null;
                 e = r.nextEvent();
-            } catch (XMLStreamException ignored) {
+
+                switch (e.getEventType()) {
+                    case XMLStreamConstants.START_ELEMENT: {
+                        level.up();
+
+                        StartElement el = e.asStartElement();
+                        String tagName = el.getName().getLocalPart();
+
+                        for (Tag tag : matchers) {
+                            tag.checkForStart(tagName, level);
+                        }
+                    }
+                    break;
+                    case XMLStreamConstants.CHARACTERS: {
+                        for (Tag tag : matchers) {
+                            tag.assignIfStarted(e.asCharacters().getData());
+                        }
+                    }
+                    break;
+                    case XMLStreamConstants.END_ELEMENT: {
+
+                        EndElement el = e.asEndElement();
+                        String tagName = el.getName().getLocalPart();
+
+                        for (Tag tag : matchers) {
+                            tag.checkForEnd(tagName, level);
+                        }
+
+                        level.down();
+                    }
+                    break;
+                }
             }
-
-            switch (e.getEventType()) {
-                case XMLStreamConstants.START_ELEMENT: {
-                    level.up();
-
-                    StartElement el = e.asStartElement();
-                    String tagName = el.getName().getLocalPart();
-
-                    for (Tag tag : matchers) {
-                        tag.checkForStart(tagName, level);
-                    }
-                }
-                break;
-                case XMLStreamConstants.CHARACTERS: {
-                    for (Tag tag : matchers) {
-                        tag.assignIfStarted(e.asCharacters().getData());
-                    }
-                }
-                break;
-                case XMLStreamConstants.END_ELEMENT: {
-
-                    EndElement el = e.asEndElement();
-                    String tagName = el.getName().getLocalPart();
-
-                    for (Tag tag : matchers) {
-                        tag.checkForEnd(tagName, level);
-                    }
-
-                    level.down();
-                }
-                break;
-            }
+        } catch (XMLStreamException | UnsupportedEncodingException e) {
+            logger.error("Error while parsing.", e);
         }
     }
 
