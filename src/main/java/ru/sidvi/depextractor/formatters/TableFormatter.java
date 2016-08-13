@@ -8,7 +8,7 @@ import ru.sidvi.depextractor.model.JarInfo;
  */
 public class TableFormatter implements Formatter {
 
-    private static final String format = "%-30s %-50s %-10s%n";
+    private static final String format = "%-30s %-50s %-3s%n";
 
     @Override
     public String format(JarInfo info) {
