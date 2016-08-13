@@ -36,7 +36,7 @@ public class InfoExtractorFacade {
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
 
-            result.addAll(processJarItems(jar, result, file));
+            result.addAll(processJarItems(jar, file));
         }
         for (JarInfo i : result) {
             i.setFileName(new File(jarFile).getName());
@@ -44,12 +44,11 @@ public class InfoExtractorFacade {
         return result;
     }
 
-    private List<JarInfo> processJarItems(Jar jar, List<JarInfo> result, JarEntry file) {
+    private List<JarInfo> processJarItems(Jar jar, JarEntry file) {
         List<JarInfo> extracted = new ArrayList<>();
         for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
             if (comparator.isValid(file.getName())) {
-                extracted = tryToExtract(jar, file, comparator);
-                result.addAll(extracted);
+                extracted.addAll(tryToExtract(jar, file, comparator));
             }
         }
         return extracted;

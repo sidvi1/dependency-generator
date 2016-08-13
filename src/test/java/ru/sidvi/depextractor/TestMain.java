@@ -1,6 +1,7 @@
 package ru.sidvi.depextractor;
 
 import org.apache.commons.io.IOUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 import ru.sidvi.depextractor.commands.Command;
 import ru.sidvi.depextractor.commands.CommandFactory;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-
+@Ignore
 public class TestMain {
     @Test
     public void integrationTest1() throws IOException {
