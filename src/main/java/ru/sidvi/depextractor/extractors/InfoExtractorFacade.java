@@ -13,6 +13,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
 
 /**
  * Извлекает из Jar файла информацию.
@@ -28,12 +29,7 @@ public class InfoExtractorFacade {
     }
 
     public List<JarInfo> extract() {
-        JarFile jar = null;
-        try {
-            jar = new JarFile(jarFile);
-        } catch (IOException e) {
-            logger.error("Error while openning file {}.", jar.getName(), e);
-        }
+        Jar jar = loadJar();
 
         List<JarInfo> result = new ArrayList<>();
         Enumeration en = jar.entries();
@@ -42,20 +38,10 @@ public class InfoExtractorFacade {
 
             for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
                 if (comparator.isValid(file.getName())) {
-                    InputStream is = null;
-                    try {
-                        is = jar.getInputStream(file);
+                    try (InputStream is = jar.getInputStream(file)) {
                         result.addAll(ExtractorsFactory.get(comparator).extract(is));
                     } catch (Exception ignored) {
                         logger.error("", ignored);
-                    } finally {
-                        if (is != null) {
-                            try {
-                                is.close();
-                            } catch (IOException e) {
-                                logger.error("", e);
-                            }
-                        }
                     }
                 }
             }
@@ -66,4 +52,72 @@ public class InfoExtractorFacade {
         return result;
     }
 
+    private Jar loadJar() {
+        Jar jar = new NullJarWrapper();
+        try {
+            jar = new JarWrapper(new JarFile(jarFile));
+        } catch (IOException e) {
+            logger.error("Error while openning file {}.", jar.getName(), e);
+        }
+        return jar;
+    }
+
+    private interface Jar {
+        InputStream getInputStream(ZipEntry var1) throws IOException;
+
+        Enumeration<JarEntry> entries();
+
+        String getName();
+    }
+
+    private class JarWrapper implements Jar {
+        private JarFile jar;
+
+        public JarWrapper(JarFile jar) {
+            this.jar = jar;
+        }
+
+        @Override
+        public InputStream getInputStream(ZipEntry var1) throws IOException {
+            return jar.getInputStream(var1);
+        }
+
+        @Override
+        public Enumeration<JarEntry> entries() {
+            return jar.entries();
+        }
+
+        @Override
+        public String getName() {
+            return jar.getName();
+        }
+    }
+
+    private class NullJarWrapper implements Jar {
+
+        @Override
+        public InputStream getInputStream(ZipEntry var1) throws IOException {
+            return null;
+        }
+
+        @Override
+        public Enumeration<JarEntry> entries() {
+            return new Enumeration<JarEntry>() {
+                @Override
+                public boolean hasMoreElements() {
+                    return false;
+                }
+
+                @Override
+                public JarEntry nextElement() {
+                    return null;
+                }
+            };
+        }
+
+        @Override
+        public String getName() {
+            return "Null jar file.";
+        }
+    }
 }
