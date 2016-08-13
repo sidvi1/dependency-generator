@@ -6,6 +6,8 @@ import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
 import ru.sidvi.depextractor.validators.Validator;
 
+import java.io.File;
+
 /**
  * Управляет созданием Command.
  */
@@ -19,7 +21,7 @@ public class CommandFactory {
         Command help = new HelpCommand();
         Validator v = new ChainValidator()
                 .add(new ArgsCountValidator(args))
-                .add(new DirectoryValidator(args));
+                .add(new DirectoryValidator( new File(args[0])));
         if (!v.validate()) {
             return new CompoundCommand()
                     .add(new FailCommand(v.getMessage()))
