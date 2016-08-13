@@ -18,10 +18,8 @@ public class DirectoryUtils {
         for (File file : files) {
             if (file.isDirectory()) {
                 result.addAll(list(file, extension));
-            } else {
-                if (file.getName().endsWith(extension)) {
-                    result.add(file);
-                }
+            } else if (file.getName().endsWith(extension)) {
+                result.add(file);
             }
         }
         return result;
