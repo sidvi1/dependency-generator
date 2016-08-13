@@ -23,3 +23,4 @@ public class CompoundCommand extends ResultHolder {
         }
     }
 }
+

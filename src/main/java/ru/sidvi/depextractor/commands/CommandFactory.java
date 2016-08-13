@@ -27,3 +27,4 @@ public class CommandFactory {
         return new FormattedOutputCommand(new TableFormatter(), args[0]);
     }
 }
+

@@ -46,8 +46,8 @@ public class InfoExtractorFacade {
                         result.addAll(ExtractorsFactory.get(comparator).extract(is));
                     } catch (Exception ignored) {
 
-                    }finally {
-                        if(is!= null) {
+                    } finally {
+                        if (is != null) {
                             try {
                                 is.close();
                             } catch (IOException e) {
