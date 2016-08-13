@@ -36,20 +36,33 @@ public class InfoExtractorFacade {
         while (en.hasMoreElements()) {
             JarEntry file = (JarEntry) en.nextElement();
 
-            for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
-                if (comparator.isValid(file.getName())) {
-                    try (InputStream is = jar.getInputStream(file)) {
-                        result.addAll(ExtractorsFactory.get(comparator).extract(is));
-                    } catch (Exception ignored) {
-                        logger.error("", ignored);
-                    }
-                }
-            }
+            result.addAll(processJarItems(jar, result, file));
         }
         for (JarInfo i : result) {
             i.setFileName(new File(jarFile).getName());
         }
         return result;
+    }
+
+    private List<JarInfo> processJarItems(Jar jar, List<JarInfo> result, JarEntry file) {
+        List<JarInfo> extracted = new ArrayList<>();
+        for (PathComparator comparator : ExtractorsFactory.getRegisteredComparators()) {
+            if (comparator.isValid(file.getName())) {
+                extracted = tryToExtract(jar, file, comparator);
+                result.addAll(extracted);
+            }
+        }
+        return extracted;
+    }
+
+    private List<JarInfo> tryToExtract(Jar jar, JarEntry file, PathComparator comparator) {
+        List<JarInfo> extracted = new ArrayList<>();
+        try (InputStream is = jar.getInputStream(file)) {
+            extracted = ExtractorsFactory.get(comparator).extract(is);
+        } catch (Exception ignored) {
+            logger.error("", ignored);
+        }
+        return extracted;
     }
 
     private Jar loadJar() {
