@@ -2,8 +2,8 @@ package ru.sidvi.depextractor.commands;
 
 import ru.sidvi.depextractor.formatters.TableFormatter;
 import ru.sidvi.depextractor.validators.ArgsCountValidator;
+import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
-import ru.sidvi.depextractor.validators.ValidationChain;
 import ru.sidvi.depextractor.validators.Validator;
 
 /**
@@ -17,7 +17,9 @@ public class CommandFactory {
 
     public static Command create(String[] args) {
         Command help = new HelpCommand();
-        Validator v = new ValidationChain(new Validator[]{new ArgsCountValidator(args), new DirectoryValidator(args)});
+        Validator v = new ChainValidator()
+                .add(new ArgsCountValidator(args))
+                .add(new DirectoryValidator(args));
         if (!v.validate()) {
             return new CompoundCommand()
                     .add(new FailCommand(v.getMessage()))
