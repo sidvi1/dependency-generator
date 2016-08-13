@@ -10,9 +10,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,12 +63,10 @@ public class PomParser {
     public void parse(InputStream is) {
 
         XMLInputFactory factory = XMLInputFactory.newInstance();
-        XMLEventReader r =
-                null;
-        try {
-            r = factory.createXMLEventReader("UTF-8", new InputStreamReader(is, "UTF-8"));
 
+        try (InputStreamReader reader = new InputStreamReader(is, "UTF-8")){
 
+            XMLEventReader r  = factory.createXMLEventReader("UTF-8", reader);
             LevelHolder level = new LevelHolder();
             while (r.hasNext()) {
                 XMLEvent e = null;
@@ -106,7 +104,7 @@ public class PomParser {
                     break;
                 }
             }
-        } catch (XMLStreamException | UnsupportedEncodingException e) {
+        } catch (XMLStreamException | IOException e) {
             logger.error("Error while parsing.", e);
         }
     }

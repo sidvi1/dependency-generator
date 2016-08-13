@@ -5,7 +5,10 @@ import org.slf4j.LoggerFactory;
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +28,9 @@ class ManifestExtractor implements Extractor {
 
     @Override
     public List<JarInfo> extract(InputStream is) {
-        InputStreamReader streamReader = null;
-        try {
-            streamReader = new InputStreamReader(is, "UTF-8");
+
+        try (InputStreamReader streamReader = new InputStreamReader(is, "UTF-8")) {
+
             BufferedReader reader = new BufferedReader(streamReader);
             String line;
             while ((line = readLine(reader)) != null) {
@@ -35,8 +38,9 @@ class ManifestExtractor implements Extractor {
                 parseSpecificationVersion(split);
                 parseImplementationVersion(split);
             }
-        } catch (UnsupportedEncodingException e) {
-            logger.error("Error when oppening input stream.", e);
+        } catch (IOException e) {
+            logger.error("", e);
+
         }
         return infos;
     }
