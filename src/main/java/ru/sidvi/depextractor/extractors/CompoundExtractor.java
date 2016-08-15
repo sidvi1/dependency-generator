@@ -7,7 +7,6 @@ import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,14 +15,9 @@ import java.util.List;
  */
 class CompoundExtractor implements Extractor {
 
-    private final List<Extractor> extractors;
+    private List<Extractor> extractors = new ArrayList<>();
     private Logger logger = LoggerFactory.getLogger(CompoundExtractor.class);
     private String casched = "";
-
-
-    public CompoundExtractor(Extractor[] extractors) {
-        this.extractors = Arrays.asList(extractors);
-    }
 
     @Override
     public List<JarInfo> extract(InputStream is) {
@@ -54,5 +48,10 @@ class CompoundExtractor implements Extractor {
             logger.error("Can't copy data.", e);
         }
         casched = writer.getBuffer().toString();
+    }
+
+    public CompoundExtractor add(Extractor extractor) {
+        extractors.add(extractor);
+        return this;
     }
 }

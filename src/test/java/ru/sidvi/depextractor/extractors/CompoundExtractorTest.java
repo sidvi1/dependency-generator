@@ -36,13 +36,13 @@ public class CompoundExtractorTest {
 
     @Before
     public void setUp() {
+        extractor = new CompoundExtractor();
+        is = IOUtils.toInputStream("here_must_be_data_from_file_to_extact");
     }
 
     @Test
-    public void shoulExtract() {
-        extractor = new CompoundExtractor(new Extractor[]{firstExtractor});
-        is = IOUtils.toInputStream("here_must_be_data_from_file_to_extact");
-
+    public void shouldExtract() {
+        extractor.add(firstExtractor);
         when(firstExtractor.extract(any(InputStream.class))).thenReturn(buildList("group", "artifact", "version"));
 
         List<JarInfo> actual = extractor.extract(is);
@@ -50,6 +50,22 @@ public class CompoundExtractorTest {
         verify(firstExtractor, times(1)).extract(any(InputStream.class));
         assertEquals(1, actual.size());
         assertThat(actual, IsCollectionContaining.hasItem(buildJarInfo("group", "artifact", "version")));
+    }
+
+    @Test
+    public void shouldExtractMultiple() {
+        extractor.add(firstExtractor)
+                .add(secondExtractor);
+        when(firstExtractor.extract(any(InputStream.class))).thenReturn(buildList("group", "artifact", "version"));
+        when(secondExtractor.extract(any(InputStream.class))).thenReturn(buildList("group2", "artifact2", "version2"));
+
+        List<JarInfo> actual = extractor.extract(is);
+
+        verify(firstExtractor, times(1)).extract(any(InputStream.class));
+        verify(secondExtractor, times(1)).extract(any(InputStream.class));
+        assertEquals(2, actual.size());
+        assertThat(actual, IsCollectionContaining.hasItems(buildJarInfo("group", "artifact", "version")
+                , buildJarInfo("group2", "artifact2", "version2")));
     }
 
     private List<JarInfo> buildList(String group, String artifact, String version) {

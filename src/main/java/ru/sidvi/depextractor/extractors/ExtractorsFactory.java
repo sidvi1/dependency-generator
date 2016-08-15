@@ -26,7 +26,9 @@ public abstract class ExtractorsFactory {
 
     public static Extractor get(PathComparator comparator) {
         if (comparator instanceof PomPathComparator) {
-            return new CompoundExtractor(new Extractor[]{new ParentPomExtractor(new PomParser()), new PomExtractor(new PomParser())});
+            return new CompoundExtractor()
+                    .add(new ParentPomExtractor(new PomParser()))
+                    .add(new PomExtractor(new PomParser()));
         }
         if (comparator instanceof ManifestPathComparator) {
             return new ManifestExtractor();
