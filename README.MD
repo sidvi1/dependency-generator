@@ -22,7 +22,7 @@ and place the file in any place.
 
 Example usage: 
 ```
-java -jar dg.jar -csv <path_to_jars_directory>
+java -jar dg.jar <path_to_jars_directory> -csv 
 ```
 
 Copiright

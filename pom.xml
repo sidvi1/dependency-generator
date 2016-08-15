@@ -194,6 +194,7 @@
                                     <mainClass>ru.sidvi.depextractor.Main</mainClass>
                                 </transformer>
                             </transformers>
+                            <outputFile>dg.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
