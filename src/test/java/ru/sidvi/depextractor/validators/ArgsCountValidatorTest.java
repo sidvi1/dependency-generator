@@ -13,35 +13,36 @@ public class ArgsCountValidatorTest {
 
     @Test
     public void shoudValidate() {
-        validator = new ArgsCountValidator(new String[]{"1"});
+        validator = new ArgsCountValidator();
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(new String[]{""});
 
         assertEquals(true, actual);
     }
 
     @Test
     public void shouldFailNoArgs() {
-        validator = new ArgsCountValidator(null);
+        validator = new ArgsCountValidator();
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(null);
 
         assertEquals(false, actual);
     }
-   @Test
-    public void shouldFailZeroArgs() {
-        validator = new ArgsCountValidator(new String[]{});
 
-        boolean actual = validator.validate();
+    @Test
+    public void shouldFailZeroArgs() {
+        validator = new ArgsCountValidator();
+
+        boolean actual = validator.validate(new String[]{});
 
         assertEquals(false, actual);
     }
 
     @Test
     public void shouldFail() {
-        validator = new ArgsCountValidator(new String[]{"1", "2"});
+        validator = new ArgsCountValidator();
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(new String[]{"1", "2"});
 
         assertEquals(false, actual);
     }

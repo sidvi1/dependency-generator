@@ -7,14 +7,9 @@ import java.io.File;
  */
 public class DirectoryValidator extends BaseValidator {
 
-    private File dir;
-
-    public DirectoryValidator(File dir) {
-        this.dir = dir;
-    }
-
     @Override
-    public boolean validate() {
+    public boolean validate(String[] args) {
+        File dir = new File(args[0]);
         String path = dir.getAbsolutePath();
         if (!dir.exists()) {
             message = String.format("Sorry, '%s' not exists. Try again.", path);

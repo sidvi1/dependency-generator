@@ -8,8 +8,9 @@ public interface Validator {
      * Провести проверку.
      *
      * @return - true если проверка успешная.
+     * @param args
      */
-    boolean validate();
+    boolean validate(String[] args);
 
     /**
      * Получить сообщение об ошибке в случае если проверка не удалась: validate() вернул false.

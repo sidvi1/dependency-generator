@@ -3,13 +3,9 @@ package ru.sidvi.depextractor.validators;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.io.File;
-
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 /**
  * @author Vitaly Sidorov mail@vitaly-sidorov.com
@@ -20,38 +16,32 @@ public class DirectoryValidatorTest {
     @InjectMocks
     private DirectoryValidator validator;
 
-    @Mock
-    private File dir;
+    private String[] argsStub;
+
 
     @Test
     public void shoudValidate() {
-        when(dir.getAbsolutePath()).thenReturn("absolute_path");
-        when(dir.exists()).thenReturn(true);
-        when(dir.isDirectory()).thenReturn(true);
+        argsStub = new String[]{this.getClass().getClassLoader().getResource("files").getPath()};
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(argsStub);
 
         assertEquals(true, actual);
     }
 
     @Test
     public void shouldFailNotDirectory() {
-        when(dir.getAbsolutePath()).thenReturn("absolute_path");
-        when(dir.exists()).thenReturn(true);
-        when(dir.isDirectory()).thenReturn(false);
+        argsStub = new String[]{"some_directory"};
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(argsStub);
 
         assertEquals(false, actual);
     }
 
     @Test
     public void shouldFailNotExists() {
-        when(dir.getAbsolutePath()).thenReturn("absolute_path");
-        when(dir.exists()).thenReturn(false);
-        when(dir.isDirectory()).thenReturn(true);
+        argsStub = new String[]{"some_directory"};
 
-        boolean actual = validator.validate();
+        boolean actual = validator.validate(argsStub);
 
         assertEquals(false, actual);
     }

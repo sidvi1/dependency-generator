@@ -6,8 +6,6 @@ import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
 import ru.sidvi.depextractor.validators.Validator;
 
-import java.io.File;
-
 /**
  * Управляет созданием Command.
  */
@@ -18,17 +16,26 @@ public class CommandFactory {
     }
 
     public static Command create(String[] args) {
-        Command help = new HelpCommand();
+        Command result;
+
         Validator v = new ChainValidator()
-                .add(new ArgsCountValidator(args))
-                .add(new DirectoryValidator(new File(args[0])));
-        if (!v.validate()) {
-            return new CompoundCommand()
-                    .add(new FailCommand(v.getMessage()))
-                    .add(help);
+                .add(new ArgsCountValidator())
+                .add(new DirectoryValidator());
+
+        if (!v.validate(args)) {
+            String message = v.getMessage();
+            result = getFailCommand(message);
+        } else {
+            result = new FormattedOutputCommand(new TableFormatter(), args[0]);
         }
 
-        return new FormattedOutputCommand(new TableFormatter(), args[0]);
+        return result;
+    }
+
+    private static CompoundCommand getFailCommand(String message) {
+        return new CompoundCommand()
+                .add(new FailCommand(message))
+                .add(new HelpCommand());
     }
 }
 

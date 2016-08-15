@@ -19,6 +19,7 @@ public class ChainValidatorTest {
 
     @Mock
     private Validator validator;
+    private String[] stubArgs = new String[]{"1"};
 
     @Before
     public void setUp() {
@@ -27,11 +28,11 @@ public class ChainValidatorTest {
 
     @Test
     public void shouldFalse() throws Exception {
-        when(validator.validate()).thenReturn(false);
+        when(validator.validate(stubArgs)).thenReturn(false);
         when(validator.getMessage()).thenReturn("Fail message");
         chainValidator.add(validator);
 
-        boolean actual = chainValidator.validate();
+        boolean actual = chainValidator.validate(stubArgs);
 
         assertEquals(false, actual);
         assertEquals("Fail message", chainValidator.getMessage());
@@ -39,10 +40,10 @@ public class ChainValidatorTest {
 
     @Test
     public void shouldTrue() throws Exception {
-        when(validator.validate()).thenReturn(true);
+        when(validator.validate(stubArgs)).thenReturn(true);
         chainValidator.add(validator);
 
-        boolean actual = chainValidator.validate();
+        boolean actual = chainValidator.validate(stubArgs);
 
         assertEquals(true, actual);
     }

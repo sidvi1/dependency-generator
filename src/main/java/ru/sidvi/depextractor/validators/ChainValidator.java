@@ -11,9 +11,9 @@ public class ChainValidator extends BaseValidator {
     private List<Validator> validators = new ArrayList<Validator>();
 
     @Override
-    public boolean validate() {
+    public boolean validate(String[] args) {
         for (Validator v : validators) {
-            if (!v.validate()) {
+            if (!v.validate(args)) {
                 message = v.getMessage();
                 return false;
             }

@@ -5,14 +5,8 @@ package ru.sidvi.depextractor.validators;
  */
 public class ArgsCountValidator extends BaseValidator {
 
-    private String[] args;
-
-    public ArgsCountValidator(String[] count) {
-        this.args = count;
-    }
-
     @Override
-    public boolean validate() {
+    public boolean validate(String[] args) {
         if (args == null || args.length == 0) {
             message = "Too low arguments.";
             return false;
