@@ -15,7 +15,7 @@ public class ArgsCountValidatorTest {
     public void shoudValidate() {
         validator = new ArgsCountValidator();
 
-        boolean actual = validator.validate(new String[]{""});
+        boolean actual = validator.validate(new String[]{"param1"});
 
         assertEquals(true, actual);
     }
@@ -42,7 +42,7 @@ public class ArgsCountValidatorTest {
     public void shouldFail() {
         validator = new ArgsCountValidator();
 
-        boolean actual = validator.validate(new String[]{"1", "2"});
+        boolean actual = validator.validate(new String[]{"1", "2", "3"});
 
         assertEquals(false, actual);
     }

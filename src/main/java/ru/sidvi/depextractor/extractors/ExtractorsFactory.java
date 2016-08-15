@@ -44,7 +44,7 @@ public abstract class ExtractorsFactory {
 
         @Override
         public List<JarInfo> extract(InputStream is) {
-            return new ArrayList<JarInfo>();
+            return new ArrayList<>();
         }
     }
 }

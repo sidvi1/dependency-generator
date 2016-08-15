@@ -24,14 +24,11 @@ public class FormattedOutputCommand extends ResultHolder {
     @Override
     public void execute() {
         List<JarInfo> jarsInfo = extract(jars);
-
         result = format(jarsInfo, formatter);
-        result += "\r\n";
-        result += "Processed files: " + jars.size();
     }
 
     private List<JarInfo> extract(List<File> jars) {
-        List<JarInfo> jarsInfo = new ArrayList<JarInfo>();
+        List<JarInfo> jarsInfo = new ArrayList<>();
 
         for (File jar : jars) {
             InfoExtractorFacade processor = new InfoExtractorFacade(jar.getAbsolutePath());

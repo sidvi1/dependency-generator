@@ -11,7 +11,7 @@ public class ArgsCountValidator extends BaseValidator {
             message = "Too low arguments.";
             return false;
         }
-        if (args.length > 1) {
+        if (args.length > 2) {
             message = "Too much arguments.";
             return false;
         }
