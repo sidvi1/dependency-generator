@@ -4,9 +4,6 @@ import ru.sidvi.depextractor.extractors.pom.PomParser;
 import ru.sidvi.depextractor.extractors.sourcetypes.PomSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
-import java.io.InputStream;
-import java.util.List;
-
 /**
  * Извлекает информацию из pom.xml
  */
@@ -17,11 +14,12 @@ class PomExtractor extends BasePomExtractor {
     }
 
     @Override
-    public List<JarInfo> extract(InputStream is) {
-        return extract(is
-                , parser.getGroupId()
-                , parser.getArtifactId()
-                , parser.getVersion()
-                , PomSourceTypeDecorator.POM_XML);
+    protected JarInfo buildJarInfo() {
+        return new JarInfo.Builder(PomSourceTypeDecorator.POM_XML)
+                .setGroup(parser.getGroupId())
+                .setArtifact(parser.getArtifactId())
+                .setVersion(parser.getVersion())
+                .build();
     }
 }
+

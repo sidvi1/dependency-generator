@@ -3,7 +3,6 @@ package ru.sidvi.depextractor.extractors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.sidvi.depextractor.extractors.pom.PomParser;
-import ru.sidvi.depextractor.extractors.sourcetypes.PomSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
 import java.io.InputStream;
@@ -21,19 +20,18 @@ public abstract class BasePomExtractor implements Extractor {
         this.parser = parser;
     }
 
-    protected List<JarInfo> extract(InputStream is, String groupId, String artifactId, String version, PomSourceTypeDecorator source) {
+    @Override
+    public List<JarInfo> extract(InputStream is) {
         List<JarInfo> infos = new ArrayList<>();
         parser.parse(is);
-        JarInfo extracted = new JarInfo.Builder(source)
-                .setGroup(groupId)
-                .setArtifact(artifactId)
-                .setVersion(version)
-                .build();
+        JarInfo extracted = buildJarInfo();
         if (notEmpty(extracted)) {
             infos.add(extracted);
         }
         return infos;
     }
+
+    protected abstract JarInfo buildJarInfo() ;
 
     private boolean notEmpty(JarInfo extracted) {
         return extracted.getFormattedResult("%s%s%s").trim().length() > 0;
