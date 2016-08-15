@@ -119,18 +119,23 @@ public class JarInfo {
         private Entry group = Entry.create();
         private Entry artifact = Entry.create();
         private Entry version = Entry.create();
+        private SourceType source;
 
-        public Builder setGroup(String id, SourceType source) {
+        public Builder(SourceType source) {
+            this.source = source;
+        }
+
+        public Builder setGroup(String id) {
             group = Entry.create(id, source);
             return this;
         }
 
-        public Builder setArtifact(String id, SourceType source) {
+        public Builder setArtifact(String id) {
             artifact = Entry.create(id, source);
             return this;
         }
 
-        public Builder setVersion(String id, SourceType source) {
+        public Builder setVersion(String id) {
             version = Entry.create(id, source);
             return this;
         }

@@ -65,8 +65,8 @@ class ManifestExtractor implements Extractor {
     private void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
         if (split[0].trim().equals(field)) {
 
-            JarInfo info = new JarInfo.Builder()
-                    .setVersion(split[1].trim(), source)
+            JarInfo info = new JarInfo.Builder(source)
+                    .setVersion(split[1].trim())
                     .build();
             infos.add(info);
         }

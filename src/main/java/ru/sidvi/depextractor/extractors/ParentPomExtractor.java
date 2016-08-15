@@ -23,10 +23,10 @@ class ParentPomExtractor implements Extractor {
     public List<JarInfo> extract(InputStream is) {
         List<JarInfo> infos = new ArrayList<JarInfo>();
         parser.parse(is);
-        JarInfo extracted = new JarInfo.Builder()
-                .setGroup(parser.getParentGroupId(), PomSourceTypeDecorator.POM_XML_PARENT)
-                .setArtifact(parser.getParentArtifactId(), PomSourceTypeDecorator.POM_XML_PARENT)
-                .setVersion(parser.getParentVersion(), PomSourceTypeDecorator.POM_XML_PARENT)
+        JarInfo extracted = new JarInfo.Builder(PomSourceTypeDecorator.POM_XML_PARENT)
+                .setGroup(parser.getParentGroupId())
+                .setArtifact(parser.getParentArtifactId())
+                .setVersion(parser.getParentVersion())
                 .build();
         if (extracted.getFormattedResult("%s%s%s").trim().length() > 0) {
             infos.add(extracted);

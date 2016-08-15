@@ -23,8 +23,8 @@ public class TestManifestExtractor {
         Extractor e = new ManifestExtractor();
         List<JarInfo> actual = e.extract(input);
 
-        expected.add(new JarInfo.Builder()
-                .setVersion("1.2.16", ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION)
+        expected.add(new JarInfo.Builder(ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION)
+                .setVersion("1.2.16")
                 .build());
         assertEquals(actual, expected);
     }
@@ -35,11 +35,11 @@ public class TestManifestExtractor {
         Extractor e = new ManifestExtractor();
         List<JarInfo> actual = e.extract(input);
 
-        expected.add(new JarInfo.Builder()
-                .setVersion("4.4.0", ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION)
+        expected.add(new JarInfo.Builder( ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION)
+                .setVersion("4.4.0")
                 .build());
-        expected.add(new JarInfo.Builder()
-                .setVersion("4.4.0 1504776 - sarowe - 2013-07-19 02", ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION)
+        expected.add(new JarInfo.Builder(ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION)
+                .setVersion("4.4.0 1504776 - sarowe - 2013-07-19 02")
                 .build());
         assertEquals(actual, expected);
     }
