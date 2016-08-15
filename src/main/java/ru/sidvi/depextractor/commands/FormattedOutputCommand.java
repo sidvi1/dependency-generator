@@ -17,7 +17,7 @@ public class FormattedOutputCommand extends ResultHolder {
     private File dir;
     private Formatter formatter;
 
-    FormattedOutputCommand(Formatter formatter, String dir) {
+    public FormattedOutputCommand(Formatter formatter, String dir) {
         this.formatter = formatter;
         this.dir = new File(dir);
     }

@@ -10,7 +10,7 @@ public class CompoundCommand extends ResultHolder {
 
     private List<Command> commands = new ArrayList<Command>();
 
-    CompoundCommand add(Command command) {
+    public CompoundCommand add(Command command) {
         commands.add(command);
         return this;
     }
