@@ -1,0 +1,1470 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.mozilla.javascript
+Export-Package: about_files,org.mozilla.classfile,org.mozilla.javascri
+pt,org.mozilla.javascript.annotations,org.mozilla.javascript.ast,org.
+mozilla.javascript.commonjs.module,org.mozilla.javascript.commonjs.mo
+dule.provider,org.mozilla.javascript.debug,org.mozilla.javascript.jdk
+13,org.mozilla.javascript.jdk15,org.mozilla.javascript.json,org.mozil
+la.javascript.optimizer,org.mozilla.javascript.regexp,org.mozilla.jav
+ascript.resources,org.mozilla.javascript.serialize,org.mozilla.javasc
+ript.tools,org.mozilla.javascript.tools.debugger,org.mozilla.javascri
+pt.tools.debugger.treetable,org.mozilla.javascript.tools.idswitch,org
+.mozilla.javascript.tools.jsc,org.mozilla.javascript.tools.resources,
+org.mozilla.javascript.tools.shell,org.mozilla.javascript.v8dtoa,org.
+mozilla.javascript.xml,org.mozilla.javascript.xml.impl.xmlbeans,org.m
+ozilla.javascript.xmlimpl
+Bundle-Name: %Bundle-Name.0
+Bundle-Version: 1.7.5.v201504281450
+Bundle-Localization: plugin
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Eclipse-SourceReferences: scm:cvs:pserver:dev.eclipse.org:/cvsroot/too
+ls:org.eclipse.orbit/org.mozilla.javascript;tag=v201504281450
+Bundle-Vendor: %Bundle-Vendor.0
+Import-Package: javax.swing;resolution:=optional,javax.swing.border;re
+solution:=optional,javax.swing.event;resolution:=optional,javax.swing
+.filechooser;resolution:=optional,javax.swing.table;resolution:=optio
+nal,javax.swing.text;resolution:=optional,javax.swing.tree;resolution
+:=optional,javax.xml.namespace;resolution:=optional,javax.xml.parsers
+;resolution:=optional,javax.xml.transform;resolution:=optional,javax.
+xml.transform.dom;resolution:=optional,javax.xml.transform.stream;res
+olution:=optional,org.w3c.dom;resolution:=optional,org.xml.sax;resolu
+tion:=optional
+Main-Class: org.mozilla.javascript.tools.shell.Main
+
+Name: org/mozilla/javascript/JavaAdapter.class
+SHA-256-Digest: jYTJbF6NFU3K+bK+fGO8LYOQoMK/hWQiuok64wq8SNo=
+
+Name: org/mozilla/javascript/regexp/NativeRegExpCtor.class
+SHA-256-Digest: C+Q9qiEDPTCUrMiUMNbR50HISk+P1asYm79prz616d8=
+
+Name: org/mozilla/javascript/ScriptableObject$RelinkedSlot.class
+SHA-256-Digest: UbgNzio6WNriTPdc8F6mT/62LjyKhhpeLJqSx0Ct/xU=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$FunctionSource.class
+SHA-256-Digest: /AswoJ39f2Fow58KJDE0evnJON27r/3XJJjn9PexrZw=
+
+Name: org/mozilla/javascript/CompilerEnvirons.class
+SHA-256-Digest: 9Y9f6jWuwtzIFyK+Grg0UwSq5NfLhoYwZtVUln9TPTk=
+
+Name: org/mozilla/javascript/FunctionObject.class
+SHA-256-Digest: wiN+vSKU0ZkpN7GwwJE0o+tvkRN+UVVuDmRSc/LhEIk=
+
+Name: org/mozilla/javascript/LazilyLoadedCtor$1.class
+SHA-256-Digest: oQijonr0iztUQShB75lCq++87EUj1OYi2rqImbOdeo8=
+
+Name: org/mozilla/javascript/tools/debugger/FindFunction$1.class
+SHA-256-Digest: ZatibOrksztcmPI7FeUs/+0J6z+71E4B75DjmxCkyHI=
+
+Name: org/mozilla/javascript/tools/idswitch/Main.class
+SHA-256-Digest: eoWYfaG8bOubyQREuy40RBymxdz0rgVULEFQ/oFthLU=
+
+Name: org/mozilla/javascript/Script.class
+SHA-256-Digest: KpJRfBOzh7Wzu7Nc7+eqqDmJc3wrkOqM9pAE4fZBMVs=
+
+Name: org/mozilla/javascript/annotations/JSStaticFunction.class
+SHA-256-Digest: jk9kEzTCxcfG/JRjsfFHxEUpPsCWcTchxglz543mHFU=
+
+Name: org/mozilla/javascript/tools/idswitch/IdValuePair.class
+SHA-256-Digest: PA1OW9z/Rx/cjTmcFXMdOrOOueXuhYzpp2s/hXomJXU=
+
+Name: org/mozilla/javascript/ast/FunctionNode$Form.class
+SHA-256-Digest: z+lZgrfWE4vFbl5x0N5zWgMrEu3Jy9VUpP38Se8Y8Gc=
+
+Name: org/mozilla/javascript/json/JsonParser$ParseException.class
+SHA-256-Digest: tBq9RJLvaN85Cdr4BZdZBq7oeIpaNJAASggbDY+rJKs=
+
+Name: org/mozilla/javascript/JavaAdapter$1.class
+SHA-256-Digest: xNOkO//UfS3TgmZwfDD8IQxq1Zbbvr2RdSzZSz5Se8s=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/JTreeTable$ListT
+oTreeSelectionModelWrapper$ListSelectionHandler.class
+SHA-256-Digest: 00kI8GzbNmgVzYKO+brJEqoIPdcD2GFtYEvKxGAOKbY=
+
+Name: org/mozilla/javascript/NativeContinuation.class
+SHA-256-Digest: ugL/uAzOLUOncjaocFbmKRTSVfGh/3ngsnCpRpVmCzs=
+
+Name: org/mozilla/javascript/commonjs/module/provider/CachingModuleScr
+iptProviderBase$CachedModuleScript.class
+SHA-256-Digest: rK7nt+tT7iI1qL/J+LIJNBMcNrbU13xhjRRnobCrV0Y=
+
+Name: org/mozilla/javascript/v8dtoa/DiyFp.class
+SHA-256-Digest: NAXMVZP3RLhBdvfrclSX0bipL2rDLf6sXPYKnf8VdVw=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$Loader.cla
+ss
+SHA-256-Digest: WG4E5e1WA6GC/xtZQMuTrpQpMBfS8qdGYQbs3QKy1ss=
+
+Name: org/mozilla/classfile/ClassFileField.class
+SHA-256-Digest: 5rQBy6TCcSrZm4SGOuv+5tgwpa075iKLJtaxOrctDWg=
+
+Name: org/mozilla/javascript/tools/idswitch/FileBody.class
+SHA-256-Digest: Sxjmlj++GUGRUEUWmsXthCjurPN6qgbuyMcvcLJsPEk=
+
+Name: org/mozilla/javascript/Function.class
+SHA-256-Digest: nd5g0ADpYvMDgNaNbpXyIw2YZ3r78pBBi4z+KU3V94Q=
+
+Name: org/mozilla/javascript/optimizer/Optimizer.class
+SHA-256-Digest: b3zdBCdkBx1Xa0/Ov2rjW6IzImQkcfHZ4PvaZz+HpzU=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$ContextPer
+missions$1.class
+SHA-256-Digest: 4kUwNAPWKLbNF+K5s/joPtDOGVze7iA3MviAWMXMBDY=
+
+Name: org/mozilla/javascript/Interpreter$ContinuationJump.class
+SHA-256-Digest: 935FjejmpRHZT9OZ0ZVOtIBkXDMVnKYW0VlMO/j1SmM=
+
+Name: org/mozilla/javascript/ast/RegExpLiteral.class
+SHA-256-Digest: FTrL0WY1LsZ7hdjGTWamW1bHtIk9Ub34YYho0kQe3KM=
+
+Name: org/mozilla/javascript/commonjs/module/provider/SoftCachingModul
+eScriptProvider.class
+SHA-256-Digest: WzS3od3ddfsjFvKC4ivY/1ZTgJLKqK/zb0T0Qf+FTXU=
+
+Name: org/mozilla/javascript/SecurityUtilities.class
+SHA-256-Digest: NNJfpA50q8g1pZIxs2MgIUt4AD8mUo4zUCWGnDKHJ5g=
+
+Name: org/mozilla/javascript/Context$ClassShutterSetter.class
+SHA-256-Digest: rse6g2pO1YgAuaO0dzl+EufxniY2wpPu6OkrzNat5g0=
+
+Name: org/mozilla/javascript/regexp/SubString.class
+SHA-256-Digest: G/nW5uH4Ra8GyF5Bhte+nj63zAuG5iXxr6ndtE7UVPY=
+
+Name: org/mozilla/javascript/NativeIterator$StopIteration.class
+SHA-256-Digest: usSGG2ypC0fmHkN0CgfCkAK458QM7ttQL49/1LrKSrI=
+
+Name: org/mozilla/javascript/ScriptRuntime.class
+SHA-256-Digest: 8pSAjcJBLvI2KfR6ICxUwt28EZkNm2wFeJ4k6r0ydU0=
+
+Name: org/mozilla/javascript/commonjs/module/ModuleScriptProvider.clas
+s
+SHA-256-Digest: RKZpMxKDzLxV+UQEl9OT6UbK1mwvx4yCHsAN3ZozilQ=
+
+Name: org/mozilla/javascript/NativeGenerator$GeneratorClosedException.
+class
+SHA-256-Digest: njD+zbzJ2GOY8XUSA0Y+239yJPw8yPiGy7JZTN1KU/w=
+
+Name: org/mozilla/javascript/ast/EmptyExpression.class
+SHA-256-Digest: 29ma1ZC9YmM1cQILUq0U+H9fuuWg/sw3dOfj2Vrbn1c=
+
+Name: org/mozilla/javascript/commonjs/module/provider/UrlConnectionExp
+iryCalculator.class
+SHA-256-Digest: DJFYg4aEPRIMBaKgUAb2m9EqDxWqu7iesL7n4O+e0w0=
+
+Name: org/mozilla/javascript/ScriptRuntime$NoSuchMethodShim.class
+SHA-256-Digest: PdMa4t7aWBSRVjjjRqXjD2Y7CMGPW83JyygCSuzxVVc=
+
+Name: org/mozilla/javascript/PolicySecurityController$3.class
+SHA-256-Digest: H8dFMw+cQlzxnX0k3k+KYuJDqjit+8v4o4d/a2Zeq3s=
+
+Name: org/mozilla/javascript/serialize/ScriptableOutputStream$PendingL
+ookup.class
+SHA-256-Digest: s/RMII8oPswIYjstsPB0plPcSU5AV/h0+zGikUd3fO8=
+
+Name: org/mozilla/javascript/tools/jsc/Main.class
+SHA-256-Digest: oo9yfHh4r2CixtWnvT3KoMzMvvDK3kzJEfXf6UWxGr4=
+
+Name: org/mozilla/javascript/commonjs/module/provider/MultiModuleScrip
+tProvider.class
+SHA-256-Digest: xw+Fja7QOGWIfFSw8mePyErxWr6pYhFv18gaPnt3DXU=
+
+Name: org/mozilla/javascript/FieldAndMethods.class
+SHA-256-Digest: yNsTdG9LiePDtSv7kUmyg5OZecVQ4X5xxTWvPjQxy8A=
+
+Name: org/mozilla/javascript/ast/ParenthesizedExpression.class
+SHA-256-Digest: 0Uru+4tBWQEwi2caKEbNPjfYo2cocjtXMA+sXnAWEEg=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter$3.class
+SHA-256-Digest: BMy0YjTgt+xw2nrtysHGwErx5QR7zQak0EeoDhHXUrc=
+
+Name: org/mozilla/javascript/commonjs/module/provider/CachingModuleScr
+iptProviderBase.class
+SHA-256-Digest: ZwoBXbble/CEbe8cK/xi7lGnQ3iaMLZq9c4aY7Gar6s=
+
+Name: org/mozilla/javascript/tools/shell/FlexibleCompletor.class
+SHA-256-Digest: 4Lt3np36R94bepsWU/woquI4rs1JCOoMHvw5xe1RIXw=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLObjectImpl.class
+SHA-256-Digest: w2pTSaVdMeAHsWmAb2YA68QrbyZAUY7/mrf6gOM0Hlw=
+
+Name: org/mozilla/javascript/commonjs/module/provider/ParsedContentTyp
+e.class
+SHA-256-Digest: tsBNxHfwil3majMkHtsu2R6yDXALSbV54GGQsUzWUq0=
+
+Name: org/mozilla/javascript/xmlimpl/XML.class
+SHA-256-Digest: DMiCg5zdvmljE9nYdnV2NdYVrFkKOoMYs3admR4Mt/M=
+
+Name: org/mozilla/javascript/ast/UnaryExpression.class
+SHA-256-Digest: NvQk/lGWOLLHLB2yZFbJduQvUFgUhpsT6CXta1zFF2g=
+
+Name: org/mozilla/javascript/Icode.class
+SHA-256-Digest: LkfuJKpJry4nkCZD6TIXAi2Xmk3/5FdMndJgAtcAhVo=
+
+Name: org/mozilla/javascript/ast/XmlPropRef.class
+SHA-256-Digest: VFBizONVogz/gBdd5hRTyEbUGdMFx0LorxbdZtcab8I=
+
+Name: org/mozilla/javascript/NativeObject$EntrySet$1.class
+SHA-256-Digest: yS/8OqaRfhNR1SmiVii6M6bv3xuV+7cidV5BHSaY5ns=
+
+Name: org/mozilla/classfile/FieldOrMethodRef.class
+SHA-256-Digest: t/zL4JSjlX/ibHhRF63Unt9OWdAtI+trnawzHy605z8=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter.class
+SHA-256-Digest: 0zrNDDOzL4Pw5VFolUtliZn+PUa4qA1+2F7aIrioMzg=
+
+Name: org/mozilla/javascript/tools/shell/ShellLine.class
+SHA-256-Digest: ppzQWfYk5PanWknGIz+AQTPBrwxfHXaOvX/UVwsA8Dw=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLList$AnnotationList.
+class
+SHA-256-Digest: 6A1EhJx7iI8bJ8kjw/lDUNMb8QQM5gQd2+ZrudOTgQw=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLWithScope.class
+SHA-256-Digest: OG0dDBnQ1NinXE8r+dlQo0+UqwxykY2ITfUyswEQz0Q=
+
+Name: org/mozilla/javascript/SecureCaller$1.class
+SHA-256-Digest: NsXv3tAOfhrCnMYis2Nh0ua3+fyRyNYQw/LtNULzhUg=
+
+Name: org/mozilla/javascript/tools/idswitch/CodePrinter.class
+SHA-256-Digest: uOX9ILiRcoHbd328tFrBk8q/ujIb4xQK7wXlv2Hd2zM=
+
+Name: org/mozilla/javascript/SecurityController$1.class
+SHA-256-Digest: EbewfSJ+QjDb+SzLo4SNVjaWtk/0uW1fd0/YC6of9jo=
+
+Name: org/mozilla/javascript/v8dtoa/FastDtoaBuilder.class
+SHA-256-Digest: mzet2Nv+J0kVXBlSHg0LYkGA9vOtaFioIxpW9m4glcI=
+
+Name: org/mozilla/javascript/Delegator.class
+SHA-256-Digest: cXo5/UPy+X+wLrbdVo88Dgl+SqX24tck0c2dIUCt5n4=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter$1.class
+SHA-256-Digest: gcO4mJ1qmRrnOT8lIM6hhY2kwmxFUauV54NJYJF+vqo=
+
+Name: org/mozilla/javascript/NativeString.class
+SHA-256-Digest: 1t5+VqDKQ7hdcKf4naFoQxMwgx7vtMHcZKvwEkZh+h8=
+
+Name: org/mozilla/javascript/commonjs/module/provider/DefaultUrlConnec
+tionExpiryCalculator.class
+SHA-256-Digest: pJavfKdtDD37v7osg9/cooykxm0nf/Q8vk9wmdY4FfQ=
+
+Name: org/mozilla/javascript/optimizer/OptTransformer.class
+SHA-256-Digest: 7lNniM6K13GUGNB2dhyN0zb9nmViR/qxe3Yw9bChJZE=
+
+Name: org/mozilla/javascript/DefiningClassLoader.class
+SHA-256-Digest: AzH/u54PV9h+AMERx9NiVE7PyT29sO5B1kx/0L5Dtis=
+
+Name: org/mozilla/javascript/tools/debugger/SwingGui$1.class
+SHA-256-Digest: vqDBJD14HW2KjICa+Xbww0uBHbMCScDeg/MqzAxbfDE=
+
+Name: org/mozilla/javascript/NativeScript.class
+SHA-256-Digest: cuHFnZqfsC4eOrp4n0z+A6OLUBGM9hABhPlNNcpxw4k=
+
+Name: org/mozilla/javascript/NativeMath.class
+SHA-256-Digest: PbST8++UkHc7hP7xgimCQ9Vo7VYHt8T8aXMpWYD6LC8=
+
+Name: org/mozilla/javascript/ast/ObjectLiteral.class
+SHA-256-Digest: OJ9B65sqSgDDge9QrtkeTlzmYHv670KfUsxTWsCvz0U=
+
+Name: org/mozilla/javascript/serialize/ScriptableInputStream.class
+SHA-256-Digest: bdouDP3UD8aISrI87Z3f42kwSG6T7Y9WQcJgRg0MTdE=
+
+Name: org/mozilla/classfile/ClassFileWriter$StackMapTable.class
+SHA-256-Digest: mZkLpzCvqW8ZTofzbN9R/QshqckIG88c784pKjeEn94=
+
+Name: org/mozilla/javascript/ast/VariableInitializer.class
+SHA-256-Digest: KjQZaQ4EyFitgkN+rxMbeVv86CTjbB/EdILrF9a6WYI=
+
+Name: org/mozilla/javascript/BaseFunction.class
+SHA-256-Digest: mn4IWwBGMqiQ4fJzZuD03lzeQL0GLNZtxqcA21l1SsI=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/TreeTableModelAd
+apter$3.class
+SHA-256-Digest: uWw2Mzu332krKeq2qqKn4vjxoii6ElNLdhLe6smF/z0=
+
+Name: org/mozilla/javascript/debug/DebuggableObject.class
+SHA-256-Digest: aIvcmtH2i1ePx3Ajfq0WycU2tgevoSBWUAWOE2hSM/k=
+
+Name: org/mozilla/javascript/ast/DoLoop.class
+SHA-256-Digest: +/SJmm4BB/oGCQ4AFoEB8S5INMOo9ra1b/T1Ps7zbUA=
+
+Name: org/mozilla/javascript/ast/ExpressionStatement.class
+SHA-256-Digest: re6bTEU6Oebdn5h9CgcdNNUyXsbhgwYMgKfIJRSQGx4=
+
+Name: org/mozilla/javascript/ast/SwitchCase.class
+SHA-256-Digest: l7CoM5I85aS0Og6fLIW2g0Frie7xSKyT2FcLwNo791s=
+
+Name: org/mozilla/javascript/xmlimpl/XmlProcessor.class
+SHA-256-Digest: x7wQxNHmWuB63ntUaLa2mn65GrrIYpVogMvzXBzOQfE=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/LogicalEquality.class
+SHA-256-Digest: Yt1nG7Wqo8Oy7USXP8RQS05ZpB3XuW5GYDdjk25EL+8=
+
+Name: org/mozilla/javascript/ast/FunctionNode.class
+SHA-256-Digest: RS6Rz0Gt351/vIZ4wImSXT7XtKavUrNhY0bmryCcJaA=
+
+Name: org/mozilla/javascript/ast/FunctionCall.class
+SHA-256-Digest: GG9PdwyfhO/g26+DKGMkane7SGaxdIc8EMtiwDIEm58=
+
+Name: org/mozilla/javascript/ast/GeneratorExpression.class
+SHA-256-Digest: 6wsuGxS2BcFt4AhXR9G64wuCXpHG+9KdzfMWvqw+Ffk=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$1.class
+SHA-256-Digest: PCd7O1dzhc5nh5hRM7/yYn1k1YkOYUfYGG1n7xMPLdc=
+
+Name: org/mozilla/javascript/ast/AstRoot.class
+SHA-256-Digest: 5rClhgOwsWcNtDrWoRDH9xUTJrr/htUVxaMb7y7+uK8=
+
+Name: org/mozilla/javascript/jdk15/VMBridge_jdk15.class
+SHA-256-Digest: GeHumtG0taE0i339DX3b1M3W9b4EJTIbEJz69QXku8s=
+
+Name: org/mozilla/javascript/Context$2.class
+SHA-256-Digest: qsPeZlTqg//fWr3WejTcDf8PwWWbMVo5afh+qEBXVwo=
+
+Name: org/mozilla/javascript/ast/ObjectProperty.class
+SHA-256-Digest: bP/rDoaAVDSE+mpHHPMOyjAyJruZzxU+BHAdWIojuFI=
+
+Name: org/mozilla/javascript/ContextFactory$1.class
+SHA-256-Digest: Pb20wOR9gs+RCZQ9CqZxrhtxHkVxLbth+FNTKy/aStU=
+
+Name: org/mozilla/javascript/JavaScriptException.class
+SHA-256-Digest: zgChYQI3g/woBuDwcbZ8WPrFKMaZMwHX50Y6Dlc0ro0=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$ContextPer
+missions.class
+SHA-256-Digest: s3hJJuEp+ENxtCYyABBfqZsrCKuFLsq5Ig636+6cdxM=
+
+Name: org/mozilla/javascript/DToA.class
+SHA-256-Digest: 5cwj8eIQrVESgKKq9YC1sTM1VRcsFHDRKFHE3r5IVGk=
+
+Name: org/mozilla/javascript/NativeIterator$WrappedJavaIterator.class
+SHA-256-Digest: oVCimQHEmRNxoTjIX/nBg7aLX6wxkLuuJQrq/oC3+rA=
+
+Name: org/mozilla/javascript/NodeTransformer.class
+SHA-256-Digest: qRfRJVbQqiQ+O8DaOVFh2dy1h12lSfMGcZC+yQppjzg=
+
+Name: org/mozilla/javascript/commonjs/module/provider/UrlModuleSourceP
+rovider.class
+SHA-256-Digest: n9XQU3jbO7XT9pUl+VmSLItPHBoYuDOATRzv/FKCWsI=
+
+Name: org/mozilla/javascript/NativeObject$EntrySet.class
+SHA-256-Digest: QTpdDbP2q67PATXjLIc6F9KaXFwrYxzKlPXQjSnQLRw=
+
+Name: org/mozilla/javascript/tools/debugger/FileTextArea.class
+SHA-256-Digest: R9H8AcOfMb1rgEyb6FNM/NNDHL6QuKCA2oxb8yfPGGA=
+
+Name: org/mozilla/javascript/tools/SourceReader.class
+SHA-256-Digest: cHgeAdT2M260iJJ4v4k9FjxFVkrUeqSzxmut+Eb3Kpg=
+
+Name: org/mozilla/javascript/ast/IfStatement.class
+SHA-256-Digest: MMWLi9Rz1V6xoOJmk9hpCMnVgdl7l6MaqMlUO6Dw7dA=
+
+Name: org/mozilla/javascript/ast/LetNode.class
+SHA-256-Digest: tlxrdqGG/nYqruUkrpv/UWvp7Qfrh8474oaNAX35bqw=
+
+Name: org/mozilla/javascript/commonjs/module/Require.class
+SHA-256-Digest: KukjGQAkrzL2ZypoYRbhZt2eepvKfdLiywwd6SZ1Kq0=
+
+Name: org/mozilla/javascript/regexp/RECharSet.class
+SHA-256-Digest: 0D770fchtXTBh/1+02VSmxTsQfa3OS2IGLclhAhqmOI=
+
+Name: org/mozilla/javascript/xmlimpl/XMLName.class
+SHA-256-Digest: 3DnwcWNTlkKV0UZLqO2DchYoQu0v+TohIhM8CyRgqSY=
+
+Name: org/mozilla/javascript/regexp/REGlobalData.class
+SHA-256-Digest: FskatWbt0Y6nxfPyYMQW9xKBWqVqeJOXBsnkUqdl6D0=
+
+Name: org/mozilla/javascript/ast/SwitchStatement.class
+SHA-256-Digest: Ddc2Xmg/uO3sX+8VfvLJt7zxP1sUTpNdVEU/M9r+aXI=
+
+Name: org/mozilla/javascript/ast/WhileLoop.class
+SHA-256-Digest: 7+ML7pmcP2iSrZ+336lKObIla+u6R0MpqjQRMIzCU2Q=
+
+Name: org/mozilla/javascript/Callable.class
+SHA-256-Digest: r5yfILG4Hos2R4EHsFPAu5gt0axMG9aDIFqC9pWfqBc=
+
+Name: org/mozilla/javascript/tools/shell/JSConsole.class
+SHA-256-Digest: eBM85JaM7/l2zhiOf+k31o48qJ7BllCGjmOmEuHbkyU=
+
+Name: org/mozilla/javascript/TopLevel$Builtins.class
+SHA-256-Digest: F2cjTpLwjQ4w813Vhg2JiqBh9SdPQUjG1WOhqBZKHZk=
+
+Name: org/mozilla/javascript/commonjs/module/ModuleScript.class
+SHA-256-Digest: SKX0nP6Pd+gnemyHfzA90CYg0lCSIJJCi8lo0fiO96w=
+
+Name: org/mozilla/javascript/NativeArray.class
+SHA-256-Digest: K+JgymEHTxikLXdleLBpF/NcN6+eUeX5SBG2aHBWBoY=
+
+Name: org/mozilla/javascript/NativeJavaConstructor.class
+SHA-256-Digest: dS/QKgLR3nx3Y1iosEUPA0o51cncU0G1hjYgCiaC1r8=
+
+Name: org/mozilla/javascript/xmlimpl/XMLList.class
+SHA-256-Digest: 4ae1Lsn4vqkp1BgvSw8FSwAFsbIPxTnw3DqEJ7G1/A4=
+
+Name: org/mozilla/javascript/ast/ParseProblem.class
+SHA-256-Digest: BO3MkprPTZJH7dnRdt5Ffz2pmMirLZd5FB89+Ld0BIc=
+
+Name: org/mozilla/javascript/ast/Assignment.class
+SHA-256-Digest: WkxAQNA6dvsmEd0P3tsvuSZk1lFmPVQt3lknXngzaQE=
+
+Name: org/mozilla/javascript/RhinoSecurityManager.class
+SHA-256-Digest: nXkQnYCPU3dsOmOLPbcbXtpmLS7XGEe9keLv0PwC+gs=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/TreeTableModelAd
+apter$2.class
+SHA-256-Digest: 5WPU3PZbd4EQ2F1aQBTG0khKxvJGD9EVT8kW/xuHTzo=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter$5.class
+SHA-256-Digest: ov10KN3kbLkzdeTzI5vwVioWubIRR2YCgNs/amRYDwo=
+
+Name: org/mozilla/javascript/InterfaceAdapter.class
+SHA-256-Digest: KmQDqgjfRRgoFvg20kIehdBChI5z00oUyaRcbmhXOGQ=
+
+Name: org/mozilla/javascript/tools/shell/Environment.class
+SHA-256-Digest: wGY8UhFzfGlyxtkyP0kZaK3CROsyPq21XEwbpxrsDng=
+
+Name: org/mozilla/javascript/optimizer/Block.class
+SHA-256-Digest: qr25ZtOt6wavBvar/6fbQWVszOaDA6ZJO8Q6gl+lhig=
+
+Name: org/mozilla/javascript/xmlimpl/XMLCtor.class
+SHA-256-Digest: J3hi5cZ96Bg/j/vkvpUG5ZaJo5tIbp6WTv11P4MU4uY=
+
+Name: org/mozilla/javascript/NativeJavaArray.class
+SHA-256-Digest: KOx6cokQQ3PqsDruXoboAfEwAKV8hvAUZ7JdDxh/Z2k=
+
+Name: org/mozilla/javascript/SecureCaller.class
+SHA-256-Digest: gmPts0GC/PK7dXL8KklhePeLLUUayn+8Ff6QafJJGoE=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$1.class
+SHA-256-Digest: RGOA/U8XZdEm9yyI2ksn3XE+qz2XtzoUgEKO6duidXs=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$XmlNodeUserDataHandler.cl
+ass
+SHA-256-Digest: VNlCKAoe20f6eaW9sUypMMj0PO60+sHawhebbpCktWw=
+
+Name: org/mozilla/javascript/xmlimpl/XmlProcessor$RhinoSAXErrorHandler
+.class
+SHA-256-Digest: fUvna9Q9XQzn78R0J2VSrDI8v8MQlohcjS2QIuZbAto=
+
+Name: org/mozilla/javascript/ContextAction.class
+SHA-256-Digest: cxo1P3BCh70W4BB5Pa7NfBtUle4FcDYSpJnDZf18c2A=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/AbstractCellEdit
+or.class
+SHA-256-Digest: Xkb0W5zsn/1IOU4DqPGeG13vUH/MOzjtx3LIofODk+8=
+
+Name: org/mozilla/javascript/ContextFactory$Listener.class
+SHA-256-Digest: qVRF696dx787o1H9ta86coAnwXscotWrxJRwaYj8/UA=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLName.class
+SHA-256-Digest: Yyfo4ixcCn1GfEwEUwt/+TQpr+zCluOEdLfJnRUHrfs=
+
+Name: org/mozilla/javascript/annotations/JSSetter.class
+SHA-256-Digest: cIYaS3Xt7QZmwsUNH2SYfmD8r4W4bSI+tGfHItTWaxs=
+
+Name: org/mozilla/javascript/SecureCaller$3.class
+SHA-256-Digest: mNHqDACTihzzVm+q+VS3r9wPC9EIjCP7ALR43FTqakE=
+
+Name: org/mozilla/classfile/TypeInfo.class
+SHA-256-Digest: 8nPijrcz0wlRfpOKSeWDwnGtTyAn2i2W3bEFbxYwXjU=
+
+Name: org/mozilla/javascript/NativeJavaClass.class
+SHA-256-Digest: 8ncJESKlx9m/HyVy5Rvsw15jB7zn+nrm5w7/dhHZ1zU=
+
+Name: org/mozilla/javascript/ast/BreakStatement.class
+SHA-256-Digest: RBtdQDSbAjEBhsvQuLmGkFuvAedRc9+ahJ3E+JUuviU=
+
+Name: org/mozilla/javascript/ast/XmlLiteral.class
+SHA-256-Digest: CQqV9VaubDHsTnZZpT21K4LLK1Ndoc5vcL+DRuHIh4c=
+
+Name: org/mozilla/javascript/ast/InfixExpression.class
+SHA-256-Digest: 4DRFX86eEZ3oPjV+bAlKeCZemLB37M6p2hxhBmTQhtk=
+
+Name: org/mozilla/javascript/GeneratedClassLoader.class
+SHA-256-Digest: GBJn3e++T6D4Tuxc2XPoSfZuw790gtxCfMty4v8dh3Y=
+
+Name: org/mozilla/javascript/tools/debugger/MoreWindows.class
+SHA-256-Digest: IsarcyuQSu/mjMP6xuw/CqR2HQUGEUF+9wY5tykuN3U=
+
+Name: org/mozilla/javascript/NativeObject.class
+SHA-256-Digest: KoFBPzF1jyh48NtFJ5wOvZJQJCSapy5ubVSwqkJTAlM=
+
+Name: org/mozilla/javascript/SecureCaller$2.class
+SHA-256-Digest: Be+x/9iEcjsGOrQPnYP70KsfqDU0XEdezzh8IVIciKE=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Namespaces.class
+SHA-256-Digest: wRC7KWEdY6+0lcRnaKiu0fVeSCporo3MC1/jqW50Ptg=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$DimIProxy.class
+SHA-256-Digest: c2o5/DrjgmMPPhzOdNwDVbUsRzWyzY1sINrSIUGPhOY=
+
+Name: org/mozilla/javascript/tools/debugger/FilePopupMenu.class
+SHA-256-Digest: VJJLCA4Y8YUBSvVFFYrnHV3DOHZ6NONpS0+Wrkd6Abc=
+
+Name: org/mozilla/javascript/NativeJavaTopPackage.class
+SHA-256-Digest: xNNFd+6USh0Zhd1hfLooXXydIQ6+9zrBIe+MSHP4j3I=
+
+Name: org/mozilla/javascript/regexp/REProgState.class
+SHA-256-Digest: oFKT57crqM2M/Zom9QHe/ulkMVbUX+DxxXbfWcc5vsE=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/TreeTableModelAd
+apter$1.class
+SHA-256-Digest: 8IalF5MUKLSIngQQ9HISZjkssRQwT7J03Jw+bIPm+7Y=
+
+Name: org/mozilla/javascript/tools/debugger/MyTableModel.class
+SHA-256-Digest: /brrr3kcuIU5TA7IJ7K/slvUlIvRIkyMCiIC9UvzNdE=
+
+Name: org/mozilla/javascript/EcmaError.class
+SHA-256-Digest: TidA1drhrAUqWndSkvqXFWBoEstX/6vuitpohg3SgA4=
+
+Name: org/mozilla/javascript/PolicySecurityController.class
+SHA-256-Digest: lRSxTokxZ2oj+WLfmlQLAEuzNpS4T4UvWBQPBQGqIzk=
+
+Name: org/mozilla/javascript/Kit.class
+SHA-256-Digest: 2CJVy7AGO0BrZCE+romMQa+MlCYWPJQoO4D5pZzEwaw=
+
+Name: org/mozilla/javascript/ast/AstRoot$1.class
+SHA-256-Digest: rO3W6X+9/0mMoMXZ5h/EKNRFHnm0TsUmvaoabHhxqxA=
+
+Name: org/mozilla/javascript/NativeObject$ValueCollection$1.class
+SHA-256-Digest: +GPGSw0TVngkyGFTXRmNabGnVA1Sqw1hK6ptesLqXR8=
+
+Name: org/mozilla/javascript/tools/debugger/MoreWindows$1.class
+SHA-256-Digest: MSFmiWU6tdRICaNO7iZdBuUB3k8wIg9WMMojrAp+gdQ=
+
+Name: org/mozilla/javascript/v8dtoa/FastDtoa.class
+SHA-256-Digest: qntpo0T8EIcOOb81iTDTY4vRdokLXl8cYcduBFuzU9o=
+
+Name: org/mozilla/javascript/annotations/JSGetter.class
+SHA-256-Digest: t44dZzAbfNUsEb8eM2uhwRWGV2wPY4qa4T6V97siLYU=
+
+Name: org/mozilla/javascript/NativeObject$ValueCollection.class
+SHA-256-Digest: E/DZjyX+kwE6wwhQTz7nD+93DFB6VMwlyvjNOk+57mw=
+
+Name: org/mozilla/javascript/LazilyLoadedCtor.class
+SHA-256-Digest: oAhxPvKde0f+ZuGovyfS2WdIGYQvlPsndDXfdn87LyU=
+
+Name: org/mozilla/javascript/ClassCache.class
+SHA-256-Digest: P4SZSEsCuMMLuRbZylkHWEBRNgEuqkCSS1RjFNYfqn0=
+
+Name: org/mozilla/javascript/optimizer/BodyCodegen$ExceptionManager.cl
+ass
+SHA-256-Digest: Eu0/8NEc0wVTy9KoKgeztxUADfNm6iWT0MHRunx8LiY=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter$4.class
+SHA-256-Digest: 3k6AgNnzFNmfMs8MR6RgJOR2mqAdLjxzLlEF7IAw/5g=
+
+Name: org/mozilla/javascript/xmlimpl/Namespace.class
+SHA-256-Digest: v5fqKfO9GwzsaF5MlNg0Bs0okVprbtjHn16mTEOHz9o=
+
+Name: org/mozilla/javascript/Node$PropListItem.class
+SHA-256-Digest: uG5ES/1NTBk3Axo41T38ibi8I5cXnfJju8GOq0iE1Pw=
+
+Name: org/mozilla/javascript/ScriptableObject$Slot.class
+SHA-256-Digest: 4T4+X+GjLnJfnVBbgru9K30BiWakflhxJz4ikv43/fY=
+
+Name: org/mozilla/javascript/tools/shell/ConsoleWrite.class
+SHA-256-Digest: 8pGecXRiG2R18nMIdrnhz46LWEOt1hkuQM/h10pcBbU=
+
+Name: org/mozilla/javascript/ast/StringLiteral.class
+SHA-256-Digest: U1VJrdGtesvnxszfIduxUz+M8+1VwtX8EKOdPQrQ/FI=
+
+Name: org/mozilla/javascript/ast/XmlRef.class
+SHA-256-Digest: jNUZfo2/IdrnF1MeOLXiOL/VX/6kZgpqukqtED+wS6E=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XML.class
+SHA-256-Digest: Vrwvi1EHhO52lKLwQJBvoZ+KvGCjq3DiE+4xZAUdZck=
+
+Name: org/mozilla/javascript/ast/LabeledStatement.class
+SHA-256-Digest: ifo9Tsq+xpAt3GRDMu3By2dezlW2iM5b4Q58gslYKHA=
+
+Name: org/mozilla/javascript/tools/debugger/VariableModel$1.class
+SHA-256-Digest: DkQOBsGAIz+vHbYGwW7AehfJ4sM9xGwJAOIx2pai8o0=
+
+Name: org/mozilla/javascript/tools/debugger/VariableModel.class
+SHA-256-Digest: o4DH+gCKaD+t0ci+zbWJ3+P4k6g0SdLcntCtsgX+oXg=
+
+Name: org/mozilla/javascript/ConstProperties.class
+SHA-256-Digest: FdSbmApRI6T1JZilszBiGdXZWNb98Z9hm88Ip+RUNKQ=
+
+Name: org/mozilla/javascript/tools/debugger/FileWindow.class
+SHA-256-Digest: t66fbMn5sQyUUlNTA9gThYo1eThxCZj7iuDQxW79Ws8=
+
+Name: org/mozilla/javascript/ast/ForInLoop.class
+SHA-256-Digest: s6zz6vLhSEXCBs/vXzFf+QI/WTWhqZInFbUsAuyxFd8=
+
+Name: org/mozilla/javascript/optimizer/OptFunctionNode.class
+SHA-256-Digest: oz7WEXpjoUS5SIv3SqAYU+yVSJQ9tZXLidU63JB6NIY=
+
+Name: org/mozilla/javascript/resources/Messages.properties
+SHA-256-Digest: Kf5FsKJ64iHFE78VEg5uJAR9egTzuE21FsBsOoNkfhQ=
+
+Name: org/mozilla/javascript/NativeObject$EntrySet$1$1.class
+SHA-256-Digest: 9B79k3EpYZHyn1O55Au7cxTwhFkT/GvG+09Nj3LJsJY=
+
+Name: org/mozilla/javascript/JavaMembers.class
+SHA-256-Digest: DIVlxWfJezuwy4xnI1OOZ3SrkGKUMVCok+GPF89jMOE=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$3.class
+SHA-256-Digest: 7zlKTLuVoZnmpcIVXzXRsHWkEGToGJrTNN7En9pi0fc=
+
+Name: org/mozilla/javascript/IdFunctionObject.class
+SHA-256-Digest: sEYjcl+V3k92T6lGCfFrql0YTG6MgzPv84Y3BT99pzg=
+
+Name: org/mozilla/javascript/tools/debugger/FindFunction.class
+SHA-256-Digest: jv3SvKac4vHgm7sas/NRsdKgGHrLkfZorV6jIXdNmRk=
+
+Name: org/mozilla/javascript/optimizer/BodyCodegen$FinallyReturnPoint.
+class
+SHA-256-Digest: hLcUGFDZNSryLfxnBMOhyYkoZBO22lOWKz5viAQlSb8=
+
+Name: org/mozilla/javascript/tools/shell/Global.class
+SHA-256-Digest: 6fbzDWSIE3lUF4jGwqfQJ7XMXDVkeTLGMh+Gd8Zsp20=
+
+Name: org/mozilla/javascript/ScriptRuntime$IdEnumeration.class
+SHA-256-Digest: XFoh1p54XLURs9KiksEt/HyBXGHgKg344BYxu07HzY0=
+
+Name: org/mozilla/javascript/TokenStream.class
+SHA-256-Digest: xc17zOko+Xdv5hI+bOwUPxxZleZIKv1ojpl761sLVnw=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$SourceInfo.class
+SHA-256-Digest: Bh1sOzGt+zeuk01ENkW3bfjav9W58jI3ktykYYIMMnQ=
+
+Name: org/mozilla/javascript/PolicySecurityController$1.class
+SHA-256-Digest: isX8giQF7brQ81ZgmYCwl0MGzT4gfj6ue+PdgcrbpUw=
+
+Name: org/mozilla/javascript/NativeCall.class
+SHA-256-Digest: vPzMgQ5TJtUndCLuSEhKTYB9yzETDtpPBCQOKZYnZmw=
+
+Name: org/mozilla/javascript/tools/debugger/ContextWindow$1.class
+SHA-256-Digest: pYHu50hZjKt9qm41FwHtU/1b7J7fHc7muVH3veQaSb8=
+
+Name: org/mozilla/javascript/tools/shell/JSConsole$2.class
+SHA-256-Digest: 12/0eGDHWPdQ4i2Id/wtP7pbzWwraffT6ayoJjikiFY=
+
+Name: org/mozilla/javascript/tools/debugger/ContextWindow.class
+SHA-256-Digest: +Gc04oSUagaVjl0zssyyeeFmredD/0imhDYekLYNyq0=
+
+Name: org/mozilla/javascript/Decompiler.class
+SHA-256-Digest: KutIm11kbj3gM+xzcUFKlXyXcXozx/yM2f7+W5WwQuc=
+
+Name: org/mozilla/javascript/commonjs/module/provider/UrlModuleSourceP
+rovider$URLValidator.class
+SHA-256-Digest: RDRYXZPk9pNCMwvnNe3qS5roeDM6F4qPkIO+dcnZ8JQ=
+
+Name: org/mozilla/javascript/regexp/CompilerState.class
+SHA-256-Digest: QbP+MdfkraB3RSN5k+ZDZRO5vscwGNTqFDGOPr55V80=
+
+Name: org/mozilla/javascript/tools/debugger/ContextWindow$2.class
+SHA-256-Digest: ZLNwfnw1QYRE9u8VdcDONxwj1NUbhoMUmuZcx+N6KWA=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/Namespace.class
+SHA-256-Digest: kyIHWRyXp5F7rqGJrDRHPmLwUFqWZTo3omeCaNyKjl4=
+
+Name: org/mozilla/javascript/ast/ThrowStatement.class
+SHA-256-Digest: Rmi9whjoE8ZZT7dj7Uf9eg8Ua0oLrmp9Dxle8KZYR30=
+
+Name: org/mozilla/javascript/tools/debugger/SourceProvider.class
+SHA-256-Digest: WPso/hPfq/T0lq2JmjTyR2fwQ4X6QgOZOc5aKRLR86o=
+
+Name: org/mozilla/javascript/NativeGenerator$CloseGeneratorAction.clas
+s
+SHA-256-Digest: 6ShTM8l6+/rUZTZlhCXJsbav9sK0yvHTPgh3l+D/wwE=
+
+Name: org/mozilla/javascript/UniqueTag.class
+SHA-256-Digest: Ds179e2Hf2iSg30hCKb5QXl3WhOo70+16YqsI0z+E8M=
+
+Name: org/mozilla/javascript/ast/XmlFragment.class
+SHA-256-Digest: CuN9u1cdxjd4HSUfRxpfbWGxhQwx218hZAWm6vtl3UA=
+
+Name: org/mozilla/javascript/tools/debugger/SwingGui.class
+SHA-256-Digest: +cPj7s0/CyOqa3LeSQnT4m+HbLNNgnoYw08x9hdLlPg=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$InternalList.class
+SHA-256-Digest: 3qjDnGin0BglEIdH9YbTb9YrGDTgqxNxzlG5ceYeDh8=
+
+Name: org/mozilla/javascript/tools/shell/SecurityProxy.class
+SHA-256-Digest: rRIWgYkS/bJsq+LAc/4GvRxn6IavI6+RGJE6yTremOE=
+
+Name: org/mozilla/javascript/PolicySecurityController$SecureCaller.cla
+ss
+SHA-256-Digest: 6ueUe6GSDeeJFlcHEh1fQ10o1Ai0xlyQ5SHP7xGB9lo=
+
+Name: org/mozilla/javascript/Evaluator.class
+SHA-256-Digest: sFpbeSGhx6xNRqQPbOFmdmnA4M/c3i5Nu1djSNAO5AY=
+
+Name: org/mozilla/javascript/ast/Scope.class
+SHA-256-Digest: JfbPSIHH0bS8dZjtPA/JSHVoazfcR3taD9zq+GWescw=
+
+Name: org/mozilla/javascript/regexp/RECompiled.class
+SHA-256-Digest: 0q6bQnMZzsfx5d5/w2EQD7K6ocBVNPhEp3v9sQMr0jw=
+
+Name: org/mozilla/javascript/EvaluatorException.class
+SHA-256-Digest: Z7vbUmUvJ9YExY6MbXLIz6zuxEYyf/oE3086gf2o/Mc=
+
+Name: org/mozilla/javascript/ObjArray.class
+SHA-256-Digest: eBxg7IFj/CtJ8INtuIGiQHFiBaNwDMfQ44a4Puf72bw=
+
+Name: org/mozilla/javascript/tools/shell/JSConsole$1.class
+SHA-256-Digest: N7LYTdIwtOq+iCrXQqexT/XrIs6UlstEQq7d+CS3IW8=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/TreeTableModelAd
+apter.class
+SHA-256-Digest: KSZ018LjYvzNu7Sg1q/YgCB6ItaYVHgU8IPUUoLYCD4=
+
+Name: org/mozilla/javascript/NativeGenerator$CloseGeneratorAction$1.cl
+ass
+SHA-256-Digest: lpId3g/yn0Rdu/qQP+R4chAc9Pd4xwbiKnyMKx7mjW8=
+
+Name: org/mozilla/javascript/ast/TryStatement.class
+SHA-256-Digest: iR2NMhVCH2vAcHULbc0+32jfclHhJjCoSmAzMkMS4T0=
+
+Name: org/mozilla/javascript/Node$NodeIterator.class
+SHA-256-Digest: lAmtIt/1hzOkMceRLaA2wge2LpK/kFwo5Y9Xvn+sKHo=
+
+Name: org/mozilla/javascript/ast/ParseProblem$Type.class
+SHA-256-Digest: oqQUefr1vIilsNkwwdtDtiUMKe8apk3IR1xfRcIt6Ew=
+
+Name: org/mozilla/javascript/ObjToIntMap.class
+SHA-256-Digest: TZeg1Zoky5RumGO8vmSJ+FxNNZ45VqnL2BhAhlfuo2s=
+
+Name: org/mozilla/javascript/ClassDefinitionException.class
+SHA-256-Digest: dC4PBArS3WpyOZfccXYus5kZAVYJbRirU9gZZe2zrGA=
+
+Name: org/mozilla/javascript/jdk13/VMBridge_jdk13$1.class
+SHA-256-Digest: bugQaSt0Rg2oPs1gsTMlKcpR/nxnVjc99RwjSYjG1xY=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity$2.class
+SHA-256-Digest: u8UTCc8Wwe2Ph/BpySWyWhGsNxApnnEDC3CLGqU2Q78=
+
+Name: org/mozilla/javascript/serialize/ScriptableOutputStream.class
+SHA-256-Digest: hcOTMvvw4JrB+sO5zzhVtGxbqKt0SDWvDi0ABVvvW5E=
+
+Name: org/mozilla/javascript/tools/debugger/Main$IProxy.class
+SHA-256-Digest: QGXdRghPU3haublTH+NY4OMtv6xz0+/BQeVkc6NLFwo=
+
+Name: org/mozilla/javascript/ScriptRuntime$DefaultMessageProvider.clas
+s
+SHA-256-Digest: KTVYIRukarSiIRr9uNs71ujUB5tju+3tdpdxeZBVRZo=
+
+Name: org/mozilla/javascript/xmlimpl/XMLObjectImpl.class
+SHA-256-Digest: U9W1KB/xszp2YhFWA+uHWqK0tyFgJYzav8EJMfDwICE=
+
+Name: org/mozilla/javascript/ClassShutter.class
+SHA-256-Digest: RoQ7t+y37kL/N1rWW6SzwIICXvjalHwkKbYlw3oh5Lk=
+
+Name: org/mozilla/javascript/ScriptRuntime$1.class
+SHA-256-Digest: F85pYq5pihMq9vULYDTlN1fLiyElnz9ROoI9uHV4Tls=
+
+Name: org/mozilla/javascript/tools/debugger/SwingGui$2.class
+SHA-256-Digest: qNCO2hzk92+0L6ZVjNeKpRwA1GcCSE4ewnVTLvH9NKQ=
+
+Name: org/mozilla/javascript/ast/ArrayComprehension.class
+SHA-256-Digest: u44/6GVvHCfmAZA51PTRNT458Qg/VSiQMtqDQy1uQeg=
+
+Name: org/mozilla/javascript/ast/DestructuringForm.class
+SHA-256-Digest: bifE2Lwde4nBmd137WcBeFW60HKcyIxjCjQmLM8LhJo=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode.class
+SHA-256-Digest: DFet0Jl84Sd1jeVoPS0Nizcja6AoQRkc2EkwUOAqxn0=
+
+Name: org/mozilla/javascript/ast/NewExpression.class
+SHA-256-Digest: bZyAER2xrOeUByUWNYT5Q1hu6Rz/lf+evGLzZBXKecE=
+
+Name: org/mozilla/javascript/NativeError.class
+SHA-256-Digest: 7BbcD0EL6oS9aJo4OXelVxzQz95tsi1zKHElDl0gVlQ=
+
+Name: org/mozilla/javascript/Context$1.class
+SHA-256-Digest: pzzm1MVMwIjK4R1fs9olQHd/af5rel0pskHc690sRZ4=
+
+Name: org/mozilla/javascript/ast/AstNode$DebugPrintVisitor.class
+SHA-256-Digest: WpMl2ZkdnT9EPVl3TJpiUNLBKMI70nKMgIwESM9kuEo=
+
+Name: org/mozilla/javascript/tools/ToolErrorReporter.class
+SHA-256-Digest: MWOk5AO5EG1KQA0jJHhWG8aP+rcYyCVir/h1DmVad50=
+
+Name: org/mozilla/javascript/Kit$ComplexKey.class
+SHA-256-Digest: jRtCw7CfzklCI9XW1ObJc/NJKGSeaJksqWUFcgI09ZE=
+
+Name: org/mozilla/javascript/tools/debugger/Dim.class
+SHA-256-Digest: Zf280bNuSJlbPNCtOrXJDcbpPwF5QG3yfE/7aSX61Ho=
+
+Name: org/mozilla/javascript/NotAFunctionException.class
+SHA-256-Digest: Kft2CjLpiKnLt8bCw9M3K0WeBnzMeYpOgtMHl0yGxFM=
+
+Name: org/mozilla/javascript/ast/GeneratorExpressionLoop.class
+SHA-256-Digest: KbmaajSyFeXHZZ6Z8tmULIEJ5TtKQKdpbTV9gFLtjoI=
+
+Name: org/mozilla/javascript/tools/shell/Main$ScriptReference.class
+SHA-256-Digest: i1JQU7vjUzeAMnZc5N68mRMXJ3LQ64tmRbB3sVJFKT0=
+
+Name: org/mozilla/javascript/Interpreter$GeneratorState.class
+SHA-256-Digest: n462+bDY3kDAjeUAmR155VjvkMcRoNglAYW19HcpUJo=
+
+Name: org/mozilla/javascript/InterpreterData.class
+SHA-256-Digest: N+75najiaAxLUD9DAQNq/sir+e1T+Shq538Osa6BdA4=
+
+Name: org/mozilla/javascript/commonjs/module/ModuleScope.class
+SHA-256-Digest: t++QdiMujH3sbCrxym8724jSUNqWKae0cuHjgD7Vi5Q=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Filter$2.class
+SHA-256-Digest: wDs482GKjtwW0bDs/dym7CW6CUQXr9qvjUFxGmZoQU0=
+
+Name: org/mozilla/javascript/IRFactory.class
+SHA-256-Digest: 86KWRKT7DXPZOQdrs3G8oKJhAj/004kYiwZ4EiM7GZo=
+
+Name: org/mozilla/javascript/v8dtoa/DoubleHelper.class
+SHA-256-Digest: EJDbfYxoq8ME35KW1ORVuwG2VCr9xTGNots1WWDb3Xg=
+
+Name: org/mozilla/javascript/Token$CommentType.class
+SHA-256-Digest: hHm6luiC77XfnGNMsXFsCVuAnWCbSeKNaiNxhApohfs=
+
+Name: org/mozilla/classfile/ExceptionTableEntry.class
+SHA-256-Digest: uLDtWE+F+fKky+Q0vyPlqBnty7l0NXZPZ/7XvpZVxiI=
+
+Name: org/mozilla/javascript/commonjs/module/provider/ModuleSourceProv
+ider.class
+SHA-256-Digest: TK3aneHUx6Pm/sD6DAInBJJZ3uMRAGa+TVGlChZhY50=
+
+Name: org/mozilla/javascript/tools/debugger/JSInternalConsole.class
+SHA-256-Digest: Sdlc1kC5BI3rZvLqcm86AmLvhoaDEcm7kZiUdIFAMZE=
+
+Name: org/mozilla/javascript/Parser$PerFunctionVariables.class
+SHA-256-Digest: UwsLHUHUqm4ZyTF0rIqmc4IbOGDKaHAkKaY1IhTNf74=
+
+Name: org/mozilla/javascript/WrappedException.class
+SHA-256-Digest: Xdz6GoDtcl0E85Kp1YrMIZXBCmP6uL4LIT+y6cb4IhE=
+
+Name: org/mozilla/classfile/ClassFileWriter$ClassFileFormatException.c
+lass
+SHA-256-Digest: KViuKBOKfLBZz+tWf3a+Cf0qvfdhaIAthvbWE2EXzVk=
+
+Name: org/mozilla/javascript/tools/debugger/Menubar.class
+SHA-256-Digest: UIpgufoJFsxwILurSAFMNuL/oKUSvqHRtuSHPs4KiQA=
+
+Name: org/mozilla/javascript/NativeObject$KeySet.class
+SHA-256-Digest: 6jcGH9/Eb/29u4iyriWwrKQVSB4wDXlR5t/2uielMtE=
+
+Name: org/mozilla/javascript/PolicySecurityController$2.class
+SHA-256-Digest: BOGf4AJxRqursDDL997w5p4+EQ0DRgM6lm0G3t/Ai4U=
+
+Name: org/mozilla/javascript/SecurityUtilities$1.class
+SHA-256-Digest: pd4egY+UzYzLgKpMH5EO0njXyfaSHQ6i+iQgO7BlmN0=
+
+Name: org/mozilla/javascript/tools/debugger/RunProxy.class
+SHA-256-Digest: ctyR3ZvIXsslk3uTPcRT4UMivV4+FFoa0ooMnX1FEMc=
+
+Name: org/mozilla/javascript/Synchronizer.class
+SHA-256-Digest: 6gMcqKt2KG9DEQJ/XybnvfoHYlGsKaVm4OonHy/wmj0=
+
+Name: org/mozilla/javascript/tools/debugger/MoreWindows$MouseHandler.c
+lass
+SHA-256-Digest: 56bLPH/NCQCWWeTp7WftMwJbZrwIMInKTrqhi7IJIsE=
+
+Name: org/mozilla/javascript/ast/AstNode$PositionComparator.class
+SHA-256-Digest: KzaGQCl+6fHwzwd9NFPIoNCpN1yCy5yQ7ub3XwdqCrw=
+
+Name: org/mozilla/javascript/tools/shell/Global$1.class
+SHA-256-Digest: IpK6Qy89f7l6l2TSPrOf4oikFvkPKZ7WQMlbUjgZrQc=
+
+Name: org/mozilla/javascript/Parser$ParserException.class
+SHA-256-Digest: tig+Ee2MNbghj3+C+IeWBB4QEGmTKUeqwMI5Fbr/JVE=
+
+Name: org/mozilla/javascript/ResolvedOverload.class
+SHA-256-Digest: AHN4w7Fv84MXO7T43GqZ5L7VS8fvqDyhS4qViBKIYo8=
+
+Name: org/mozilla/javascript/optimizer/Block$FatBlock.class
+SHA-256-Digest: XOxnNksUivB9zzpl5h5RiMSU5oKrxwr2kMmeEwPfWWM=
+
+Name: org/mozilla/javascript/optimizer/OptRuntime$GeneratorState.class
+SHA-256-Digest: zc4YXWC4SeI5URubE8g/kF0/99wkbwz5QzdKjE04MYs=
+
+Name: org/mozilla/javascript/Undefined.class
+SHA-256-Digest: 0/+IaPXe4mpZqurTDFei9S5QhCbbvUPKAfd8NQdSC0c=
+
+Name: org/mozilla/javascript/ast/Name.class
+SHA-256-Digest: bZ2Dfq4ootUgXrYAJO4d7WGNcPaBvtPWvqA3l0Js7ak=
+
+Name: org/mozilla/classfile/ClassFileWriter.class
+SHA-256-Digest: 0WhOwxTFrRbuXWWYQwfwEs88VQP+gP8Q8pyIrAbngSw=
+
+Name: org/mozilla/javascript/NativeJSON.class
+SHA-256-Digest: yL/EIF2pI33v8195N81gt1Fx4oT//pyAnySGEBHDizw=
+
+Name: org/mozilla/javascript/ast/ElementGet.class
+SHA-256-Digest: FMPBjhNXOcrfDK1aBUH8hoT3IErabaBVUF0wQaxg5bg=
+
+Name: org/mozilla/javascript/xml/XMLLib.class
+SHA-256-Digest: vYFnsGq+oMUIGUE3gJY/Z9UThogdTHo2+elUq9s76N4=
+
+Name: org/mozilla/javascript/NativeJavaObject.class
+SHA-256-Digest: FvVNUHYAEBf53rsy4LeYall98Y++ocjyIiTaeeP0CcQ=
+
+Name: org/mozilla/javascript/regexp/REBackTrackData.class
+SHA-256-Digest: GNi45mRQ93hYKOm1RztXkqnYakEYboDaXrYpy9lj4HM=
+
+Name: org/mozilla/javascript/ast/Symbol.class
+SHA-256-Digest: D9ga/8Lxakr+zR5NeKh6o1fdoJuE/QW0qtPJ6nvc88A=
+
+Name: org/mozilla/javascript/IdScriptableObject.class
+SHA-256-Digest: fhRyOKygqnz0kqIQcE2SM1qthFeytqMLaiV8Od7DTck=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/JTreeTable.class
+SHA-256-Digest: JR1erQMAozf3wSvcX/ZgcCJmvnVqjRRMjmNsUl3CHc4=
+
+Name: org/mozilla/javascript/NativeNumber.class
+SHA-256-Digest: 0s94T8n2C9yvRy5Hzf3O81TwiX4Xy8SJbt1QmFpdgWw=
+
+Name: org/mozilla/javascript/optimizer/Block$1.class
+SHA-256-Digest: 9T9dh+HrvNQZtLXvc0GNOGLOOnqPJ/78zQvV5VoenTk=
+
+Name: org/mozilla/javascript/NativeFunction.class
+SHA-256-Digest: NDc9A3iv/43ey+Wz161/nkmPp6JhVyJDN8M6wKohk/M=
+
+Name: org/mozilla/javascript/NativeWith.class
+SHA-256-Digest: gXOK3YsJ9kwL28Hd0/QmlxRROk1Pl3JkeeTDALPakVI=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XML$NamespaceDeclaratio
+ns.class
+SHA-256-Digest: qPqn6fNhwzAwRhL3EFlEYGo7f9N+J/3iyAIhp6cnJjM=
+
+Name: org/mozilla/javascript/TopLevel.class
+SHA-256-Digest: ejLYk7aYFL6nr9gJBabkNAmo2xEe8IAotgJfzbcdjus=
+
+Name: org/mozilla/javascript/JavaAdapter$2.class
+SHA-256-Digest: rOwJasZupmqUIFY3jMQyp3nYUmfFyXDyZpQDgqvRZQA=
+
+Name: org/mozilla/javascript/NativeGlobal.class
+SHA-256-Digest: 3f4XpscnOLJKffKGTSnBR0464Rtv0HqYOWbRCwN8+nA=
+
+Name: org/mozilla/javascript/ast/NumberLiteral.class
+SHA-256-Digest: 8LabMtCpVn/xZrvkwyfNkMXRr2mkDdIxnMZS1Ru/T+g=
+
+Name: org/mozilla/javascript/Parser$ConditionData.class
+SHA-256-Digest: 6tX51cUXf/H5SKDj7GKZ2IEYSRBFLfMaNFymTMuGEbI=
+
+Name: org/mozilla/javascript/regexp/NativeRegExp.class
+SHA-256-Digest: t3KzMeIcm3qq3RXWXK2i6vTgEdDlQcJ0LsTplZdh9FI=
+
+Name: org/mozilla/javascript/commonjs/module/RequireBuilder.class
+SHA-256-Digest: T+B7ephMAfWMO79ZLJpknfWlw2axSF/V6n6XhdZz+Mc=
+
+Name: org/mozilla/javascript/tools/debugger/ScopeProvider.class
+SHA-256-Digest: r/z7VWpkpECGjNZ4o008xZTVF8OcJBoKnWbsADdvxIo=
+
+Name: org/mozilla/javascript/ast/AstNode.class
+SHA-256-Digest: BQKYa278N1gEYN+PeQlGSboQd2jcLIt5OMpgWaNKGcM=
+
+Name: org/mozilla/javascript/tools/debugger/MessageDialogWrapper.class
+SHA-256-Digest: F857fvi2q8rFXmgX+BP7NvkZ/qcxH4tYxjeM0Uwy2c8=
+
+Name: org/mozilla/javascript/tools/idswitch/FileBody$ReplaceItem.class
+SHA-256-Digest: FH+WFI5oV8y1GvevhdeOt0dxPYTjomVVo+1vfSAM3nA=
+
+Name: org/mozilla/javascript/ConsString.class
+SHA-256-Digest: SNobDx80OZbrEA/3SbamCJmZDP+ZvQ9zvKoCVbIjIyw=
+
+Name: org/mozilla/javascript/ContextListener.class
+SHA-256-Digest: Vfsoy/A9YxpMUlCXxpyh28lhVNqu0WUSDJkjomveIfI=
+
+Name: org/mozilla/javascript/ast/XmlMemberGet.class
+SHA-256-Digest: 4x2grbx6K+dZyG6a6kJOKFBnCejvWNHTHZxEKIateIE=
+
+Name: org/mozilla/javascript/UintMap.class
+SHA-256-Digest: sAhaez8QVPlWqOB75qKKW30PEfeeY1oRR1e2th5k/20=
+
+Name: org/mozilla/javascript/ast/XmlDotQuery.class
+SHA-256-Digest: FfUgvBN4WoHVZJSBBewHh7cDgXmNCQiDukZKZGRIXHo=
+
+Name: org/mozilla/javascript/NativeJavaPackage.class
+SHA-256-Digest: ApQR4AfIeUYkjf+AWtwjpFPY7X5OKaJ1TNmcN/+ACAw=
+
+Name: org/mozilla/javascript/optimizer/BodyCodegen.class
+SHA-256-Digest: aF7wLYdh610mbeejbFF9qoN7SW/s4PihuLRCaUA3Nsc=
+
+Name: org/mozilla/javascript/tools/shell/Main$IProxy.class
+SHA-256-Digest: 8W9eFgj+PrZgx2oCloqG/Lzpsm2s2Pbg0n1W3xGKzS4=
+
+Name: org/mozilla/javascript/debug/DebuggableScript.class
+SHA-256-Digest: 1zki0KkGKtk3IkBKUQFUdaKMLggXcEo9Y0UKkztQtO4=
+
+Name: org/mozilla/javascript/tools/shell/Main.class
+SHA-256-Digest: 94Ud66JCkqnoKXY6Wrqp3Lx3HMHvMAqGH5cLgweNJ98=
+
+Name: org/mozilla/javascript/tools/shell/ShellContextFactory.class
+SHA-256-Digest: 7nAKu3lCynIYNQFmhk20gLI8dMjf5yuaCox+0pcWjQI=
+
+Name: org/mozilla/javascript/annotations/JSFunction.class
+SHA-256-Digest: 3asMSa5CXlVH/D6jOWULx2uEubG9T4dt76NukMKrsyc=
+
+Name: org/mozilla/javascript/ast/Loop.class
+SHA-256-Digest: q04zCP3nP0xbAS6QjdTbwOz1FvK0viIPAmZH2on7afc=
+
+Name: org/mozilla/javascript/tools/idswitch/SwitchGenerator.class
+SHA-256-Digest: YvOy4FQKeP1eJLxK+5nE2k0S1uI0dMlV5puDzJ8MyfE=
+
+Name: org/mozilla/javascript/xmlimpl/XMLWithScope.class
+SHA-256-Digest: Aaod+x3DXiCR1Eqy4UXgvqu4bjmIeJbHUpYwx0CKyvo=
+
+Name: org/mozilla/javascript/commonjs/module/provider/ModuleSourceProv
+iderBase.class
+SHA-256-Digest: HVxUDfwWGz1DB5oskME5g+z5sV8YvXGe+fNRRR3wwOA=
+
+Name: org/mozilla/javascript/ast/PropertyGet.class
+SHA-256-Digest: Hm/bmkhlXpj2m/opdbPd0L1OCqffH5oTgrBWqRuvUgc=
+
+Name: org/mozilla/javascript/ErrorReporter.class
+SHA-256-Digest: Fug5JcXWTAugO1qvPHWTTJnmFUP0/qACkDCHThCtYi0=
+
+Name: org/mozilla/javascript/BeanProperty.class
+SHA-256-Digest: VJ9i41COsuGXqHs3olOQIw1cjPimAPFcbgbRzRRhx38=
+
+Name: org/mozilla/javascript/ast/VariableDeclaration.class
+SHA-256-Digest: AAWdU+vGG2Wud4hmbzNc/22eyakvFPo8cGlLd9ynAxc=
+
+Name: org/mozilla/javascript/NativeIterator.class
+SHA-256-Digest: ZV4LJ1hFpdkBT7X98v5r4mRJp+P0ATwsIIDr1UD1NRw=
+
+Name: org/mozilla/javascript/Token.class
+SHA-256-Digest: v/EqjB6nj6C4gLOCe5Cd7sBx7BAR1s6c9zpZhanU9WE=
+
+Name: org/mozilla/javascript/optimizer/ClassCompiler.class
+SHA-256-Digest: nE4gmr835Oe0NZfMcIlaCiircY67nwnzmHMQIfiRarM=
+
+Name: org/mozilla/javascript/json/JsonParser.class
+SHA-256-Digest: MsWW79CRpHXSFQi7if3yKe3VK+KxVb/TEPdnKlRTnz8=
+
+Name: org/mozilla/javascript/resources/Messages_fr.properties
+SHA-256-Digest: XNpDjoboRf2wwwsGEcJjENj7Dcxsuv4byYQBOJ2sW6Q=
+
+Name: org/mozilla/javascript/optimizer/Codegen.class
+SHA-256-Digest: jYlRt/bLnpuoEfF7mofxkWhJULDGKhz/uwnHT1NljA4=
+
+Name: org/mozilla/javascript/ScriptStackElement.class
+SHA-256-Digest: cVwZ3i+cJQgxpOz6E06zDzoFTRt4T6l4lH/tMZAK2KE=
+
+Name: org/mozilla/javascript/tools/shell/ConsoleTextArea.class
+SHA-256-Digest: pHhKgvmsR38LmRLRddL0oyiNhmDfbQiV3IauqbWfYqg=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/JTreeTable$TreeT
+ableCellRenderer.class
+SHA-256-Digest: Im03fPnUQu2kXKJrQ1fVRWE5nkS1SnwyGTqDBxhVlf4=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/QName.class
+SHA-256-Digest: k3oRHD89s7SWjm5YLIR+kXLlSzVk1NDjOhqRgcaemX0=
+
+Name: org/mozilla/javascript/v8dtoa/CachedPowers.class
+SHA-256-Digest: Sd2BgZkdjRDSA/zy+Wt6bwd+Moi3Aw6OoaJfb3lo9js=
+
+Name: org/mozilla/javascript/commonjs/module/provider/UrlConnectionSec
+urityDomainProvider.class
+SHA-256-Digest: Xm+xnmNWm1uxJE29Coy7lpduoydJAxgPQzaSQc3tZ3E=
+
+Name: org/mozilla/javascript/optimizer/BodyCodegen$ExceptionManager$Ex
+ceptionInfo.class
+SHA-256-Digest: FoYXRbVe5I38z5RS8n61NmQ4FFv4hRlMxdMiUz7suuQ=
+
+Name: org/mozilla/javascript/ImporterTopLevel.class
+SHA-256-Digest: WNAysedZbD7+z84VFaC211uNT/XnVXaOmU7B8JaUczo=
+
+Name: org/mozilla/javascript/IdFunctionCall.class
+SHA-256-Digest: IBDUIhngQlaOM7LUfeyXjJxEu/T4anip1UfB/ELxdlY=
+
+Name: org/mozilla/javascript/v8dtoa/CachedPowers$CachedPower.class
+SHA-256-Digest: 8p1S5oT83mUSC3T31vYUL4G0QGE+PeUUlfGJq3IHw44=
+
+Name: org/mozilla/javascript/xml/XMLLib$Factory$1.class
+SHA-256-Digest: N3cKv7b9Jj1bOJ34lVist2Ij9xVkPKHRDXrsAdZsJb4=
+
+Name: org/mozilla/javascript/Scriptable.class
+SHA-256-Digest: JiTf3Me+k24aa32aGDlFezM+kAak05BQMnbZBSsBObc=
+
+Name: META-INF/eclipse.inf
+SHA-256-Digest: SOnAUA0CB8dMRrZdLCRZFQ1WZBhIWcQsKFnHDxFJf44=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLLibImpl.class
+SHA-256-Digest: 8IXVS7iZyibUlCIguKCPhE3sADNmkJGxwmVMhmbGimY=
+
+Name: org/mozilla/javascript/ast/NodeVisitor.class
+SHA-256-Digest: Oi1wLxp+M+p5YwrVB2gJ0hPho8aGXOVaXVvUEhKrvlY=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/JTreeTable$ListT
+oTreeSelectionModelWrapper.class
+SHA-256-Digest: mUmbdTmjcLNij7wJiVJ/MIoHEuVM1C7AL/dxbZuRlLA=
+
+Name: org/mozilla/javascript/xmlimpl/QName.class
+SHA-256-Digest: Cfv+M7HiGEoDPr4pRvR1diUVBAtvPKfs1jysg2YvRbg=
+
+Name: org/mozilla/javascript/JavaAdapter$JavaAdapterSignature.class
+SHA-256-Digest: u1lj3rQAxNmyAb21mMRHhkJ1CqfLKap4LRp+ybgJKzc=
+
+Name: org/mozilla/javascript/ObjToIntMap$Iterator.class
+SHA-256-Digest: LnGEajnNmmFmnA6p3hJGC9l/XQ3UG1Zx+H4hBNYwy/I=
+
+Name: org/mozilla/javascript/InterfaceAdapter$1.class
+SHA-256-Digest: kKCQT/TpgKFCWWT0WwY4mp/kGEdweA8lFBcvodFKKRQ=
+
+Name: org/mozilla/javascript/annotations/JSConstructor.class
+SHA-256-Digest: /xZjmn4T2fXtZYQVPqVzgQt5fajsHYE3D0+5MEC5nxU=
+
+Name: org/mozilla/javascript/Interpreter.class
+SHA-256-Digest: 3o7T3x+r/DPewEpEeHe8ttZgt3aJAY8TsaVgUywt4ps=
+
+Name: org/mozilla/javascript/ContextFactory.class
+SHA-256-Digest: qAxDexrbmuzSwQjFFFA5dEO8YH5+p0otp89EvQbu8jA=
+
+Name: org/mozilla/javascript/ContextFactory$GlobalSetter.class
+SHA-256-Digest: xsDtSz3k+QYPTfWiRLEH9ZAv/P0lyuAY7MFEynxl5To=
+
+Name: org/mozilla/javascript/Parser.class
+SHA-256-Digest: tTY62KnMpys1RXhyUnQzX11qFx/X7MS4VnovOEydeQc=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/JTreeTable$TreeT
+ableCellEditor.class
+SHA-256-Digest: wPhvWtcMIM1d8XEOQ4Im3Jd8uF0dqIYDczWrzQ+OtmI=
+
+Name: org/mozilla/javascript/Node.class
+SHA-256-Digest: PS6LudpCuQ7/dnQAaZKARbabQJ9vYqiA59/bfhuw+EY=
+
+Name: org/mozilla/javascript/tools/debugger/JSInternalConsole$1.class
+SHA-256-Digest: 7dYbW9DPWxyZ7KFXoQxQ6c+itrphOigcjRO3b0wSfdw=
+
+Name: about_files/MPL-2.0.txt
+SHA-256-Digest: x290DRUhub7ZynoErVJsMQSTxiYhsTQdYjtDFzZTOzA=
+
+Name: org/mozilla/javascript/tools/debugger/Main.class
+SHA-256-Digest: g3eJ88Hb+Sja//9B0046+LC45TJ+pslaWjWkgu2KcA0=
+
+Name: org/mozilla/javascript/SecurityUtilities$3.class
+SHA-256-Digest: EOD97o/DEIM3aeB/o8UHtp9SiJeXnm2wxkfD6MhgNt4=
+
+Name: org/mozilla/javascript/regexp/RENode.class
+SHA-256-Digest: khOipIurhAPwvXpi85U0tX643iXKnIKweMUSF33Q7/c=
+
+Name: org/mozilla/javascript/tools/debugger/EvalWindow.class
+SHA-256-Digest: vN6J3WeIGgxcuimaqA0q2ILjfCAXhJfLo453XGZZeiw=
+
+Name: org/mozilla/javascript/tools/debugger/FindFunction$MouseHandler.
+class
+SHA-256-Digest: UE3/SmsH6k5aULItG69DCZD960DawMa3a/Q5cteTu84=
+
+Name: org/mozilla/javascript/xmlimpl/XMLLibImpl.class
+SHA-256-Digest: sGGgiT4RY1J4NPSNTDbF2lHak/RE95poRPgcKC7KbHI=
+
+Name: org/mozilla/javascript/SecureCaller$SecureClassLoaderImpl.class
+SHA-256-Digest: 8sQA4am/PaqdXqjQD4cMY+ghJ7H+cVksQ7McuSh2VoU=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$Namespace.class
+SHA-256-Digest: dHqh0fDpcfbt0eVMyTei+g8ie8puPWUw2BLzTBL5pYw=
+
+Name: org/mozilla/javascript/RefCallable.class
+SHA-256-Digest: V4IWgGmUYjtzJyCPJJrDX+x+fhGFr3ZnXJsjEliYP40=
+
+Name: org/mozilla/javascript/debug/DebugFrame.class
+SHA-256-Digest: PKdS4CaisSBi8jZ6EZHO5XxNya3Cl9MBIkzx4ybQ3X8=
+
+Name: org/mozilla/javascript/ast/ScriptNode.class
+SHA-256-Digest: kLNLUiJ5qzkC+UQHXE52cUUk9YilXwIdQvqpBj8n898=
+
+Name: org/mozilla/javascript/xmlimpl/XmlProcessor$1.class
+SHA-256-Digest: uyx9QltU8yZhtZpfXQi3k3sDR6YjDWwqeY4cfiMqPCw=
+
+Name: org/mozilla/javascript/NativeObject$KeySet$1.class
+SHA-256-Digest: ZF7daaLub4dJaunC9y700pEFgim4Ka1tmvAZxV9IM88=
+
+Name: org/mozilla/javascript/NativeArray$2.class
+SHA-256-Digest: 5np/qD9iCqjRrvoSPiZuoU6zVoxyuDYaVl2d64PnR5w=
+
+Name: org/mozilla/javascript/JavaMembers$MethodSignature.class
+SHA-256-Digest: j87s1hMXaru5ZDMYDo+rd+VQhUSwcUuwiSCcwkvpZk4=
+
+Name: org/mozilla/javascript/NativeJavaMethod.class
+SHA-256-Digest: ci7eZmB6k1iFC68WD4PyPBkvDTKWLWWB2HRY6PPfL9Y=
+
+Name: org/mozilla/javascript/Ref.class
+SHA-256-Digest: AiosAWUAdTgDYGFY8XkYWSnL0ljAvWKedN1WWSLQKxI=
+
+Name: org/mozilla/javascript/ast/ErrorCollector.class
+SHA-256-Digest: hH6PsfX/WcHKbZZmkPPKwlR3LbWji2egCUk0YlPWe+Y=
+
+Name: org/mozilla/javascript/xmlimpl/XmlNode$QName.class
+SHA-256-Digest: xXEzWAjTyotHU93ZNbOSX+sk/xegfvuVzSTpPIOAY3M=
+
+Name: org/mozilla/javascript/Interpreter$CallFrame.class
+SHA-256-Digest: o2hNEtd/rYXLPAOyCccN2+wfUFPhKF8V+q7LtUMHBKs=
+
+Name: org/mozilla/javascript/ast/XmlString.class
+SHA-256-Digest: M+kElSQPDj6Qv9nF3YOEG8E0GVMjl8je5MyOt0v4MkY=
+
+Name: org/mozilla/javascript/tools/debugger/ContextWindow$1$1.class
+SHA-256-Digest: py3xg3vb9C1N4cHZKUtfqha4zny47UQwkdEetDX9d0s=
+
+Name: org/mozilla/javascript/ast/ReturnStatement.class
+SHA-256-Digest: 1fLlhP2jXQEGiWXpfNRe3ATg0+pHuPaTb1Xh2Sl19OA=
+
+Name: org/mozilla/javascript/NativeGenerator.class
+SHA-256-Digest: W/1HT+draXxOs/Iisw4mNKC2qDeVj6BuLyDyOBUA1+o=
+
+Name: org/mozilla/javascript/NativeArray$1.class
+SHA-256-Digest: l+eM195P9th91wajdzu2Iq9vdihwPSI06XeKlx/auLs=
+
+Name: org/mozilla/javascript/tools/shell/ConsoleWriter.class
+SHA-256-Digest: EVOS64jpis4qsNKnTGPzXDi5i5++nfxh5HxNjWvRv44=
+
+Name: org/mozilla/javascript/commonjs/module/provider/SoftCachingModul
+eScriptProvider$ScriptReference.class
+SHA-256-Digest: 7eWI8WLWgAaSbhXHjWfO5feZ3YK6nS4DrTXEUGk6/dc=
+
+Name: org/mozilla/javascript/DefaultErrorReporter.class
+SHA-256-Digest: 7MW/NjM37hQpuJgb80Irrua+1XX+P35CWZ/nYx+znCI=
+
+Name: org/mozilla/javascript/tools/shell/Runner.class
+SHA-256-Digest: zOnAsYWzxPennzcjFvrjdJXps/0JfRDnC8Ms1mKFw/8=
+
+Name: org/mozilla/javascript/ast/ForLoop.class
+SHA-256-Digest: IIDIJcSJaomQdVl2kggCEf9/4sIIBDfRA3GRZNHFYlg=
+
+Name: org/mozilla/javascript/ast/ArrayComprehensionLoop.class
+SHA-256-Digest: y3awo/iF8pWRljKrUEWNpAJsrMNwUAt0tyf4aQz4ASw=
+
+Name: org/mozilla/javascript/RhinoException.class
+SHA-256-Digest: 2sE/zw8ro1ZZ99LzjI2+xiaD7JbvkT2O5vaMcW2UpjY=
+
+Name: org/mozilla/javascript/tools/shell/PipeThread.class
+SHA-256-Digest: 6q6MPszs/1c91m88VVbFMc2dTutMOJjWyAYietp0LoY=
+
+Name: org/mozilla/javascript/SecurityUtilities$2.class
+SHA-256-Digest: VcEhxIPb5Y8Z3R2mk2ved1bQN7nH8bhFdFygYGcy/5w=
+
+Name: org/mozilla/javascript/ast/Yield.class
+SHA-256-Digest: g+fJRIq3ZNlqEoY3FSTUO39pZiVD/rRevbSP9oftERU=
+
+Name: org/mozilla/classfile/ConstantPool.class
+SHA-256-Digest: C7jyLWajZeHw2e/eugtotU13CxratwQItLuNyEhiNPI=
+
+Name: org/mozilla/javascript/tools/shell/QuitAction.class
+SHA-256-Digest: JrYCfGM1paUY278IKpmqWZ0H/0xPhtH6/ldu34COQ9c=
+
+Name: org/mozilla/javascript/Interpreter$1.class
+SHA-256-Digest: 6YOsqKBYO1LfAzJfHyuHHJzjVrLSKL2WQuigUknQq1k=
+
+Name: org/mozilla/javascript/tools/resources/Messages.properties
+SHA-256-Digest: afiAHnvi5CoWdXAsozxWAgm/TiriUiIHFqwrWADXJ0w=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/NamespaceHelper.class
+SHA-256-Digest: s4AdweKualIEa2aTFZWTOHDziJXSVUX4DfCvApKrb1w=
+
+Name: org/mozilla/javascript/ast/CatchClause.class
+SHA-256-Digest: S//E1THByOWRjhHwmqlOOrRUbItpWtRMy1bG8TzbMMY=
+
+Name: org/mozilla/classfile/SuperBlock.class
+SHA-256-Digest: 9s85Tm124xyjVbYsQ0/LYs/8DqlQ0QPjixhypNrcANE=
+
+Name: org/mozilla/javascript/ast/XmlExpression.class
+SHA-256-Digest: GvChWxz2uZl6jO1Cs2s25riuN5koIq7Il6Z2Zlu7SkU=
+
+Name: org/mozilla/javascript/InterpretedFunction.class
+SHA-256-Digest: 31pDJfipxFuxEimULBDjWc8nsBuY18g3ik80DOtTb7o=
+
+Name: org/mozilla/javascript/PolicySecurityController$Loader.class
+SHA-256-Digest: wZm9ZGxqwZ9qJRXN6C1HljvMnwoXaOTKhrDcnjJGqo8=
+
+Name: org/mozilla/javascript/ContextFactory$1GlobalSetterImpl.class
+SHA-256-Digest: 544lNB0jj/PxAEIlnA+aIzqqHZ+qaGkCLORfDkQ3ZNA=
+
+Name: org/mozilla/javascript/tools/shell/Main$ScriptCache.class
+SHA-256-Digest: bcTwHaHHUClZ7TSJxY5oSepTd2IeiE1I5LxNBvLt+G8=
+
+Name: org/mozilla/javascript/ast/KeywordLiteral.class
+SHA-256-Digest: xgcWSUPulgPqhj722Hljpw7opWPGFYcyVvyE2s6oXaE=
+
+Name: org/mozilla/javascript/SecurityController.class
+SHA-256-Digest: VhbRcunkScPPi2lFFyIsXTNClW3bgMOAmjqLpn5f2c8=
+
+Name: org/mozilla/javascript/PropertyException.class
+SHA-256-Digest: z4n/DI4QESKpBhUSWZyxQk5fJrGQQSpF864zSHj7Ycs=
+
+Name: org/mozilla/javascript/tools/debugger/Evaluator.class
+SHA-256-Digest: 5OpdwzbyWSk8eHHw7TPswDhyqIk7G8gltvm4+KEAa94=
+
+Name: org/mozilla/javascript/tools/debugger/FileHeader.class
+SHA-256-Digest: nohpHARN5gBJPh+jQ06fLjciDgHuBztKKevJu6Lpr0g=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLList.class
+SHA-256-Digest: /Nn4JGExip7xjYW5ssbwnZcytEpcgqjJ59fl9xEh2lU=
+
+Name: org/mozilla/javascript/tools/debugger/MyTreeTable.class
+SHA-256-Digest: wHjjsDa1a+Rz9ApOj452DSBarDCeH/FYxAVrwrH8268=
+
+Name: org/mozilla/javascript/optimizer/OptRuntime$1.class
+SHA-256-Digest: kh8fD4ygE1k3EhYLWk0+94nJ4EX2RYhP538wSdpArXs=
+
+Name: org/mozilla/javascript/VMBridge.class
+SHA-256-Digest: gS0La027hlSKzH4Tc8oFsb8m0P8ct6eEdSiud424EDc=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XMLCtor.class
+SHA-256-Digest: L+9veOmkm9wMcV+L3a0gCw0nSSDIsYueoSuqnSPODsg=
+
+Name: org/mozilla/javascript/ast/ErrorNode.class
+SHA-256-Digest: RZCFoNPcGMicU1KJUhmB8PiBZSBXz0RskCOY5GqYyww=
+
+Name: org/mozilla/javascript/Arguments.class
+SHA-256-Digest: NOUn90U70NOOS0aCY2jRzJoa07NOfDnFrEeEAigiz0E=
+
+Name: org/mozilla/javascript/tools/debugger/EvalTextArea.class
+SHA-256-Digest: qWX8QZaOH4tPm8jpwSehdoXG8ymo6aWormNBpajPSQ8=
+
+Name: plugin.properties
+SHA-256-Digest: q9uECC3ut4+1ilpkStNtfAsexzw0grcTF5wSFGJQ9yY=
+
+Name: org/mozilla/javascript/tools/debugger/treetable/TreeTableModel.c
+lass
+SHA-256-Digest: yjtEit431fDuCbS3P2WU3cY6kAImlB6pnLQrU9Q1zPQ=
+
+Name: org/mozilla/javascript/ast/ArrayLiteral.class
+SHA-256-Digest: BZwbGMDwUBO9pUzIbw81EX4yUod/L81/9cGypW1cb2c=
+
+Name: org/mozilla/javascript/tools/shell/JavaPolicySecurity.class
+SHA-256-Digest: u3fCZkUHQUoW+3Kvi+z77gaBESGRSxoHsu8gf0xU+EI=
+
+Name: org/mozilla/javascript/NativeArray$3.class
+SHA-256-Digest: mdk1xtAfnsfQWQiC9qlR5ZE2DVeeDAfts+YFDMae+fU=
+
+Name: org/mozilla/javascript/ast/ContinueStatement.class
+SHA-256-Digest: i9Rx9ZFFwJyvc7UPuaMJaeNxEHwcUD5jqbeWdPdSkRc=
+
+Name: org/mozilla/javascript/ScriptableObject$GetterSlot.class
+SHA-256-Digest: pRMACfOfVdqwg5ZixpO1Dxeyauo4wKRognZKiOIFybg=
+
+Name: org/mozilla/javascript/jdk13/VMBridge_jdk13.class
+SHA-256-Digest: 8gMTXevv5E2XcCXnp+JWHSi3Qc1MVVXm6ZNv3VTXm9g=
+
+Name: org/mozilla/javascript/NativeBoolean.class
+SHA-256-Digest: /GnjXirgnCTJB4sgsvZeNPYmnBh5SCA1A+vJxmM0z3c=
+
+Name: org/mozilla/javascript/ContinuationPending.class
+SHA-256-Digest: ANOkJfCOwvVI9+RkuKX0RxURbqhmDrbhVijTE3e6Gl8=
+
+Name: org/mozilla/javascript/ScriptableObject.class
+SHA-256-Digest: uXB+6X1kL0P3HZsxVJV+YJRalCKwNYgEFOYhj98aYW4=
+
+Name: org/mozilla/javascript/ast/WithStatement.class
+SHA-256-Digest: gURKsAHzR+0V2KtAJxWoTbTGt3MShSLGuBCA9MS9/Qw=
+
+Name: org/mozilla/javascript/ast/Comment.class
+SHA-256-Digest: 4CY49msFi6vDuK0FsxAltfypQwk3DLHk9HtDtqrlFD0=
+
+Name: org/mozilla/javascript/ast/XmlElemRef.class
+SHA-256-Digest: I+oCZzs4kzclTBCUfMdH4RJONQMuvFDySZWiFivONtU=
+
+Name: org/mozilla/javascript/commonjs/module/provider/StrongCachingMod
+uleScriptProvider.class
+SHA-256-Digest: 3atOinlrBsn13UaSHRc+wXEOzhcM2d7MkVnd0MktBXY=
+
+Name: org/mozilla/javascript/Wrapper.class
+SHA-256-Digest: fsddBMGSwMOAS0UXIuZs2YBncJBN62Asw3kIcpRLKH8=
+
+Name: org/mozilla/javascript/commonjs/module/provider/ModuleSource.cla
+ss
+SHA-256-Digest: 5WvNYmRZZ9TTXQOEYuzeZrNDEOEawNCnagH63SoYJgM=
+
+Name: org/mozilla/javascript/tools/debugger/VariableModel$VariableNode
+.class
+SHA-256-Digest: h1IV5LgbP0Wv1LOxnPNaGNX/XbdNpco7EkxN+kCwvz0=
+
+Name: org/mozilla/javascript/debug/Debugger.class
+SHA-256-Digest: PjSM8kV9vbINKiPWltgSw9mOCI9E45TmzL4EctdAdaU=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$StackFrame.class
+SHA-256-Digest: GAcO02XOC7MXbXkrAEzb54H2egac48TvaXscGDgEcGo=
+
+Name: org/mozilla/javascript/CodeGenerator.class
+SHA-256-Digest: lprTm6GbLzMYRcTNeoOjwXO65KqGObzFh/1OFgNnaxk=
+
+Name: org/mozilla/javascript/SpecialRef.class
+SHA-256-Digest: vPxwRwtJF33UsNhbyJF7PHgSWto4Vy9WPI+kuCWVdeQ=
+
+Name: org/mozilla/javascript/xml/XMLLib$Factory.class
+SHA-256-Digest: idTLrJpDJVgF978qygDRuh/ih22pG4cZEamKo6Fkmr4=
+
+Name: org/mozilla/javascript/xml/XMLObject.class
+SHA-256-Digest: BWiWMc3FT1vbYmEjs5sognCZOe1DAQ0BjE6Ir/IOPS4=
+
+Name: org/mozilla/javascript/tools/debugger/Dim$ContextData.class
+SHA-256-Digest: +a2Z/nVAFgxuylNm8fBglPXPmOSi4saO0yQFgaepsRM=
+
+Name: org/mozilla/javascript/WrapFactory.class
+SHA-256-Digest: K9A+Ab1mEFMOTkYlDa/BKNKg9OBBRCEc+1G6WjUviP8=
+
+Name: org/mozilla/javascript/xml/impl/xmlbeans/XML$XScriptAnnotation.c
+lass
+SHA-256-Digest: 0ct9UOzkSzjWjCHGlU24SA57i5hmwTOSNXw9c/1N6kA=
+
+Name: org/mozilla/javascript/ast/Block.class
+SHA-256-Digest: drkugGbOGBeIJfEWGKYg7vxrGCsZ9C0fQ7VrDOVRLYM=
+
+Name: org/mozilla/javascript/ScriptRuntime$MessageProvider.class
+SHA-256-Digest: zXzDtHgqSZwAXC7GQGZJBbbc8q+heJ+tBGUikuo6kW8=
+
+Name: org/mozilla/javascript/ast/ConditionalExpression.class
+SHA-256-Digest: ffxWcQHPelhBL34tzroZc88KyJGbHqr+TpAnB2r/C0o=
+
+Name: org/mozilla/javascript/Context.class
+SHA-256-Digest: MG6L86ZJCge/evITatE2yyA/sj63mvNbvkmSmN2zr1U=
+
+Name: org/mozilla/javascript/NativeJSON$StringifyState.class
+SHA-256-Digest: RXOOtWpqxmg9wxOr64Qklb7x0Qb3ohXGAPL248+k3as=
+
+Name: org/mozilla/javascript/RegExpProxy.class
+SHA-256-Digest: JTrGj/jMFCm69LibJwx7vr6NgedDLgkxoRizCt7Mj8o=
+
+Name: org/mozilla/javascript/NativeDate.class
+SHA-256-Digest: Z2FQFkPdqM5FN+R0/50yWmNBdLUoMaBHFeNDkWt/93g=
+
+Name: org/mozilla/javascript/BoundFunction.class
+SHA-256-Digest: zOzDCK77mrCiMYox1S9twy8lDybL3rzpBvRVIjn2VPQ=
+
+Name: org/mozilla/javascript/ast/EmptyStatement.class
+SHA-256-Digest: yQVN49AcA+VAkOwpiyPdfKlZNdIXZT4H9RzAyJ25iH4=
+
+Name: org/mozilla/javascript/optimizer/OptRuntime.class
+SHA-256-Digest: b7NuTzxLiaTybkuckbiGNtWdj8/XhJdqcDMLVj/5IE0=
+
+Name: org/mozilla/javascript/IdScriptableObject$PrototypeValues.class
+SHA-256-Digest: pMMZxDibm7n7u04hvVtT+tTSaC2XQM1Ps2/bBPoud28=
+
+Name: org/mozilla/javascript/Parser$1.class
+SHA-256-Digest: 4Yp8dtT1PO4CYffKYPU7W3ntiqooYnXBMt+Bw7JY/YQ=
+
+Name: about.html
+SHA-256-Digest: EbZ2xP2rxMXjWMYDbwU4pHueAga1zEpOaYUP/XufxNI=
+
+Name: org/mozilla/javascript/regexp/GlobData.class
+SHA-256-Digest: CbSaj+6UQadu2Y3EVUE3JZeD8Itn2t5XKtYGHBOnByw=
+
+Name: org/mozilla/javascript/tools/debugger/GuiCallback.class
+SHA-256-Digest: R8Htb9Kt5ded8QWA5SQD+iW61bbDl5DTOc4Xn24/8FY=
+
+Name: org/mozilla/javascript/ast/IdeErrorReporter.class
+SHA-256-Digest: ruA560gH1qI5YKT4BPv7lgtEnHrqQl7sGctLcT422dY=
+
+Name: org/mozilla/javascript/ast/Jump.class
+SHA-256-Digest: xJoUPZ0+B3EjrACTk7uJ2m4bdWa934Xc8C3LC0FaaGg=
+
+Name: org/mozilla/javascript/MemberBox.class
+SHA-256-Digest: AR+ZXFMRJZMc26nQ8fKApwd8i7rMd6gdIXJd/o2GN/Q=
+
+Name: org/mozilla/javascript/ast/Label.class
+SHA-256-Digest: OtbrjHsyDi+nSZiHEf7hCV0o4Vke7B6Y1TQTQmfvf8I=
+
+Name: org/mozilla/javascript/regexp/RegExpImpl.class
+SHA-256-Digest: NVASws1qmofDzvKQXryaCDxmzYGTsD3/0G6pJiNfPUo=
+
+Name: org/mozilla/classfile/ByteCode.class
+SHA-256-Digest: K+go71LjhVYninfGRz+LyGIvSEof6nbZnxC1bxiQDqA=
+
+Name: org/mozilla/javascript/Node$1.class
+SHA-256-Digest: zswS0IqujXt+OWWXJ6pV68n/Dl74GIImRNk/MYhhOG4=
+
+Name: org/mozilla/classfile/ClassFileMethod.class
+SHA-256-Digest: NsCRBjFlJejbLsuLmxBGILPMNTe9/sNl7Qz0mErjOUo=
+

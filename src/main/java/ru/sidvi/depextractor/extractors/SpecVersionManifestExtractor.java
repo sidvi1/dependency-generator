@@ -8,10 +8,10 @@ import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
  */
 public class SpecVersionManifestExtractor extends BaseManifestExtractor {
 
-    private static final String SPECIFICATION_VERSION = "Specification-Version";
+    private static final String FIELD_NAME = "Specification-Version";
 
     @Override
     protected void parseLine(String[] split) {
-        extractFieldValue(split, SPECIFICATION_VERSION, ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION);
+        extractFieldValue(split, FIELD_NAME, ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION);
     }
 }

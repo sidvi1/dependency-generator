@@ -33,7 +33,8 @@ public abstract class ExtractorsFactory {
         if (comparator instanceof ManifestPathComparator) {
             return new CompoundExtractor()
                     .add(new ImpllVersionMainifestExtractor())
-                    .add(new SpecVersionManifestExtractor());
+                    .add(new SpecVersionManifestExtractor())
+                    .add(new BundlelVersionMainifestExtractor());
         }
         return new NoneExtractor();
     }
