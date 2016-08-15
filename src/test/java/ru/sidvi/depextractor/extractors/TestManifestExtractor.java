@@ -35,7 +35,7 @@ public class TestManifestExtractor {
         Extractor e = new ManifestExtractor();
         List<JarInfo> actual = e.extract(input);
 
-        expected.add(new JarInfo.Builder( ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION)
+        expected.add(new JarInfo.Builder(ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION)
                 .setVersion("4.4.0")
                 .build());
         expected.add(new JarInfo.Builder(ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION)

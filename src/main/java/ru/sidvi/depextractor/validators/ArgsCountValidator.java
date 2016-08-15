@@ -13,7 +13,7 @@ public class ArgsCountValidator extends BaseValidator {
 
     @Override
     public boolean validate() {
-        if (count  == 0) {
+        if (count == 0) {
             message = "Too low arguments.";
             return false;
         }

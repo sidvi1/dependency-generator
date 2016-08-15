@@ -16,9 +16,8 @@ import java.util.List;
  */
 class CompoundExtractor implements Extractor {
 
-    private Logger logger = LoggerFactory.getLogger(CompoundExtractor.class);
-
     private final List<Extractor> extractors;
+    private Logger logger = LoggerFactory.getLogger(CompoundExtractor.class);
     private String casched = "";
 
 

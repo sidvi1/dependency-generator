@@ -31,7 +31,7 @@ public abstract class BasePomExtractor implements Extractor {
         return infos;
     }
 
-    protected abstract JarInfo buildJarInfo() ;
+    protected abstract JarInfo buildJarInfo();
 
     private boolean notEmpty(JarInfo extracted) {
         return extracted.getFormattedResult("%s%s%s").trim().length() > 0;

@@ -21,9 +21,8 @@ import java.util.List;
  */
 public class PomParser {
 
-    private Logger logger = LoggerFactory.getLogger(PomParser.class);
-
     ExtractionHolder holder = new ExtractionHolder();
+    private Logger logger = LoggerFactory.getLogger(PomParser.class);
 
     public String getVersion() {
         return getValue("version");
@@ -82,10 +81,15 @@ public class PomParser {
         }
     }
 
+    private String getValue(String tagName) {
+        return holder.getValue(tagName);
+    }
+
     private static class ExtractionHolder {
         private LevelHolder level = new LevelHolder();
 
         private List<Tag> matchers = new ArrayList<>();
+
         {
             SimpleTag parent = new SimpleTag("parent", 2);
             matchers.add(parent);
@@ -133,9 +137,5 @@ public class PomParser {
             }
             return "";
         }
-    }
-
-    private String getValue(String tagName) {
-        return holder.getValue(tagName);
     }
 }

@@ -21,7 +21,7 @@ public class ChainValidatorTest {
     private Validator validator;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         chainValidator = new ChainValidator();
     }
 
@@ -37,7 +37,7 @@ public class ChainValidatorTest {
         assertEquals("Fail message", chainValidator.getMessage());
     }
 
-     @Test
+    @Test
     public void shouldTrue() throws Exception {
         when(validator.validate()).thenReturn(true);
         chainValidator.add(validator);

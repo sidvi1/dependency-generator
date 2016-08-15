@@ -17,10 +17,9 @@ import java.util.List;
  */
 class ManifestExtractor implements Extractor {
 
-    private Logger logger = LoggerFactory.getLogger(ManifestExtractor.class);
-
     public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
     public static final String SPECIFICATION_VERSION = "Specification-Version";
+    private Logger logger = LoggerFactory.getLogger(ManifestExtractor.class);
     private List<JarInfo> infos = new ArrayList<JarInfo>();
 
     public ManifestExtractor() {

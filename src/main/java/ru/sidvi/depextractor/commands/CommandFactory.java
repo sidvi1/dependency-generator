@@ -21,7 +21,7 @@ public class CommandFactory {
         Command help = new HelpCommand();
         Validator v = new ChainValidator()
                 .add(new ArgsCountValidator(args.length))
-                .add(new DirectoryValidator( new File(args[0])));
+                .add(new DirectoryValidator(new File(args[0])));
         if (!v.validate()) {
             return new CompoundCommand()
                     .add(new FailCommand(v.getMessage()))
