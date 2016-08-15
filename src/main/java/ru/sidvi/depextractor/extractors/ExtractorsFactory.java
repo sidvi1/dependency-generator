@@ -31,7 +31,9 @@ public abstract class ExtractorsFactory {
                     .add(new PomExtractor(new PomParser()));
         }
         if (comparator instanceof ManifestPathComparator) {
-            return new ManifestExtractor();
+            return new CompoundExtractor()
+                    .add(new ImpllVersionMainifestExtractor())
+                    .add(new SpecVersionManifestExtractor());
         }
         return new NoneExtractor();
     }

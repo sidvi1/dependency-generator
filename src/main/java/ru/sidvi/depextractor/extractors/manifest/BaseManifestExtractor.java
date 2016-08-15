@@ -1,7 +1,8 @@
-package ru.sidvi.depextractor.extractors;
+package ru.sidvi.depextractor.extractors.manifest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.sidvi.depextractor.extractors.Extractor;
 import ru.sidvi.depextractor.extractors.sourcetypes.ManifestSourceTypeDecorator;
 import ru.sidvi.depextractor.model.JarInfo;
 
@@ -13,17 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Извлекает информацию из MANIFEST.MF
+ * @author Vitaly Sidorov mail@vitaly-sidorov.com
  */
-class ManifestExtractor implements Extractor {
+public abstract class BaseManifestExtractor implements Extractor {
 
-    public static final String IMPLEMENTATION_VERSION = "Implementation-Version";
-    public static final String SPECIFICATION_VERSION = "Specification-Version";
-    private Logger logger = LoggerFactory.getLogger(ManifestExtractor.class);
+    private Logger logger = LoggerFactory.getLogger(BaseManifestExtractor.class);
+
     private List<JarInfo> infos = new ArrayList<JarInfo>();
-
-    public ManifestExtractor() {
-    }
 
     @Override
     public List<JarInfo> extract(InputStream is) {
@@ -34,8 +31,7 @@ class ManifestExtractor implements Extractor {
             String line;
             while ((line = readLine(reader)) != null) {
                 String[] split = line.split(":");
-                parseSpecificationVersion(split);
-                parseImplementationVersion(split);
+                parseLine(split);
             }
         } catch (IOException e) {
             logger.error("", e);
@@ -53,15 +49,9 @@ class ManifestExtractor implements Extractor {
         return "";
     }
 
-    private void parseImplementationVersion(String[] split) {
-        extractFieldValue(split, IMPLEMENTATION_VERSION, ManifestSourceTypeDecorator.MF_IMPLEMENTATION_VERSION);
-    }
+    protected abstract void parseLine(String[] split) ;
 
-    private void parseSpecificationVersion(String[] split) {
-        extractFieldValue(split, SPECIFICATION_VERSION, ManifestSourceTypeDecorator.MF_SPECIFICATION_VERSION);
-    }
-
-    private void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
+    protected void extractFieldValue(String[] split, String field, ManifestSourceTypeDecorator source) {
         if (split[0].trim().equals(field)) {
 
             JarInfo info = new JarInfo.Builder(source)
