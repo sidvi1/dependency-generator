@@ -30,18 +30,24 @@ public class InfoExtractorFacade {
 
     public List<JarInfo> extract() {
         Jar jar = loadJar();
+        List<JarInfo> result = extractAllInfoFrom(jar);
+        applyFileNames(result);
+        return result;
+    }
 
+    private List<JarInfo> extractAllInfoFrom(Jar jar) {
         List<JarInfo> result = new ArrayList<>();
         Enumeration en = jar.entries();
         while (en.hasMoreElements()) {
-            JarEntry file = (JarEntry) en.nextElement();
-
-            result.addAll(processJarItems(jar, file));
+            result.addAll(processJarItems(jar, (JarEntry) en.nextElement()));
         }
+        return result;
+    }
+
+    private void applyFileNames(List<JarInfo> result) {
         for (JarInfo i : result) {
             i.setFileName(new File(jarFile).getName());
         }
-        return result;
     }
 
     private List<JarInfo> processJarItems(Jar jar, JarEntry file) {
