@@ -9,11 +9,11 @@
 This utility helps you transfer old project on a Maven build system or another.
 The one extracts information about the jar library version from various sources:
 - MANIFEST.MF
--- Implementation-Version
--- Specification-Version
+  - Implementation-Version
+  - Specification-Version
 - pom.xml
--- group, artifact, version from parent tag
--- group, artifact, version itself
+  - group, artifact, version from parent tag
+  - group, artifact, version itself
 
 Usage
 -----
