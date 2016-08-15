@@ -8,11 +8,11 @@ import ru.sidvi.depextractor.model.JarInfo;
  */
 public class TableFormatter implements Formatter {
 
-    private static final String format = "%-30s %-50s %-3s%n";
+    private static final String format = "%-30s %-50s %-3s";
 
     @Override
     public String format(JarInfo info) {
-        return String.format(format, info.getFormattedFileName("%s"), info.getFormattedSource("%s"), info.getFormattedResult("%s:%s:%s"));
+        return String.format(format, info.getFormattedFileName("%s"), info.getFormattedSource("%s"), info.getFormattedResult("%s:%s:%s")) + "\r\n";
     }
 
 }
