@@ -1,6 +1,5 @@
 package ru.sidvi.depextractor.commands;
 
-import ru.sidvi.depextractor.DirectoryUtils;
 import ru.sidvi.depextractor.extractors.InfoExtractorFacade;
 import ru.sidvi.depextractor.formatters.Formatter;
 import ru.sidvi.depextractor.model.JarInfo;
@@ -14,17 +13,16 @@ import java.util.List;
  */
 public class FormattedOutputCommand extends ResultHolder {
 
-    private File dir;
+    private List<File> jars;
     private Formatter formatter;
 
-    public FormattedOutputCommand(Formatter formatter, String dir) {
+    public FormattedOutputCommand(Formatter formatter, List<File> jars) {
         this.formatter = formatter;
-        this.dir = new File(dir);
+        this.jars = jars;
     }
 
     @Override
     public void execute() {
-        List<File> jars = DirectoryUtils.list(dir, ".jar");
         List<JarInfo> jarsInfo = extract(jars);
 
         result = format(jarsInfo, formatter);

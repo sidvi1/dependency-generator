@@ -7,6 +7,7 @@ import ru.sidvi.depextractor.validators.ChainValidator;
 import ru.sidvi.depextractor.validators.DirectoryValidator;
 import ru.sidvi.depextractor.validators.Validator;
 
+import java.io.File;
 import java.io.PrintStream;
 
 public class Main {
@@ -38,7 +39,7 @@ public class Main {
     }
 
     private FormattedOutputCommand getSuccessCommand(String[] args) {
-        return new FormattedOutputCommand(new TableFormatter(), args[0]);
+        return new FormattedOutputCommand(new TableFormatter(), DirectoryUtils.list(new File(args[0]), ".jar"));
     }
 
     private CompoundCommand getFailCommand(String message) {
