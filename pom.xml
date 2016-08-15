@@ -399,7 +399,7 @@
         <license-maven-plugin.email>mail@vitaly-sidorov.com</license-maven-plugin.email>
 
 
-        <commons-io.version>2.4</commons-io.version>
+        <commons-io.version>2.5</commons-io.version>
         <slf4j-api.version>1.7.21</slf4j-api.version>
     </properties>
 
