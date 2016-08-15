@@ -31,6 +31,6 @@ public class CsvFormatterTest {
     @Test
     public void testFormat() throws Exception {
         String actual = tested.format(info);
-        assertEquals("file.jar;POM_XML;group;artifact;version", actual);
+        assertEquals("file.jar;POM_XML;group;artifact;version\r\n", actual);
     }
 }

@@ -18,6 +18,7 @@ public class CsvFormatter implements Formatter {
     public String format(JarInfo info) {
         return info.getFormattedFileName("%s") + separator
                 + info.getFormattedSource("%s") + separator
-                + info.getFormattedResult("%s" + separator + "%s" + separator + "%s");
+                + info.getFormattedResult("%s" + separator + "%s" + separator + "%s")
+                + "\r\n";
     }
 }
