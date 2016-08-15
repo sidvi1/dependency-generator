@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Vitaly Sidorov mail@vitaly-sidorov.com
  */
+@Ignore
 @RunWith(value = MockitoJUnitRunner.class)
 public class TableFormatterTest {
 
