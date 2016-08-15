@@ -20,7 +20,7 @@ public class CommandFactory {
     public static Command create(String[] args) {
         Command help = new HelpCommand();
         Validator v = new ChainValidator()
-                .add(new ArgsCountValidator(args.length))
+                .add(new ArgsCountValidator(args))
                 .add(new DirectoryValidator(new File(args[0])));
         if (!v.validate()) {
             return new CompoundCommand()
