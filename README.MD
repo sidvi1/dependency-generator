@@ -11,6 +11,7 @@ The one extracts information about the jar library version from various sources:
 - MANIFEST.MF
   - Implementation-Version
   - Specification-Version
+  - Bundle-Version
 - pom.xml
   - group, artifact, version from parent tag
   - group, artifact, version itself
