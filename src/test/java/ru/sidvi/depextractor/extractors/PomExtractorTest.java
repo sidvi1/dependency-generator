@@ -29,7 +29,7 @@ public class PomExtractorTest {
     }
 
     @Test
-    public void shouldExtractParentInfo() {
+    public void shouldExtractPomInfo() {
         is = getClass().getClassLoader().getResourceAsStream("files/sample_pom.xml");
 
         List<JarInfo> actual = extractor.extract(is);
@@ -41,6 +41,15 @@ public class PomExtractorTest {
                         .setArtifact("log4j")
                         .setVersion("1.2.16")
                         .build()));
+    }
+
+   @Test
+    public void shouldNotExtract() {
+        is = getClass().getClassLoader().getResourceAsStream("files/sample3_pom.xml");
+
+        List<JarInfo> actual = extractor.extract(is);
+
+        assertEquals(0, actual.size());
     }
 
 }
