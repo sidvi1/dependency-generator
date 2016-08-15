@@ -82,7 +82,7 @@ public class InfoExtractorFacade {
         String getName();
     }
 
-    private class JarWrapper implements Jar {
+    private static class JarWrapper implements Jar {
         private JarFile jar;
 
         public JarWrapper(JarFile jar) {
@@ -105,7 +105,7 @@ public class InfoExtractorFacade {
         }
     }
 
-    private class NullJarWrapper implements Jar {
+    private static class NullJarWrapper implements Jar {
 
         @Override
         public InputStream getInputStream(ZipEntry var1) throws IOException {
